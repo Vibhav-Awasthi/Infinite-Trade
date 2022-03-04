@@ -25,7 +25,7 @@ const InputField = ({ name, ...rest }: TextFieldProps) => {
 
   return (
     <div>
-      <TextField  {...attributes} />
+      <TextField sx={{borderRadius:"0px"}} {...attributes} />
     </div>
   );
 };

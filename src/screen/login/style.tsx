@@ -5,6 +5,9 @@ const useStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     justifyContent:"center",
+    width: "88% !important",
+    height: "88% !important",
+    marginLeft: "8%",
     [theme.breakpoints.down(1024)]: {
       padding:"50px",
       justifyContent: "center",
@@ -121,6 +124,13 @@ const useStyles = makeStyles({
   formCommon: () => ({
     alignItems: "flex-start",
   }),
+
+  dontHaveAccount:()=>({
+    "& a": {
+      textDecoration: "none",
+      color: "#687173",
+    },
+  })
 });
 
 export { useStyles };

@@ -10,6 +10,7 @@ export const ActiveButton = styled(Button)({
     width: "100%",
     height: "54px",
     marginTop: "20px",
+    borderRadius:"0 !important",
   });
 
 export const HeadingText = styled("span")({

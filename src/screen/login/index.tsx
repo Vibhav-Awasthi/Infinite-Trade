@@ -10,12 +10,13 @@ import {
   InnerMainDiv,
   SmallText,
 } from "../../components/styledComponents/auth/signIn";
-
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useStyles } from "./style";
 import { useTheme } from "@mui/material";
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
+import { InputAdornment } from "@mui/material";
 import { Formik, Form } from "formik";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import LocalImages from "../../Utils/images";
@@ -23,6 +24,8 @@ import LocalImages from "../../Utils/images";
 const Login = () => {
   const theme = useTheme();
   const classes = useStyles({ theme });
+
+  const [isPasswordVisible, setPasswordVisible] = useState<boolean>(false);
   return (
     <>
       <HelmetProvider>
@@ -42,12 +45,12 @@ const Login = () => {
                   letterSpacing: "normal",
                   color: "#4f4f4f",
                   float: "left",
-                  marginTop:"4%",
-                  [theme.breakpoints.down(1025)]:{
-                    fontSize:"20px",
-                    marginLeft:"2%",
-                    marginTop:"4%"
-                  }
+                  marginTop: "4%",
+                  [theme.breakpoints.down(1025)]: {
+                    fontSize: "20px",
+                    marginLeft: "2%",
+                    marginTop: "4%",
+                  },
                 }}
               >
                 Log In To Infinite Trades
@@ -57,6 +60,7 @@ const Login = () => {
           <Formik
             initialValues={{
               email: "",
+              password: "",
             }}
             validationSchema={Schema.LoginSchema()}
             onSubmit={(value, { setSubmitting }) => {
@@ -80,7 +84,7 @@ const Login = () => {
                 <Typography className={classes.lables}>PASSWORD*</Typography>
                 <Typography
                   className={classes.lables}
-                  sx={{ color: "#686c6e",  }}
+                  sx={{ color: "#686c6e" }}
                 >
                   <Link to={Utils.Pathname.FORGOT_PASSWORD}>
                     Forgot Password?
@@ -91,8 +95,19 @@ const Login = () => {
                 <InputField
                   className={classes.inputField}
                   placeholder="Enter Your Password"
-                  name="Password"
+                  name="password"
                   type="password"
+                  inputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <Typography
+                          onClick={() => setPasswordVisible(!isPasswordVisible)}
+                        >
+                          {isPasswordVisible ? "Show" : "Hide"}
+                        </Typography>
+                      </InputAdornment>
+                    ),
+                  }}
                 />
               </div>
 
@@ -104,8 +119,14 @@ const Login = () => {
               >
                 Login
               </ActiveButton>
-              <Typography sx={{ color: "#686c6e", marginTop: "5%" }}>
-                Don't have an account?<b> Signup </b>
+              <Typography
+                className={classes.dontHaveAccount}
+                sx={{ color: "#686c6e", marginTop: "5%" }}
+              >
+                Don't have an account?
+                <b>
+                  <Link to={Utils.Pathname.SIGNUP}>Signup</Link>
+                </b>
               </Typography>
             </Form>
           </Formik>

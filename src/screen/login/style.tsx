@@ -4,34 +4,32 @@ const useStyles = makeStyles({
   loginContainer: ({ theme }: any) => ({
     display: "flex",
     flexDirection: "column",
-    justifyContent:"center",
+    justifyContent: "center",
     width: "88% !important",
     height: "88% !important",
     marginLeft: "8%",
     [theme.breakpoints.down(1024)]: {
-      padding:"50px",
+      padding: "50px",
       justifyContent: "center",
     },
-    "& >div": {
-      [theme.breakpoints.down(1025)]: {
-        width: "90% !important",
-      },
-    },
+    // "& > div": {
+    //   [theme.breakpoints.down(1025)]: {
+    //     width: "90% !important",
+    //   },
+    // },
   }),
 
   titleContainer: ({ theme }: any) => ({
-     display:"flex",
-     flexDirection:"column",
-     width:"100%",
+    display: "flex",
+    flexDirection: "column",
+    width: "100%",
     //  border:"1px solid black",
-     
-    
   }),
 
   brandLogo: ({ theme }: any) => ({
     width: "100%",
-    position:"relative",
-     right:"12%",
+    position: "relative",
+    right: "12%",
     "& figure": {
       margin: 0,
       width: "140px",
@@ -49,9 +47,9 @@ const useStyles = makeStyles({
 
   title: ({ theme }: any) => ({
     width: "100%",
-    position:"relative",
-     right:"12%",
-     
+    position: "relative",
+    right: "12%",
+
     // margin: "30px 160px 15px 0",
     // [theme.breakpoints.up(1920)]: {
     //   margin: "32px 0 20px 0",
@@ -77,7 +75,8 @@ const useStyles = makeStyles({
   }),
   lables: ({ theme }: any) => ({
     float: "left",
-    marginBottom: "3%",
+    marginTop:"1.5%",
+    marginBottom: "1.5%",
     // margin: "25px 0 15px 0",
     // [theme.breakpoints.up(1920)]: {
     //   margin: "32px 0 20px 0",
@@ -102,14 +101,14 @@ const useStyles = makeStyles({
     // },
   }),
 
-  forgotPassword:()=>({
-      display:"flex",
-      justifyContent:"space-between",
-      marginBottom:"3%",
-      "& a": {
-        textDecoration: "none",
-        color: "#687173",
-      },
+  forgotPassword: () => ({
+    display: "flex",
+    justifyContent: "space-between",
+    marginBottom: "3%",
+    "& a": {
+      textDecoration: "none",
+      color: "#687173",
+    },
   }),
 
   inputField: () => ({
@@ -125,12 +124,15 @@ const useStyles = makeStyles({
     alignItems: "flex-start",
   }),
 
-  dontHaveAccount:()=>({
+  dontHaveAccount: () => ({
     "& a": {
       textDecoration: "none",
       color: "#687173",
     },
-  })
+  }),
+  endIconContainer: () => ({
+    backgroundColor: "#0da4ce",
+  }),
 });
 
 export { useStyles };

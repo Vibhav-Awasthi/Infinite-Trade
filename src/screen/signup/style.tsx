@@ -3,7 +3,7 @@ import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles({
   loginContainer: ({ theme }: any) => ({
     width: "90% !important",
-    height: "88% !important",
+    height: "89% !important",
     // marginLeft: "8%",
     display: "flex",
     flexDirection: "column",
@@ -12,11 +12,11 @@ const useStyles = makeStyles({
       padding: "50px",
       justifyContent: "center",
     },
-    "& >div": {
-      [theme.breakpoints.down(1025)]: {
-        width: "90% !important",
-      },
-    },
+    // "& >div": {
+    //   [theme.breakpoints.down(1025)]: {
+    //     width: "90% !important",
+    //   },
+    // },
   }),
 
   titleContainer: ({ theme }: any) => ({
@@ -86,7 +86,8 @@ const useStyles = makeStyles({
 
   lables: ({ theme }: any) => ({
     float: "left",
-    marginBottom: "1%",
+    marginTop:"1.5%",
+    marginBottom: "1.5%",
     // margin: "25px 0 15px 0",
     // [theme.breakpoints.up(1920)]: {
     //   margin: "32px 0 20px 0",
@@ -122,7 +123,15 @@ const useStyles = makeStyles({
   }),
 
   inputField: () => ({
-    marginBottom: "5%",
+    marginBottom: "1%",
+  }),
+
+  textfieldClass: () => ({
+    '& .MuiInput-input': {
+      '&::-webkit-outer-spin-button, &::-webkit-inner-spin-button': {
+        '-webkit-appearance': 'none',
+      },
+     }
   }),
 
   activeButton: () => ({
@@ -140,6 +149,10 @@ const useStyles = makeStyles({
       display:"flex",
       flexDirection:"row",
       justifyContent:"space-between"
+  }),
+  tools:()=>({
+    display:"flex",
+    width:"100%"
   }),
 });
 

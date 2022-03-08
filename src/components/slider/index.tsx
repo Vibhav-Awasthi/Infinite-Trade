@@ -10,20 +10,21 @@ import { useTheme } from "@mui/material";
 const useStyles = makeStyles((theme)=>({
     
  sliderWrapper:({theme}:any) => ({
+   width:"50%",
   [theme.breakpoints.down("1025")]: {
     display:"none"
   },
  }),
 
   imageContainer:()=>({
-      width:"100%",
+      // width:"100%",
 
   }),
   carouselImage:()=>({
       "& figure":{
           margin:0,
-          width:"100%",
-          height:"800px"
+          // width:"100%",
+          height:"100vh"
       },
       "& img":{
         objectFit:"cover",
@@ -45,7 +46,6 @@ const Slider = () => {
         autoPlay
         useKeyboardArrows
         transitionTime={1000}
-        width="800px"
         className={classes.sliderWrapper}
       >
         <div className={classes.imageContainer}>

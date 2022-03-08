@@ -25,7 +25,35 @@ const InputField = ({ name, ...rest }: TextFieldProps) => {
 
   return (
     <div>
-      <TextField sx={{borderRadius:"0px"}} {...attributes} />
+      <TextField
+        size="small"
+        sx={{
+          '& label.Mui-focused': {
+      borderColor: '#000',
+    },
+    '& .MuiInput-underline:after': {
+      border: '0.2px solid #000',
+    },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        border: '0.2px solid #000',
+      },
+      '&:hover fieldset': {
+        border: '0.2px solid #000',
+      },
+      '&.Mui-focused fieldset': {
+        boxShadow: "-2px 0px 23px -2px rgba(0,0,0,0.33)",
+// -webkit-box-shadow: -2px 0px 23px -2px rgba(0,0,0,0.33);
+// -moz-box-shadow: -2px 0px 23px -2px rgba(0,0,0,0.33);
+
+      },
+    },
+          [`& fieldset`]: {
+            borderRadius: 0,
+          },
+        }}
+        {...attributes}
+      />
     </div>
   );
 };

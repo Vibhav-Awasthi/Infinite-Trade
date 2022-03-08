@@ -95,8 +95,7 @@ const Verify = () => {
                 variant="contained"
               >
                 <Typography className={classes.lables}>
-                  {/* Login */}
-                  Continue
+                  Login
                 </Typography>
               </ActiveButton>
             </div>

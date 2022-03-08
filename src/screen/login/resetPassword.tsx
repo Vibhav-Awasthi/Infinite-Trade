@@ -2,7 +2,6 @@ import React from "react";
 import ImageContainer from "../../components/ImageContainer";
 import Schema from "../../schema";
 import InputField from "../../components/inputfield";
-import { Checkbox } from "@mui/material";
 import Utils from "../../Utils";
 
 import {
@@ -11,19 +10,23 @@ import {
   InnerMainDiv,
   SmallText,
 } from "../../components/styledComponents/auth/signIn";
-
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useStyles } from "./style";
 import { useTheme } from "@mui/material";
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
+import { InputAdornment } from "@mui/material";
 import { Formik, Form } from "formik";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import LocalImages from "../../Utils/images";
 
-const Signup = () => {
+const Login = () => {
   const theme = useTheme();
   const classes = useStyles({ theme });
+  const [isPasswordVisible, setPasswordVisible] = useState<boolean>(false);
+  const { collectClass } = Utils.CommonFunctions;
+
   return (
     <>
       <HelmetProvider>
@@ -51,7 +54,7 @@ const Signup = () => {
                   },
                 }}
               >
-                Create an account
+                Reset Password
               </Typography>
             </div>
             <div className={classes.title}>
@@ -72,7 +75,7 @@ const Signup = () => {
                   },
                 }}
               >
-                Sign up with your email address to get started.
+                Enter your new password.
               </Typography>
             </div>
           </Box>
@@ -81,68 +84,80 @@ const Signup = () => {
               email: "",
               password: "",
             }}
-            validationSchema={Schema.SignupSchema()}
+            validationSchema={Schema.LoginSchema()}
             onSubmit={(value, { setSubmitting }) => {
-              // dispatch(login(value, history, setSubmitting));
+              // dispatch(login(value, history, setSubmitting, rememberMe));
             }}
           >
             <Form>
-              <div className={classes.lables}>
-                <Typography>Name*</Typography>
+              
+              <div className={classes.forgotPassword}>
+                <Typography className={classes.lables}>NEW PASSWORD</Typography>
+                <Typography
+                  className={classes.lables}
+                  sx={{ color: "#686c6e" }}
+                >
+                  
+                </Typography>
               </div>
               <div className={classes.inputField}>
                 <InputField
-                  placeholder="Enter your name"
-                  name="name"
-                  type={"name"}
-                  // touched={touched}
-                  // errors={errors}</Form>
-                />
-              </div>
-              <div className={classes.lables}>
-                <Typography>EMAIL ADDRESS*</Typography>
-              </div>
-              <div className={classes.inputField}>
-                <InputField
-                  placeholder="Enter Email Address"
-                  name="email"
-                  type={"email"}
-                  // touched={touched}
-                  // errors={errors}</Form>
-                />
-              </div>
-              <div className={classes.lables}>
-                <Typography>PASSWORD*</Typography>
-                <Typography className={classes.lables}></Typography>
-              </div>
-              <div className={classes.inputField}>
-                <InputField
-                  className={classes.inputField}
+                  className={collectClass([classes.endIconContainer])}
                   placeholder="Enter Your Password"
                   name="password"
-                  type={"password"}
+                  type={!isPasswordVisible ? "password" : "text"}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <Typography
+                          component={"span"}
+                          onClick={() => setPasswordVisible(!isPasswordVisible)}
+                        >
+                          {isPasswordVisible ? "Hide" : "Show"}
+                        </Typography>
+                      </InputAdornment>
+                    ),
+                  }}
                 />
               </div>
-              <div>
-                
-              </div>
-              <Link to={Utils.Pathname.VERIFY}>
-                {" "}
-                <ActiveButton
-                  className={classes.activeButton}
-                  sx={{ color: "#fff", textDecoration: "none" }}
-                  type="submit"
-                  variant="contained"
+              <div className={classes.forgotPassword}>
+                <Typography className={classes.lables}>CONFIRM NEW PASSWORD</Typography>
+                <Typography
+                  className={classes.lables}
+                  sx={{ color: "#686c6e" }}
                 >
-                  <Typography className={classes.lables}>
-                    Register Account
-                  </Typography>
-                </ActiveButton>
-              </Link>
+                  
+                </Typography>
+              </div>
+              <div className={classes.inputField}>
+                <InputField
+                  className={collectClass([classes.endIconContainer])}
+                  placeholder="Enter Your Password"
+                  name="password"
+                  type={!isPasswordVisible ? "password" : "text"}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <Typography
+                          component={"span"}
+                          onClick={() => setPasswordVisible(!isPasswordVisible)}
+                        >
+                          {isPasswordVisible ? "Hide" : "Show"}
+                        </Typography>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </div>
 
-              <Typography sx={{ color: "#686c6e", marginTop: "5%" }}>
-                Already have an account?<b> Login </b>
-              </Typography>
+              <ActiveButton
+                className={classes.activeButton}
+                sx={{ color: "#fff" }}
+                type="submit"
+                variant="contained"
+              >
+                Reset Password
+              </ActiveButton>
             </Form>
           </Formik>
         </div>
@@ -151,4 +166,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Login;

@@ -24,8 +24,9 @@ import LocalImages from "../../Utils/images";
 const Login = () => {
   const theme = useTheme();
   const classes = useStyles({ theme });
-
   const [isPasswordVisible, setPasswordVisible] = useState<boolean>(false);
+  const { collectClass } = Utils.CommonFunctions;
+
   return (
     <>
       <HelmetProvider>
@@ -93,17 +94,18 @@ const Login = () => {
               </div>
               <div className={classes.inputField}>
                 <InputField
-                  className={classes.inputField}
+                  className={collectClass([classes.endIconContainer])}
                   placeholder="Enter Your Password"
                   name="password"
-                  type="password"
-                  inputProps={{
+                  type={!isPasswordVisible ? "password" : "text"}
+                  InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
                         <Typography
+                          component={"span"}
                           onClick={() => setPasswordVisible(!isPasswordVisible)}
                         >
-                          {isPasswordVisible ? "Show" : "Hide"}
+                          {isPasswordVisible ? "Hide" : "Show"}
                         </Typography>
                       </InputAdornment>
                     ),

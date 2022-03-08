@@ -2,7 +2,6 @@ import React from "react";
 import ImageContainer from "../../components/ImageContainer";
 import Schema from "../../schema";
 import InputField from "../../components/inputfield";
-import { Checkbox } from "@mui/material";
 import Utils from "../../Utils";
 
 import {
@@ -21,7 +20,7 @@ import { Formik, Form } from "formik";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import LocalImages from "../../Utils/images";
 
-const Signup = () => {
+const Verify = () => {
   const theme = useTheme();
   const classes = useStyles({ theme });
   return (
@@ -51,20 +50,20 @@ const Signup = () => {
                   },
                 }}
               >
-                Create an account
+                Are you...
               </Typography>
-            </div>
-            <div className={classes.title}>
               <Typography
                 sx={{
                   fontSize: "15px",
-                  // fontWeight: "bold",
+                  textAlign: "left",
+                  width: "100%",
                   fontStretch: "normal",
                   lineHeight: "normal",
                   letterSpacing: "normal",
                   color: "#687173",
                   float: "left",
                   marginTop: "2%",
+                  marginRight: "10% !important",
                   [theme.breakpoints.down(1025)]: {
                     fontSize: "12px",
                     marginLeft: "2%",
@@ -72,83 +71,50 @@ const Signup = () => {
                   },
                 }}
               >
-                Sign up with your email address to get started.
+                Please select one of the options
               </Typography>
             </div>
-          </Box>
-          <Formik
-            initialValues={{
-              email: "",
-              password: "",
-            }}
-            validationSchema={Schema.SignupSchema()}
-            onSubmit={(value, { setSubmitting }) => {
-              // dispatch(login(value, history, setSubmitting));
-            }}
-          >
-            <Form>
-              <div className={classes.lables}>
-                <Typography>Name*</Typography>
-              </div>
-              <div className={classes.inputField}>
-                <InputField
-                  placeholder="Enter your name"
-                  name="name"
-                  type={"name"}
-                  // touched={touched}
-                  // errors={errors}</Form>
-                />
-              </div>
-              <div className={classes.lables}>
-                <Typography>EMAIL ADDRESS*</Typography>
-              </div>
-              <div className={classes.inputField}>
-                <InputField
-                  placeholder="Enter Email Address"
-                  name="email"
-                  type={"email"}
-                  // touched={touched}
-                  // errors={errors}</Form>
-                />
-              </div>
-              <div className={classes.lables}>
-                <Typography>PASSWORD*</Typography>
-                <Typography className={classes.lables}></Typography>
-              </div>
-              <div className={classes.inputField}>
-                <InputField
-                  className={classes.inputField}
-                  placeholder="Enter Your Password"
-                  name="password"
-                  type={"password"}
-                />
-              </div>
-              <div>
-                
-              </div>
-              <Link to={Utils.Pathname.VERIFY}>
-                {" "}
-                <ActiveButton
+            {/* <div className={classes.verifyTitle}>
+             
+            </div> */}
+            <div className={classes.buttonContainer}>
+              <ActiveButton
+                className={classes.activeButton}
+                sx={{ color: "black", textDecoration: "none", width:"40%", border:"1px solid black", backgroundColor:"#fff" }}
+                type="submit"
+                variant="contained"
+              >
+                <Typography className={classes.lables}>
+                  Sole Trader
+                </Typography>
+              </ActiveButton>
+              <ActiveButton
+                className={classes.activeButton}
+                sx={{ color: "#fff", textDecoration: "none",width:"40%" }}
+                type="submit"
+                variant="contained"
+              >
+                <Typography className={classes.lables}>
+                  {/* Login */}
+                  Company
+                </Typography>
+              </ActiveButton>
+            </div>
+            <ActiveButton
                   className={classes.activeButton}
                   sx={{ color: "#fff", textDecoration: "none" }}
                   type="submit"
                   variant="contained"
                 >
                   <Typography className={classes.lables}>
-                    Register Account
+                    Save & Continue
                   </Typography>
                 </ActiveButton>
-              </Link>
-
-              <Typography sx={{ color: "#686c6e", marginTop: "5%" }}>
-                Already have an account?<b> Login </b>
-              </Typography>
-            </Form>
-          </Formik>
+          </Box>
         </div>
       </HelmetProvider>
     </>
   );
 };
 
-export default Signup;
+export default Verify;

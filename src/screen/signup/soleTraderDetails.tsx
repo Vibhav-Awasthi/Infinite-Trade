@@ -1,7 +1,9 @@
 import React from "react";
 import ImageContainer from "../../components/ImageContainer";
 import Schema from "../../schema";
+import { dropdownData } from "../../components/select";
 import InputField from "../../components/inputfield";
+import AutoComplete from "../../components/autoComplete";
 import { Checkbox } from "@mui/material";
 import Utils from "../../Utils";
 
@@ -51,14 +53,13 @@ const Signup = () => {
                   },
                 }}
               >
-                Create an account
+                Your Business Details
               </Typography>
             </div>
             <div className={classes.title}>
               <Typography
                 sx={{
                   fontSize: "15px",
-                  // fontWeight: "bold",
                   fontStretch: "normal",
                   lineHeight: "normal",
                   letterSpacing: "normal",
@@ -72,7 +73,7 @@ const Signup = () => {
                   },
                 }}
               >
-                Sign up with your email address to get started.
+                Tell us about your business and what you do.
               </Typography>
             </div>
           </Box>
@@ -81,18 +82,18 @@ const Signup = () => {
               email: "",
               password: "",
             }}
-            validationSchema={Schema.SignupSchema()}
+            validationSchema={Schema.BusinessDetailSchema}
             onSubmit={(value, { setSubmitting }) => {
               // dispatch(login(value, history, setSubmitting));
             }}
           >
             <Form>
               <div className={classes.lables}>
-                <Typography>Name*</Typography>
+                <Typography>Business Name*</Typography>
               </div>
               <div className={classes.inputField}>
                 <InputField
-                  placeholder="Enter your name"
+                  placeholder="Enter your Business Name"
                   name="name"
                   type={"name"}
                   // touched={touched}
@@ -100,34 +101,62 @@ const Signup = () => {
                 />
               </div>
               <div className={classes.lables}>
-                <Typography>EMAIL ADDRESS*</Typography>
+                <Typography>ABN*</Typography>
               </div>
               <div className={classes.inputField}>
                 <InputField
-                  placeholder="Enter Email Address"
-                  name="email"
-                  type={"email"}
-                  // touched={touched}
-                  // errors={errors}</Form>
+                  className={classes.textfieldClass}
+                  placeholder="Enter Your Business Number"
+                  name="phone_number"
+                  type={"number"}
+                  
                 />
               </div>
               <div className={classes.lables}>
-                <Typography>PASSWORD*</Typography>
+                <Typography>ADDRESS*</Typography>
                 <Typography className={classes.lables}></Typography>
               </div>
               <div className={classes.inputField}>
                 <InputField
                   className={classes.inputField}
-                  placeholder="Enter Your Password"
-                  name="password"
-                  type={"password"}
+                  placeholder="Location"
+                  name="location"
+                  type={"text"}
                 />
               </div>
-              <div>
-                
+              <div className={classes.lables}>
+                <Typography>SKILLS*</Typography>
               </div>
-              <Link to={Utils.Pathname.VERIFY}>
-                {" "}
+              <div className={classes.inputField}>
+                <AutoComplete
+                  multiple
+                  limitTags={2}
+                  options={dropdownData}
+                  optionSelected={(
+                    option: string | { [value: string]: string }
+                  ) => {
+                    if (typeof option === "string") return option as string;
+                    else return option?.value as string;
+                  }}
+                />
+              </div>
+              <div className={classes.lables}>
+                <Typography>INDUSTRY EXPERIENCE*</Typography>
+              </div>
+              <div className={classes.inputField}>
+              <AutoComplete
+                  multiple
+                  limitTags={2}
+                  options={dropdownData}
+                  optionSelected={(
+                    option: string | { [value: string]: string }
+                  ) => {
+                    if (typeof option === "string") return option as string;
+                    else return option?.value as string;
+                  }}
+                />
+              </div>
+              <Link to={"#"}>
                 <ActiveButton
                   className={classes.activeButton}
                   sx={{ color: "#fff", textDecoration: "none" }}
@@ -135,14 +164,10 @@ const Signup = () => {
                   variant="contained"
                 >
                   <Typography className={classes.lables}>
-                    Register Account
+                    Save & Continue
                   </Typography>
                 </ActiveButton>
               </Link>
-
-              <Typography sx={{ color: "#686c6e", marginTop: "5%" }}>
-                Already have an account?<b> Login </b>
-              </Typography>
             </Form>
           </Formik>
         </div>

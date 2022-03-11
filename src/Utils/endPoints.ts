@@ -8,6 +8,7 @@ const endPoint ={
     signUp:"/v1/company/signup",
     verifyAccount:"/v1/company/verify-account",
     logout:"/v1/company/logout",
+    skills:"/v1/common/dropdown",
 
 }
-export default endPoint;
+export default endPoint; 

@@ -1,12 +1,20 @@
 import { styled } from "@mui/system";
-import { Button } from "@mui/material"
+import ActionButton from "../../button";
+import NormalButton from "../../button/NormalButton";
 
 export const InnerMainDiv = styled("div")({
   backgroundColor: "#fff",
   width: "50%",
 });
 
-export const ActiveButton = styled(Button)({
+export const ActiveButton = styled(ActionButton)({
+    width: "100%",
+    height: "54px",
+    marginTop: "20px",
+    borderRadius:"0 !important",
+  });
+
+  export const CommonButton =styled(NormalButton)({
     width: "100%",
     height: "54px",
     marginTop: "20px",

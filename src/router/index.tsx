@@ -3,16 +3,20 @@ import { createTheme, ThemeProvider } from "@mui/material";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
 import PublicRoute from "../hoc/publicRoute";
 import Utils from "../Utils";
+import { useSelector } from "react-redux";
+import { ReducersModel } from "../model";
 
 const Login = lazy(() => import("../screen/login/index"));
 const ForgotPassword = lazy(() => import("../screen/login/forgotPassword"));
-const ResetPassword = lazy(() => import("../screen/login/resetPassword") )
+const ResetPassword = lazy(() => import("../screen/login/resetPassword"));
 const Signup = lazy(() => import("../screen/signup/index"));
 const Verify = lazy(() => import("../screen/signup/verify"));
 const SelectProfile = lazy(() => import("../screen/signup/selectProfile"));
 const SoleTrader = lazy(() => import("../screen/signup/soleTraderContact"));
-const SoleTraderDetails= lazy(()=> import("../screen/signup/soleTraderDetails"));
-const CompanyDetails= lazy(() => import("../screen/signup/companyDetails"));
+const SoleTraderDetails = lazy(
+  () => import("../screen/signup/soleTraderDetails")
+);
+const CompanyDetails = lazy(() => import("../screen/signup/companyDetails"));
 const CompanyContact = lazy(() => import("../screen/signup/companyContact"));
 
 const Routers: React.FC = () => {
@@ -26,7 +30,7 @@ const Routers: React.FC = () => {
         main: "#363353",
       },
       text: {
-        primary: "#8a9099",
+        primary: "#000000",
         secondary: "#100d2e",
       },
     },
@@ -38,6 +42,9 @@ const Routers: React.FC = () => {
       fontWeightBold: 600,
     },
   });
+
+  const state = useSelector((state: ReducersModel) => state);
+  console.log(state);
 
   return (
     <ThemeProvider theme={theme}>

@@ -14,7 +14,7 @@ import {
   SmallText,
 } from "../../components/styledComponents/auth/signIn";
 
-import { Link } from "react-router-dom";
+import { Link,useHistory } from "react-router-dom";
 import { useStyles } from "./style";
 import { useTheme } from "@mui/material";
 import { Typography } from "@mui/material";
@@ -22,10 +22,24 @@ import { Box } from "@mui/system";
 import { Formik, Form } from "formik";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import LocalImages from "../../Utils/images";
+import location from "../../data/location";
+import { useDispatch, useSelector } from "react-redux";
+import { ReducersModel } from "../../model";
+import { getSkills, soleTraderProfileComplete } from "./actions";
 
 const Signup = () => {
   const theme = useTheme();
   const classes = useStyles({ theme });
+  const dispatch = useDispatch();
+  const history=useHistory();
+  const { skills } = useSelector(
+    (state: ReducersModel) => state.dropDownReducer
+  );
+
+  React.useEffect(() => {
+    dispatch(getSkills());
+  }, [dispatch]);
+
   return (
     <>
       <HelmetProvider>
@@ -79,12 +93,16 @@ const Signup = () => {
           </Box>
           <Formik
             initialValues={{
-              email: "",
-              password: "",
+              businessName: "",
+              abnNumber: "",
+              location: null,
+              skills: [],
+              industryExp: 0,
             }}
-            validationSchema={Schema.BusinessDetailSchema}
+            validationSchema={Schema.SoleTraderSchema}
             onSubmit={(value, { setSubmitting }) => {
-              // dispatch(login(value, history, setSubmitting));
+              dispatch(soleTraderProfileComplete(value, history));
+              // console.log(value);
             }}
           >
             <Form>
@@ -94,10 +112,8 @@ const Signup = () => {
               <div className={classes.inputField}>
                 <InputField
                   placeholder="Enter your Business Name"
-                  name="name"
-                  type={"name"}
-                  // touched={touched}
-                  // errors={errors}</Form>
+                  name="businessName"
+                  type={"text"}
                 />
               </div>
               <div className={classes.lables}>
@@ -107,9 +123,8 @@ const Signup = () => {
                 <InputField
                   className={classes.textfieldClass}
                   placeholder="Enter Your Business Number"
-                  name="phone_number"
-                  type={"number"}
-                  
+                  name="abnNumber"
+                  type={"text"}
                 />
               </div>
               <div className={classes.lables}>
@@ -117,11 +132,15 @@ const Signup = () => {
                 <Typography className={classes.lables}></Typography>
               </div>
               <div className={classes.inputField}>
-                <InputField
-                  className={classes.inputField}
-                  placeholder="Location"
+                <AutoComplete
                   name="location"
-                  type={"text"}
+                  options={location}
+                  optionSelected={(
+                    option: string | { [value: string]: any }
+                  ) => {
+                    if (typeof option === "string") return option as string;
+                    else return option?.address as string;
+                  }}
                 />
               </div>
               <div className={classes.lables}>
@@ -129,14 +148,15 @@ const Signup = () => {
               </div>
               <div className={classes.inputField}>
                 <AutoComplete
+                  name="skills"
                   multiple
                   limitTags={2}
-                  options={dropdownData}
+                  options={skills}
                   optionSelected={(
                     option: string | { [value: string]: string }
                   ) => {
                     if (typeof option === "string") return option as string;
-                    else return option?.value as string;
+                    else return option?.TYPE as string;
                   }}
                 />
               </div>
@@ -144,16 +164,11 @@ const Signup = () => {
                 <Typography>INDUSTRY EXPERIENCE*</Typography>
               </div>
               <div className={classes.inputField}>
-              <AutoComplete
-                  multiple
-                  limitTags={2}
-                  options={dropdownData}
-                  optionSelected={(
-                    option: string | { [value: string]: string }
-                  ) => {
-                    if (typeof option === "string") return option as string;
-                    else return option?.value as string;
-                  }}
+                <InputField
+                  className={classes.textfieldClass}
+                  placeholder="Enter your years of experience"
+                  name="industryExp"
+                  type={"text"}
                 />
               </div>
               <Link to={"#"}>

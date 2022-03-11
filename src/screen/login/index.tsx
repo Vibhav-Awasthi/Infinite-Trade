@@ -22,6 +22,10 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import LocalImages from "../../Utils/images";
 
 const Login = () => {
+  const [textValue, setTextValue] = useState<string>("");
+  const onTextChange = (e: any) => setTextValue(e.target.value);
+  const handleSubmit = () => console.log(textValue);
+
   const theme = useTheme();
   const classes = useStyles({ theme });
   const [isPasswordVisible, setPasswordVisible] = useState<boolean>(false);
@@ -73,12 +77,12 @@ const Login = () => {
                 <Typography>EMAIL ADDRESS*</Typography>
               </div>
               <div className={classes.inputField}>
-                <InputField
+              <InputField
+                  onChange={onTextChange}
                   placeholder="Enter Email Address"
+                  value={textValue}
                   name="email"
                   type={"email"}
-                  // touched={touched}
-                  // errors={errors}</Form>
                 />
               </div>
               <div className={classes.forgotPassword}>
@@ -115,6 +119,7 @@ const Login = () => {
 
               <ActiveButton
                 className={classes.activeButton}
+                onClick={handleSubmit}
                 sx={{ color: "#fff" }}
                 type="submit"
                 variant="contained"

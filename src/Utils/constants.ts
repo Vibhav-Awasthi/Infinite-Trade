@@ -1,83 +1,81 @@
 import axios from "axios";
 import moment from "moment-timezone";
-import { getAccessToken } from "./session";
-const api_error_code = {
+import * as Session from "./session";
+
+export const api_error_code = {
   unauthorized: 401,
   accessDenied: 430,
   sessionExpired: 423,
   validationError: 400,
   emailNotVerified: 403,
 };
+
+export const api_success_code = {
+  success: 200,
+};
+
 const $axios = axios.create({
-  baseURL:"https://infinitetradedevapi.appskeeper.in/documentation#/company%2Fsoletrader",
+  baseURL: "https://infinitetradedevapi.appskeeper.in/api",
   timeout: 30000,
   headers: {
     "Content-Type": "application/json",
     Accept: "application/json",
     platform: "3",
     timezone: moment.tz.guess(),
-    api_key: "123456",
+    api_key: "1234",
+    language: "en"
   },
 });
 const $axios1 = axios.create({
   responseType: "blob",
-  baseURL:"https://infinitetradedevapi.appskeeper.in/documentation#/company%2Fsoletrader",
+  baseURL: "https://infinitetradedevapi.appskeeper.in/api",
   timeout: 30000,
   headers: {
     platform: "3",
     timezone: moment.tz.guess(),
-    api_key: "123456",
+    api_key: "1234",
+    language: "en",
   },
 });
 
 $axios.interceptors.request.use(
-  (config) => {
+  (config: any) => {
     const token = localStorage.getItem("access_token")
       ? localStorage.getItem("access_token")
       : sessionStorage.getItem("access_token");
-    // if (token) {
-    //   config.headers["Authorization"] = "Bearer " + token;
-    // }
+    if (token) {
+      config.headers["Authorization"] = "Bearer " + token;
+    } else {
+      config.headers["Authorization"] = "Basic aW5maW5pdGU6aW5maW5pdGVAMTIz";
+    }
     return config;
   },
   function (error) {
     return Promise.reject(error);
   }
 );
+
 $axios1.interceptors.request.use(
-  (config) => {
+  (config: any) => {
     const token = localStorage.getItem("access_token")
       ? localStorage.getItem("access_token")
       : sessionStorage.getItem("access_token");
-    // if (token) {
-    //   config.headers["Authorization"] = "Bearer " + token;
-    // }
+    if (token) {
+      config.headers["Authorization"] = "Bearer " + token;
+    }
     return config;
   },
   function (error) {
     return Promise.reject(error);
   }
 );
-
-const QuestionStatus = {
-  NOT_STARTED: "not_started",
-  ATTEMPT: "attempt",
-  SKIPED: "skiped",
-};
-
-const QuestionType = {
-  ESSAY: "essay",
-  MULTIPLE_CHOICE: "multiple choice",
-};
 
 const constants = {
-  QuestionType,
   api_error_code,
   axios: $axios,
   axios1: $axios1,
-  getAccessToken,
-  QuestionStatus,
-  apiUrl:"https://infinitetradedevapi.appskeeper.in/documentation#/company%2Fsoletrader",
- 
+  apiUrl: "https://infinitetradedevapi.appskeeper.in/api",
+  api_success_code,
+  Session: Session,
 };
 export default constants;

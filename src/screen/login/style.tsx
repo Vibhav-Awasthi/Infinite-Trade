@@ -23,13 +23,12 @@ const useStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     width: "100%",
-    //  border:"1px solid black",
   }),
 
   brandLogo: ({ theme }: any) => ({
     width: "100%",
-    position: "relative",
-    right: "12%",
+    // position: "relative",
+    // right: "12%",
     "& figure": {
       margin: 0,
       width: "140px",
@@ -47,8 +46,6 @@ const useStyles = makeStyles({
 
   title: ({ theme }: any) => ({
     width: "100%",
-    position: "relative",
-    right: "12%",
 
     // margin: "30px 160px 15px 0",
     // [theme.breakpoints.up(1920)]: {
@@ -118,6 +115,7 @@ const useStyles = makeStyles({
   activeButton: () => ({
     color: "#ffffff",
     backgroundColor: "#0da4ce",
+    maxHeight:"40px",
   }),
 
   formCommon: () => ({

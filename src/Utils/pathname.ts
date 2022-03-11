@@ -5,7 +5,7 @@ const Pathname = {
     SIGNUP:"/signup",
     VERIFY:"/verify",
     Dashboard:"/dashboard",
-    SELECT_PROFILE:"/selectprofile",
+    SELECT_PROFILE:"/user/emailverify",
     SOLE_TRADER_CONTACT:"/soletradercontact",
     SOLE_TRADER_DETAILS:"/soletraderdetails",
     COMPANY_DETAILS:"/companydetails",

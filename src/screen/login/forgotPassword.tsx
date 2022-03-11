@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import ImageContainer from "../../components/ImageContainer";
 import Schema from "../../schema";
 import InputField from "../../components/inputfield";
@@ -16,6 +17,10 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import LocalImages from "../../Utils/images";
 
 const ForgotPassword = () => {
+  const [textValue, setTextValue] = useState<string>("");
+  const onTextChange = (e: any) => setTextValue(e.target.value);
+  const handleSubmit = () => console.log(textValue);
+
   const theme = useTheme();
   const classes = useStyles({ theme });
   return (
@@ -85,15 +90,16 @@ const ForgotPassword = () => {
               </div>
               <div className={classes.inputField}>
                 <InputField
+                  onChange={onTextChange}
                   placeholder="Enter Email Address"
+                  value={textValue}
                   name="email"
                   type={"email"}
-                  // touched={touched}
-                  // errors={errors}</Form>
                 />
               </div>
 
               <ActiveButton
+                onClick={handleSubmit}
                 className={classes.activeButton}
                 sx={{ color: "#fff" }}
                 type="submit"

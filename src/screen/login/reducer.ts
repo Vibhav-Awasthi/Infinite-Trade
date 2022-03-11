@@ -15,7 +15,7 @@ export const logInReducer = (
       return state;
   }
 };
-export const forgotPasswordReduce = (
+export const forgotPasswordReducer = (
   state: ForgotPasswordModel = new ForgotPasswordModel(),
   action: any
 ) => {
@@ -26,7 +26,7 @@ export const forgotPasswordReduce = (
       return state;
   }
 };
-export const resetPasswordReduce = (
+export const resetPasswordReducer = (
   state: ResetPasswordModel = new ResetPasswordModel(),
   action: any
 ) => {

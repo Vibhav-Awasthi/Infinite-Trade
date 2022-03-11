@@ -1,4 +1,5 @@
 import { makeStyles } from "@mui/styles";
+import { height } from "@mui/system";
 
 const useStyles = makeStyles({
   loginContainer: ({ theme }: any) => ({
@@ -23,13 +24,11 @@ const useStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     width: "100%",
-    //  border:"1px solid black",
+    alignItems: "right",
   }),
 
   brandLogo: ({ theme }: any) => ({
     width: "100%",
-    position: "relative",
-    right: "12%",
     "& figure": {
       margin: 0,
       width: "140px",
@@ -45,10 +44,33 @@ const useStyles = makeStyles({
     },
   }),
 
+  checkBoxContainer: () => ({
+    float: "left",
+  }),
+
+  checkBox: () => ({
+    background: " #FFFFFF",
+    boxSizing: "border-box",
+    marginBottom: "5px",
+    "&.css-rfs483-MuiFormControlLabel-root": {
+      marginLeft: "-26px",
+      marginRight: "0px",
+      width: "100%",
+    },
+  }),
+
+  ckBox: () => ({
+    "&.css-3zq233-MuiButtonBase-root-MuiCheckbox-root.Mui-checked": {
+      color: "#000",
+    },
+  }),
+
+  endIconContainer: () => ({
+    backgroundColor: "#0da4ce",
+  }),
+
   title: ({ theme }: any) => ({
     width: "100%",
-    position: "relative",
-    right: "12%",
 
     // margin: "30px 160px 15px 0",
     // [theme.breakpoints.up(1920)]: {
@@ -74,19 +96,25 @@ const useStyles = makeStyles({
     // },
   }),
 
-  verifyTitle:({theme}:any) => ({
-      border:"1 px solid black",
-      position:"relative",
-      right:"11%",
-      [theme.breakpoints.down(1025)]: {
-      position:"relative",
-      right:"11%",
-      },
+  verifyTitle: ({ theme }: any) => ({
+    border: "1 px solid black",
+    position: "relative",
+    right: "11%",
+    // width:"43% !important",
+    [theme.breakpoints.down(1025)]: {
+      position: "relative",
+      right: "11%",
+    },
+  }),
+  resendMail: () => ({
+    "&:hover": {
+      background: "none",
+    },
   }),
 
   lables: ({ theme }: any) => ({
     float: "left",
-    marginTop:"1.5%",
+    marginTop: "1.5%",
     marginBottom: "1.5%",
     // margin: "25px 0 15px 0",
     // [theme.breakpoints.up(1920)]: {
@@ -122,37 +150,81 @@ const useStyles = makeStyles({
     },
   }),
 
+  profileSelector: () => ({
+    border: "2px solid grey",
+    width: "43%",
+    cursor: "pointer",
+  }),
+
   inputField: () => ({
     marginBottom: "1%",
+    "& input::-webkit-outer-spin-button": {
+      WebkitAppearance: "none",
+      margin: 0,
+    },
+    "& input::-webkit-inner-spin-button": {
+      webkitAppearance: "none",
+      margin: 0,
+    },
+    // "& input[type=number]": {
+    //   MozAppearance: "textfield",
+    // },
   }),
 
   textfieldClass: () => ({
-    '& .MuiInput-input': {
-      '&::-webkit-outer-spin-button, &::-webkit-inner-spin-button': {
-        '-webkit-appearance': 'none',
+   
+  }),
+
+  selectProfile: ({ theme }: any) => ({
+    display: "flex",
+    height: "100px",
+    width: "100%",
+    marginRight: "20%",
+    alignItems: "center",
+    justifyContent: "center",
+    "& figure": {
+      [theme.breakpoints.up(1920)]: {
+        width: "200px",
+        height: "100px",
       },
-     }
+      [theme.breakpoints.up(2560)]: {
+        width: "240px",
+        height: "120px",
+      },
+    },
+  }),
+
+  normalButton: () => ({
+    marginTop: "5%",
+    width: "100%",
   }),
 
   activeButton: () => ({
     color: "#ffffff",
     backgroundColor: "#0da4ce",
+    maxHeight: "40px",
   }),
 
   formCommon: () => ({
     alignItems: "flex-start",
   }),
-  buttonContainer:()=>({
-      marginTop:"5%",
-      marginRight:"22%",
-      width:"100%",
-      display:"flex",
-      flexDirection:"row",
-      justifyContent:"space-between"
+  buttonContainer: () => ({
+    marginTop: "5%",
+    // marginRight: "22%",
+    width: "100%",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
   }),
-  tools:()=>({
-    display:"flex",
-    width:"100%"
+  dontHaveAccount: () => ({
+    "& a": {
+      textDecoration: "none",
+      color: "#687173",
+    },
+  }),
+  tools: () => ({
+    display: "flex",
+    width: "100%",
   }),
 });
 

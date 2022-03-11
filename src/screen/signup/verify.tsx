@@ -6,7 +6,7 @@ import Utils from "../../Utils";
 
 import {
   HeadingText,
-  ActiveButton,
+  CommonButton,
   InnerMainDiv,
   SmallText,
 } from "../../components/styledComponents/auth/signIn";
@@ -18,16 +18,24 @@ import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { Formik, Form } from "formik";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import { useDispatch } from "react-redux";
 import LocalImages from "../../Utils/images";
+import NormalButton from "../../components/button/NormalButton";
+import { resendMail } from "./actions";
 
 const Verify = () => {
   const theme = useTheme();
   const classes = useStyles({ theme });
+  const dispatch = useDispatch();
+  const handleResendEmail = () => {
+    dispatch(resendMail());
+  };
   return (
     <>
       <HelmetProvider>
         <div className={classes.loginContainer}>
-          <Box className={classes.titleContainer}>
+          <Box >
+            <div className={classes.titleContainer}>
             <ImageContainer
               style={classes.brandLogo}
               imgUrl={LocalImages.Logo}
@@ -77,27 +85,34 @@ const Verify = () => {
                 email address to start using Infinite Trades
               </Typography>
             </div>
+            </div>
             <div className={classes.buttonContainer}>
-              <ActiveButton
+              <CommonButton
+                // className={classes.resendMail}
+                sx={{
+                  color: "black",
+                  textDecoration: "none",
+                  width: "40%",
+                  border: "1px solid black",
+                  backgroundColor: "#fff",
+                  "&:hover": {
+                    background: "none",
+                  },
+                }}
+                type="submit"
+                variant="contained"
+                onClick={handleResendEmail}
+              >
+                <Typography className={classes.lables}>Resend Email</Typography>
+              </CommonButton>
+              <CommonButton
                 className={classes.activeButton}
-                sx={{ color: "black", textDecoration: "none", width:"40%", border:"1px solid black", backgroundColor:"#fff" }}
+                sx={{ color: "#fff", textDecoration: "none", width: "40%" }}
                 type="submit"
                 variant="contained"
               >
-                <Typography className={classes.lables}>
-                  Resend Email
-                </Typography>
-              </ActiveButton>
-              <ActiveButton
-                className={classes.activeButton}
-                sx={{ color: "#fff", textDecoration: "none",width:"40%" }}
-                type="submit"
-                variant="contained"
-              >
-                <Typography className={classes.lables}>
-                  Login
-                </Typography>
-              </ActiveButton>
+                <Typography className={classes.lables}>Login</Typography>
+              </CommonButton>
             </div>
           </Box>
         </div>

@@ -6,7 +6,7 @@ import Utils from "../../Utils";
 
 import { ActiveButton } from "../../components/styledComponents/auth/signIn";
 
-import { Link } from "react-router-dom";
+import { Link,useHistory } from "react-router-dom";
 import { useStyles } from "./style";
 import { useTheme } from "@mui/material";
 import { Typography } from "@mui/material";
@@ -14,10 +14,13 @@ import { Box } from "@mui/system";
 import { Formik, Form } from "formik";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import LocalImages from "../../Utils/images";
+import { useDispatch } from "react-redux";
 
 const SoleTraderContact = () => {
+  const dispatch = useDispatch();
   const theme = useTheme();
   const classes = useStyles({ theme });
+  const history = useHistory();
   return (
     <>
       <HelmetProvider>
@@ -74,9 +77,13 @@ const SoleTraderContact = () => {
             initialValues={{
               PhoneNumber: "",
             }}
-            validationSchema={Schema.MobileNumber()}
-            onSubmit={(value, { setSubmitting }) => {
-              // dispatch(login(value, history, setSubmitting, rememberMe));
+            validationSchema={Schema.MobileNumber}
+            onSubmit={(value) => {
+              dispatch({
+                type: Utils.ActionName.PROFILESELECTOR,
+                payload: { mobileNo: value.PhoneNumber },
+              });
+              history.push(Utils.Pathname.SOLE_TRADER_DETAILS);
             }}
           >
             <Form>
@@ -86,7 +93,7 @@ const SoleTraderContact = () => {
               <div className={classes.inputField}>
                 <InputField
                   placeholder="Enter your mobile number"
-                  name="phone_number"
+                  name="PhoneNumber"
                   type={"number"}
                 />
               </div>

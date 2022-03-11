@@ -14,6 +14,7 @@ import {
   SmallText,
 } from "../../components/styledComponents/auth/signIn";
 
+import location from "../../data/location";
 import { Link } from "react-router-dom";
 import { useStyles } from "./style";
 import { useTheme } from "@mui/material";
@@ -23,7 +24,7 @@ import { Formik, Form } from "formik";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import LocalImages from "../../Utils/images";
 
-const Signup = () => {
+const CompanyDetails = () => {
   const theme = useTheme();
   const classes = useStyles({ theme });
   return (
@@ -109,7 +110,6 @@ const Signup = () => {
                   placeholder="Enter Your Business Number"
                   name="phone_number"
                   type={"number"}
-                  
                 />
               </div>
               <div className={classes.lables}>
@@ -129,6 +129,7 @@ const Signup = () => {
               </div>
               <div className={classes.inputField}>
                 <AutoComplete
+                  name="k"
                   multiple
                   limitTags={2}
                   options={dropdownData}
@@ -144,7 +145,8 @@ const Signup = () => {
                 <Typography>INDUSTRY EXPERIENCE*</Typography>
               </div>
               <div className={classes.inputField}>
-              <AutoComplete
+                <AutoComplete
+                  name="l"
                   multiple
                   limitTags={2}
                   options={dropdownData}
@@ -176,4 +178,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default CompanyDetails;

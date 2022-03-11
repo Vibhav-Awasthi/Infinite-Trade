@@ -156,7 +156,7 @@ const SelectProfile = () => {
                 style={
                   userType === "COMPANY" ? { border: "2px solid #0da4ce" } : {}
                 }
-              >
+              >  
                 <ImageContainer
                   imgUrl={LocalImages.Client}
                   style={classes.selectProfile}

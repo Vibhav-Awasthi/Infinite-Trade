@@ -40,9 +40,9 @@ const $axios1 = axios.create({
 
 $axios.interceptors.request.use(
   (config: any) => {
-    const token = localStorage.getItem("access_token")
-      ? localStorage.getItem("access_token")
-      : sessionStorage.getItem("access_token");
+    const token = localStorage.getItem("accessToken")
+      ? localStorage.getItem("accessToken")
+      : sessionStorage.getItem("accessToken");
     if (token) {
       config.headers["Authorization"] = "Bearer " + token;
     } else {

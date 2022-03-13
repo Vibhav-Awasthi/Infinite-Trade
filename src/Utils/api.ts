@@ -103,7 +103,7 @@ const putApiCall = (
   );
 
   Utils.Constants.axios
-    .put(Utils.Constants.apiUrl + endPoint + params, {})
+    .put(Utils.Constants.apiUrl + endPoint,params)
     .then((res: any) => {
       successCallback(res);
     })

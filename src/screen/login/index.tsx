@@ -3,6 +3,7 @@ import ImageContainer from "../../components/ImageContainer";
 import Schema from "../../schema";
 import InputField from "../../components/inputfield";
 import Utils from "../../Utils";
+import { login } from "./action";
 
 import {
   HeadingText,
@@ -20,16 +21,16 @@ import { InputAdornment } from "@mui/material";
 import { Formik, Form } from "formik";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import LocalImages from "../../Utils/images";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 const Login = () => {
-  const [textValue, setTextValue] = useState<string>("");
-  const onTextChange = (e: any) => setTextValue(e.target.value);
-  const handleSubmit = () => console.log(textValue);
-
   const theme = useTheme();
   const classes = useStyles({ theme });
   const [isPasswordVisible, setPasswordVisible] = useState<boolean>(false);
   const { collectClass } = Utils.CommonFunctions;
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   return (
     <>
@@ -67,9 +68,9 @@ const Login = () => {
               email: "",
               password: "",
             }}
-            validationSchema={Schema.LoginSchema()}
-            onSubmit={(value, { setSubmitting }) => {
-              // dispatch(login(value, history, setSubmitting, rememberMe));
+            validationSchema={Schema.LoginSchema}
+            onSubmit={(values) => {
+              dispatch(login(values, history));
             }}
           >
             <Form>
@@ -77,12 +78,10 @@ const Login = () => {
                 <Typography>EMAIL ADDRESS*</Typography>
               </div>
               <div className={classes.inputField}>
-              <InputField
-                  onChange={onTextChange}
-                  placeholder="Enter Email Address"
-                  value={textValue}
+                <InputField
+                  placeholder="Enter email Address"
                   name="email"
-                  type={"email"}
+                  type="text"
                 />
               </div>
               <div className={classes.forgotPassword}>
@@ -119,9 +118,7 @@ const Login = () => {
 
               <ActiveButton
                 className={classes.activeButton}
-                onClick={handleSubmit}
                 sx={{ color: "#fff" }}
-                type="submit"
                 variant="contained"
               >
                 Login

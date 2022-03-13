@@ -157,6 +157,63 @@ export const getSkills = () => {
   };
 };
 
+export const verifyAccount = () => {
+  return (dispatch: Function) => {
+    if (!navigator.onLine) {
+      //check if user is online or not
+      // Utils.showAlert(2, 'Please check your internet connection!');
+      dispatch({
+        type: Utils.ActionName.LOADING,
+        payload: false,
+      });
+      return;
+    }
+
+    let dataToSend = {
+      token: localStorage.getItem("verify_account_token") || "",
+      deviceId: "3",
+      deviceToken: localStorage.getItem("user_id") || "",
+    };
+
+    console.log(dataToSend);
+
+    // return;
+
+    Utils.API.postApiCall(
+      Utils.endpoint.verify,
+      dataToSend,
+      (respData: any) => {
+        let { data } = respData;
+
+        if (data.statusCode === Utils.Constants.api_success_code.success) {
+          console.log(data);
+          localStorage.setItem("accessToken", data.data.accessToken);
+          dispatch({
+            type: Utils.ActionName.LOADING,
+            payload: false,
+          });
+
+          // Utils.showAlert(1, "Successfully logged in!");
+        } else {
+          dispatch({
+            type: Utils.ActionName.LOADING,
+            payload: false,
+          });
+        }
+      },
+      (error: any) => {
+        let { data } = error;
+        // console.log(data);
+        // Utils.showAlert(2, data.message);
+        dispatch({
+          type: Utils.ActionName.LOADING,
+          payload: false,
+        });
+      }
+    );
+  };
+};
+
 export const soleTraderProfileComplete = (
   values: { [key: string]: any },
   history: any
@@ -177,19 +234,20 @@ export const soleTraderProfileComplete = (
     let location = values.location;
     let valToSend = { ...values };
     delete valToSend.location;
+    valToSend.skills = valToSend.skills.map((val: any) => val.TYPE);
 
     let dataToSend = {
       userType,
-      mobileNo,
+      mobileNo: `${mobileNo}`,
       location,
       companySoleTraderDetail: { ...valToSend },
       deviceId: "3",
-      deviceToken: localStorage.getItem("verify_account_token") || "",
+      deviceToken: localStorage.getItem("user_id") || "",
     };
 
-    console.log(dataToSend);
+    // console.log(dataToSend);
 
-    return;
+    // return;
 
     Utils.API.putApiCall(
       Utils.endpoint.profileComplete,
@@ -202,6 +260,7 @@ export const soleTraderProfileComplete = (
             type: Utils.ActionName.LOADING,
             payload: false,
           });
+          history.push(Utils.Pathname.Dashboard) 
 
           // Utils.showAlert(1, "Successfully logged in!");
         } else {

@@ -1,7 +1,7 @@
 const Pathname = {
     LOGIN: "/",
-    FORGOT_PASSWORD: "/forgotpassword",
-    RESET_PASSWORD: "/resetpassword",
+    FORGOT_PASSWORD: "/forgot-password",
+    RESET_PASSWORD: "/user/forgot-password",
     SIGNUP:"/signup",
     VERIFY:"/verify",
     Dashboard:"/dashboard",

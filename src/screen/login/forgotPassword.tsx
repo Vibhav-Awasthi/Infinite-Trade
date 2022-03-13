@@ -7,7 +7,7 @@ import Utils from "../../Utils";
 
 import { ActiveButton } from "../../components/styledComponents/auth/signIn";
 
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useStyles } from "./style";
 import { useTheme } from "@mui/material";
 import { Typography } from "@mui/material";
@@ -15,14 +15,14 @@ import { Box } from "@mui/system";
 import { Formik, Form } from "formik";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import LocalImages from "../../Utils/images";
+import { forgotPassword } from "./action";
+import { useDispatch } from "react-redux";
 
 const ForgotPassword = () => {
-  const [textValue, setTextValue] = useState<string>("");
-  const onTextChange = (e: any) => setTextValue(e.target.value);
-  const handleSubmit = () => console.log(textValue);
-
   const theme = useTheme();
   const classes = useStyles({ theme });
+  const history = useHistory();
+  const dispatch = useDispatch();
   return (
     <>
       <HelmetProvider>
@@ -79,9 +79,11 @@ const ForgotPassword = () => {
             initialValues={{
               email: "",
             }}
-            validationSchema={Schema.LoginSchema()}
-            onSubmit={(value, { setSubmitting }) => {
+            validationSchema={Schema.ForgotPassWordSchema}
+            onSubmit={(values, { setSubmitting }) => {
               // dispatch(login(value, history, setSubmitting, rememberMe));
+              console.log(values);
+              dispatch(forgotPassword(values, history));
             }}
           >
             <Form>
@@ -90,19 +92,15 @@ const ForgotPassword = () => {
               </div>
               <div className={classes.inputField}>
                 <InputField
-                  onChange={onTextChange}
                   placeholder="Enter Email Address"
-                  value={textValue}
                   name="email"
                   type={"email"}
                 />
               </div>
 
               <ActiveButton
-                onClick={handleSubmit}
                 className={classes.activeButton}
                 sx={{ color: "#fff" }}
-                type="submit"
                 variant="contained"
               >
                 Send

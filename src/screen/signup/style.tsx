@@ -5,7 +5,7 @@ const useStyles = makeStyles({
   loginContainer: ({ theme }: any) => ({
     width: "90% !important",
     height: "89% !important",
-    // marginLeft: "8%",
+    marginTop: "5%",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -18,6 +18,10 @@ const useStyles = makeStyles({
     //     width: "90% !important",
     //   },
     // },
+  }),
+
+  stepper:() => ({
+    marginLeft:"80%",
   }),
 
   titleContainer: ({ theme }: any) => ({
@@ -98,13 +102,7 @@ const useStyles = makeStyles({
 
   verifyTitle: ({ theme }: any) => ({
     border: "1 px solid black",
-    position: "relative",
-    right: "11%",
     // width:"43% !important",
-    [theme.breakpoints.down(1025)]: {
-      position: "relative",
-      right: "11%",
-    },
   }),
   resendMail: () => ({
     "&:hover": {
@@ -157,6 +155,7 @@ const useStyles = makeStyles({
   }),
 
   inputField: () => ({
+    
     marginBottom: "1%",
     "& input::-webkit-outer-spin-button": {
       WebkitAppearance: "none",
@@ -172,7 +171,6 @@ const useStyles = makeStyles({
   }),
 
   textfieldClass: () => ({
-   
   }),
 
   selectProfile: ({ theme }: any) => ({

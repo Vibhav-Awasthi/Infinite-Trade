@@ -72,7 +72,7 @@ const useStyles = makeStyles({
   }),
   lables: ({ theme }: any) => ({
     float: "left",
-    marginTop:"1.5%",
+    marginTop:"8%",
     marginBottom: "1.5%",
     // margin: "25px 0 15px 0",
     // [theme.breakpoints.up(1920)]: {

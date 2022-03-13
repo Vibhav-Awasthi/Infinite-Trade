@@ -11,7 +11,7 @@ import {
   SmallText,
 } from "../../components/styledComponents/auth/signIn";
 
-import { Link ,useHistory} from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useStyles } from "./style";
 import { useTheme } from "@mui/material";
 import { Typography } from "@mui/material";
@@ -23,12 +23,18 @@ import NormalButton from "../../components/button/NormalButton";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { ReducersModel } from "../../model";
+import React from "react";
+import { verifyAccount } from "./actions";
 
 const SelectProfile = () => {
   const theme = useTheme();
   const classes = useStyles({ theme });
   const history = useHistory();
   const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    dispatch(verifyAccount());
+  }, [dispatch]);
 
   const state = useSelector((state: ReducersModel) => state);
   const { userType } = state.profileSelectorReducer;
@@ -44,7 +50,7 @@ const SelectProfile = () => {
   };
 
   const handleClick = () => {
-    if (userType === "SOLETRADER") {
+    if (userType === "COMPANYSOLETRADER") {
       history.push(Utils.Pathname.SOLE_TRADER_CONTACT);
     } else {
       history.push(Utils.Pathname.COMPANY_CONTACTS);
@@ -55,6 +61,14 @@ const SelectProfile = () => {
     <>
       <HelmetProvider>
         <div className={classes.loginContainer}>
+          <div>
+            <Typography sx={{ ml: "90%", fontWeight: "500", color: "#BDBDBD" }}>
+              01/03
+            </Typography>
+            <Typography sx={{ ml: "80%", fontWeight: "600", color: "#828282" }}>
+              Account Type
+            </Typography>
+          </div>
           <Box className={classes.titleContainer}>
             <ImageContainer
               style={classes.brandLogo}
@@ -105,9 +119,11 @@ const SelectProfile = () => {
             <div className={classes.buttonContainer}>
               <div
                 className={classes.profileSelector}
-                onClick={() => handleProfileSelector("SOLETRADER")}
+                onClick={() => handleProfileSelector("COMPANYSOLETRADER")}
                 style={
-                  userType === "SOLETRADER" ? { border: "2px solid #0da4ce",color:"#0da4ce" } : {}
+                  userType === "COMPANYSOLETRADER"
+                    ? { border: "2px solid #0da4ce", color: "#0da4ce" }
+                    : {}
                 }
               >
                 <ImageContainer
@@ -156,7 +172,7 @@ const SelectProfile = () => {
                 style={
                   userType === "COMPANY" ? { border: "2px solid #0da4ce" } : {}
                 }
-              >  
+              >
                 <ImageContainer
                   imgUrl={LocalImages.Client}
                   style={classes.selectProfile}

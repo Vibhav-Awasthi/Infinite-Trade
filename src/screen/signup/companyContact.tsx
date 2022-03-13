@@ -23,6 +23,14 @@ const CompanyContact = () => {
       <HelmetProvider>
         <div className={classes.loginContainer}>
           <Box className={classes.titleContainer}>
+          <div>
+            <Typography sx={{ ml: "90%", fontWeight: "500", color: "#BDBDBD" }}>
+              02/03
+            </Typography>
+            <Typography sx={{ ml: "75%", fontWeight: "600", color: "#828282" }}>
+              Contact Details
+            </Typography>
+          </div>
             <ImageContainer
               style={classes.brandLogo}
               imgUrl={LocalImages.Logo}
@@ -73,8 +81,9 @@ const CompanyContact = () => {
           <Formik
             initialValues={{
               PhoneNumber: "",
+              OfficeNumber:"",
             }}
-            validationSchema={Schema.MobileNumber()}
+            validationSchema={Schema.CompanyContactSchema()}
             onSubmit={(value, { setSubmitting }) => {
               // dispatch(login(value, history, setSubmitting, rememberMe));
             }}
@@ -96,7 +105,7 @@ const CompanyContact = () => {
               <div className={classes.inputField}>
                 <InputField
                   placeholder="Enter work number"
-                  name="phone_number"
+                  name="office_number"
                   type={"number"}
                 />
               </div>

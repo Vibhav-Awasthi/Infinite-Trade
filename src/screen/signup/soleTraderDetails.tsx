@@ -44,6 +44,14 @@ const Signup = () => {
     <>
       <HelmetProvider>
         <div className={classes.loginContainer}>
+        <div>
+            <Typography sx={{ ml: "90%", fontWeight: "500", color: "#BDBDBD" }}>
+              03/03
+            </Typography>
+            <Typography sx={{ ml: "75%", fontWeight: "600", color: "#828282" }}>
+              Business Details
+            </Typography>
+          </div>
           <Box className={classes.titleContainer}>
             <ImageContainer
               style={classes.brandLogo}
@@ -102,7 +110,6 @@ const Signup = () => {
             validationSchema={Schema.SoleTraderSchema}
             onSubmit={(value, { setSubmitting }) => {
               dispatch(soleTraderProfileComplete(value, history));
-              // console.log(value);
             }}
           >
             <Form>

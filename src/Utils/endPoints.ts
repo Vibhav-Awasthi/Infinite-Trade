@@ -9,6 +9,7 @@ const endPoint ={
     verifyAccount:"/v1/company/verify-account",
     logout:"/v1/company/logout",
     skills:"/v1/common/dropdown",
+    verify:"/v1/company/verify-account",
 
 }
 export default endPoint; 

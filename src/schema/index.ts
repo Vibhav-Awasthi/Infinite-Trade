@@ -63,6 +63,21 @@ const ChangePasswordScheema = () => {
   });
 };
 
+const CompanyContactSchema = () => {
+  return Yup.object().shape({
+    PhoneNumber: Yup.string()
+      .required("Please enter your phone number")
+      .matches(phoneRegExp, "Phone number is not valid")
+      .min(10, "to short")
+      .max(10, "to long"),
+    OfficeNumber: Yup.string()
+      .required("Please enter your phone number")
+      .matches(phoneRegExp, "Phone number is not valid")
+      .min(10, "to short")
+      .max(10, "to long"),
+  });
+};
+
 const BusinessDetailSchema = () => {
   return Yup.object().shape({
     name: Yup.string()
@@ -99,13 +114,40 @@ const SoleTraderSchema = () =>
       .required("Required"),
   });
 
+const ForgotPassWordSchema = () =>
+  Yup.object().shape({
+    email: Yup.string()
+      .trim()
+      .email("Please enter a valid email")
+      .required("Email required"),
+  });
+
+const ResetPasswordSchema = () =>
+  Yup.object().shape({
+    newPassword: Yup.string().trim().required("Password filed is required"),
+    confirmPassword: Yup.string()
+      .trim()
+      .required("Password field is required")
+      .test(
+        "check confirmPassword",
+        "Password does not match",
+        function (value: any) {
+          const { newPassword } = this.parent;
+          return value === newPassword;
+        }
+      ),
+  });
+
 const Schema = {
   LoginSchema,
   SignupSchema,
   ChangePasswordScheema,
+  CompanyContactSchema,
   MobileNumber,
   BusinessDetailSchema,
   SoleTraderSchema,
+  ForgotPassWordSchema,
+  ResetPasswordSchema,
 };
 
 export default Schema;

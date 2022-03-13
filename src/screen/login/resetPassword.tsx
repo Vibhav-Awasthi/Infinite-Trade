@@ -11,7 +11,7 @@ import {
   SmallText,
 } from "../../components/styledComponents/auth/signIn";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useStyles } from "./style";
 import { useTheme } from "@mui/material";
 import { Typography } from "@mui/material";
@@ -20,12 +20,16 @@ import { InputAdornment } from "@mui/material";
 import { Formik, Form } from "formik";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import LocalImages from "../../Utils/images";
+import { resetPassword } from "./action";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
   const theme = useTheme();
   const classes = useStyles({ theme });
   const [isPasswordVisible, setPasswordVisible] = useState<boolean>(false);
   const { collectClass } = Utils.CommonFunctions;
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   return (
     <>
@@ -81,30 +85,28 @@ const Login = () => {
           </Box>
           <Formik
             initialValues={{
-              email: "",
-              password: "",
+              newPassword: "",
+              confirmPassword: "",
             }}
-            validationSchema={Schema.LoginSchema()}
-            onSubmit={(value, { setSubmitting }) => {
-              // dispatch(login(value, history, setSubmitting, rememberMe));
+            validationSchema={Schema.ResetPasswordSchema}
+            onSubmit={(values, { setSubmitting }) => {
+              console.log(values, window.location.search);
+              dispatch(resetPassword(values, window.location.search, history));
             }}
           >
             <Form>
-              
               <div className={classes.forgotPassword}>
                 <Typography className={classes.lables}>NEW PASSWORD</Typography>
                 <Typography
                   className={classes.lables}
                   sx={{ color: "#686c6e" }}
-                >
-                  
-                </Typography>
+                ></Typography>
               </div>
               <div className={classes.inputField}>
                 <InputField
                   className={collectClass([classes.endIconContainer])}
                   placeholder="Enter Your Password"
-                  name="password"
+                  name="newPassword"
                   type={!isPasswordVisible ? "password" : "text"}
                   InputProps={{
                     endAdornment: (
@@ -121,19 +123,19 @@ const Login = () => {
                 />
               </div>
               <div className={classes.forgotPassword}>
-                <Typography className={classes.lables}>CONFIRM NEW PASSWORD</Typography>
+                <Typography className={classes.lables}>
+                  CONFIRM NEW PASSWORD
+                </Typography>
                 <Typography
                   className={classes.lables}
                   sx={{ color: "#686c6e" }}
-                >
-                  
-                </Typography>
+                ></Typography>
               </div>
               <div className={classes.inputField}>
                 <InputField
                   className={collectClass([classes.endIconContainer])}
                   placeholder="Enter Your Password"
-                  name="password"
+                  name="confirmPassword"
                   type={!isPasswordVisible ? "password" : "text"}
                   InputProps={{
                     endAdornment: (

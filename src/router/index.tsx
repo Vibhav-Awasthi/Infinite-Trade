@@ -16,6 +16,7 @@ const SoleTrader = lazy(() => import("../screen/signup/soleTraderContact"));
 const SoleTraderDetails = lazy(
   () => import("../screen/signup/soleTraderDetails")
 );
+const Dashboard =lazy(() => import("../screen/dashboard/index"))
 const CompanyDetails = lazy(() => import("../screen/signup/companyDetails"));
 const CompanyContact = lazy(() => import("../screen/signup/companyContact"));
 
@@ -99,6 +100,11 @@ const Routers: React.FC = () => {
           <PublicRoute
             path={`${Utils.Pathname.COMPANY_CONTACTS}`}
             component={CompanyContact}
+            exact
+          />
+          <PublicRoute
+            path={`${Utils.Pathname.Dashboard}`}
+            component={Dashboard}
             exact
           />
         </Switch>

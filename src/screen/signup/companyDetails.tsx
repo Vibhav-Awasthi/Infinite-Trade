@@ -31,6 +31,14 @@ const CompanyDetails = () => {
     <>
       <HelmetProvider>
         <div className={classes.loginContainer}>
+        <div>
+            <Typography sx={{ ml: "90%", fontWeight: "500", color: "#BDBDBD" }}>
+              03/03
+            </Typography>
+            <Typography sx={{ ml: "75%", fontWeight: "600", color: "#828282" }}>
+              Business Details
+            </Typography>
+          </div>
           <Box className={classes.titleContainer}>
             <ImageContainer
               style={classes.brandLogo}

@@ -4,6 +4,7 @@ import Pathname from "./pathname";
 import Constants from "./constants";
 import API from "./api";
 import endPoint from "./endPoints";
+import showAlert from "./alert"; 
 
 const Utils = {
   ActionName: ActionName,
@@ -12,6 +13,7 @@ const Utils = {
   Constants: Constants,
   API: API,
   endpoint: endPoint,
+  showAlert: showAlert,
 };
 
 export default Utils;

@@ -4,9 +4,12 @@ import Schema from "../../schema";
 import InputField from "../../components/inputfield";
 import Utils from "../../Utils";
 
-import { ActiveButton } from "../../components/styledComponents/auth/signIn";
+import {
+  CommonButton,
+  ActiveButton,
+} from "../../components/styledComponents/auth/signIn";
 
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useStyles } from "./style";
 import { useTheme } from "@mui/material";
 import { Typography } from "@mui/material";
@@ -14,23 +17,33 @@ import { Box } from "@mui/system";
 import { Formik, Form } from "formik";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import LocalImages from "../../Utils/images";
+import { useDispatch } from "react-redux";
 
 const CompanyContact = () => {
   const theme = useTheme();
   const classes = useStyles({ theme });
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const [tool, setTool] = React.useState(false);
+
   return (
     <>
       <HelmetProvider>
         <div className={classes.loginContainer}>
           <Box className={classes.titleContainer}>
-          <div>
-            <Typography sx={{ ml: "90%", fontWeight: "500", color: "#BDBDBD" }}>
-              02/03
-            </Typography>
-            <Typography sx={{ ml: "75%", fontWeight: "600", color: "#828282" }}>
-              Contact Details
-            </Typography>
-          </div>
+            <div>
+              <Typography
+                sx={{ ml: "90%", fontWeight: "500", color: "#BDBDBD" }}
+              >
+                02/03
+              </Typography>
+              <Typography
+                sx={{ ml: "75%", fontWeight: "600", color: "#828282" }}
+              >
+                Contact Details
+              </Typography>
+            </div>
             <ImageContainer
               style={classes.brandLogo}
               imgUrl={LocalImages.Logo}
@@ -80,12 +93,23 @@ const CompanyContact = () => {
           </Box>
           <Formik
             initialValues={{
-              PhoneNumber: "",
-              OfficeNumber:"",
+              mobileNo: "",
+              officeNo: "",
             }}
-            validationSchema={Schema.CompanyContactSchema()}
-            onSubmit={(value, { setSubmitting }) => {
-              // dispatch(login(value, history, setSubmitting, rememberMe));
+            validationSchema={Schema.CompanyContactSchema}
+            onSubmit={(values) => {
+              console.log(values,tool);
+              dispatch({
+                type: Utils.ActionName.PROFILESELECTOR,
+                payload:{
+                  mobileNo: values.mobileNo,
+                  companyDetail: {
+                    officeNo: values.officeNo,
+                    areYouInTool: tool
+                  }
+                }
+              })
+              history.push(Utils.Pathname.COMPANY_DETAILS);
             }}
           >
             <Form>
@@ -95,8 +119,8 @@ const CompanyContact = () => {
               <div className={classes.inputField}>
                 <InputField
                   placeholder="Enter your mobile number"
-                  name="phone_number"
-                  type={"number"}
+                  name="mobileNo"
+                  type={"text"}
                 />
               </div>
               <div className={classes.lables}>
@@ -105,30 +129,33 @@ const CompanyContact = () => {
               <div className={classes.inputField}>
                 <InputField
                   placeholder="Enter work number"
-                  name="office_number"
-                  type={"number"}
+                  name="officeNo"
+                  type={"text"}
                 />
               </div>
 
               <div className={classes.lables}>
-                <Typography sx={{color:"#424546"}}>ARE YOU ON THE TOOLS?</Typography>
+                <Typography sx={{ color: "#424546" }}>
+                  ARE YOU ON THE TOOLS?
+                </Typography>
               </div>
               <div className={classes.tools}>
-              <ActiveButton
-                className={classes.activeButton}
-                sx={{ color: "#fff", backgroundColor:"#000" }}
-                type="submit"
-                variant="contained"
-              >
-                YES
-              </ActiveButton><ActiveButton
-                className={classes.activeButton}
-                sx={{ color: "#000" , backgroundColor:"#fff" }}
-                type="submit"
-                variant="contained"
-              >
-                NO
-              </ActiveButton>
+                <CommonButton
+                  className={classes.activeButton}
+                  sx={{ color: "#fff", backgroundColor: "#000" }}
+                  variant="contained"
+                  onClick={() => setTool(true)}
+                >
+                  YES
+                </CommonButton>
+                <CommonButton
+                  className={classes.activeButton}
+                  sx={{ color: "#000", backgroundColor: "#fff" }}
+                  variant="contained"
+                  onClick={() => setTool(false)}
+                >
+                  NO
+                </CommonButton>
               </div>
 
               <ActiveButton

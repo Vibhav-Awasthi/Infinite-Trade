@@ -65,14 +65,14 @@ const ChangePasswordScheema = () => {
 
 const CompanyContactSchema = () => {
   return Yup.object().shape({
-    PhoneNumber: Yup.string()
+    mobileNo: Yup.string()
       .required("Please enter your phone number")
       .matches(phoneRegExp, "Phone number is not valid")
       .min(10, "to short")
       .max(10, "to long"),
-    OfficeNumber: Yup.string()
-      .required("Please enter your phone number")
-      .matches(phoneRegExp, "Phone number is not valid")
+    officeNo: Yup.string()
+      .required("Please enter your Office number")
+      .matches(phoneRegExp, "Office number is not valid")
       .min(10, "to short")
       .max(10, "to long"),
   });

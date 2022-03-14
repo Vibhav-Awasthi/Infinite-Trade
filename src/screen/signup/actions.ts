@@ -44,7 +44,7 @@ export const signUp = (values: any, setSubmitting: any, history: any) => {
           // Utils.showAlert(1, "Successfully logged in!");
         } else {
           setSubmitting(false);
-          // Utils.showAlert(2, data.message);
+          Utils.showAlert(2, data.message);
           // dispatch({
           //   type: Utils.ActionName.SIGNUP,
           //   payload: {
@@ -184,9 +184,8 @@ export const verifyAccount = () => {
       dataToSend,
       (respData: any) => {
         let { data } = respData;
-
+        console.log(data);
         if (data.statusCode === Utils.Constants.api_success_code.success) {
-          console.log(data);
           localStorage.setItem("accessToken", data.data.accessToken);
           dispatch({
             type: Utils.ActionName.LOADING,
@@ -203,7 +202,7 @@ export const verifyAccount = () => {
       },
       (error: any) => {
         let { data } = error;
-        // console.log(data);
+        console.log(data);
         // Utils.showAlert(2, data.message);
         dispatch({
           type: Utils.ActionName.LOADING,
@@ -260,9 +259,78 @@ export const soleTraderProfileComplete = (
             type: Utils.ActionName.LOADING,
             payload: false,
           });
-          history.push(Utils.Pathname.Dashboard) 
+          history.push(Utils.Pathname.Dashboard);
 
           // Utils.showAlert(1, "Successfully logged in!");
+        } else {
+          dispatch({
+            type: Utils.ActionName.LOADING,
+            payload: false,
+          });
+        }
+      },
+      (error: any) => {
+        let { data } = error;
+        // console.log(data);
+        // Utils.showAlert(2, data.message);
+        dispatch({
+          type: Utils.ActionName.LOADING,
+          payload: false,
+        });
+      }
+    );
+  };
+};
+
+export const CompanyProfileComplete = (
+  values: { [key: string]: any },
+  history: any
+) => {
+  return (dispatch: Function, getState: Function) => {
+    if (!navigator.onLine) {
+      //check if user is online or not
+      // Utils.showAlert(2, 'Please check your internet connection!');
+      dispatch({
+        type: Utils.ActionName.LOADING,
+        payload: false,
+      });
+      return;
+    }
+
+    const { userType, mobileNo, companyDetail } =
+      getState().profileSelectorReducer;
+
+    let location = values.location;
+    let valToSend = { ...values };
+    delete valToSend.location;
+    valToSend.availableTrades = valToSend.skills.map((val: any) => val.TYPE);
+    delete valToSend.skills;
+
+    let dataToSend = {
+      userType,
+      mobileNo: `${mobileNo}`,
+      location,
+      companyDetail: { ...valToSend, ...companyDetail },
+      deviceId: "3",
+      deviceToken: localStorage.getItem("user_id") || "",
+    };
+
+    console.log(dataToSend);
+
+    Utils.API.putApiCall(
+      Utils.endpoint.profileComplete,
+      dataToSend,
+      (respData: any) => {
+        let { data } = respData;
+
+        if (data.statusCode === Utils.Constants.api_success_code.success) {
+          dispatch({
+            type: Utils.ActionName.LOADING,
+            payload: false,
+          });
+          history.push(Utils.Pathname.Dashboard);
+
+          Utils.showAlert(1, "Successfully logged in!");
         } else {
           dispatch({
             type: Utils.ActionName.LOADING,

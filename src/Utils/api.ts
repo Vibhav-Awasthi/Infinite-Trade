@@ -78,7 +78,8 @@ const postApiCall = (
           },
         });
       } else if (err.response && !checkUserValidation(err.response.data)) {
-        errorCallback(err.message);
+        // console.log("err/api.ts",err);
+        errorCallback(err.response);
       } else if (!err.response) {
         errorCallback({
           data: {

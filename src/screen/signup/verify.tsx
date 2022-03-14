@@ -11,7 +11,7 @@ import {
   SmallText,
 } from "../../components/styledComponents/auth/signIn";
 
-import { Link } from "react-router-dom";
+import { useHistory} from "react-router-dom";
 import { useStyles } from "./style";
 import { useTheme } from "@mui/material";
 import { Typography } from "@mui/material";
@@ -26,6 +26,7 @@ import { resendMail, verifyAccount } from "./actions";
 const Verify = () => {
   const theme = useTheme();
   const classes = useStyles({ theme });
+  const history = useHistory();
   const dispatch = useDispatch();
 
   const handleResendEmail = () => {
@@ -108,10 +109,11 @@ const Verify = () => {
                 <Typography className={classes.lables}>Resend Email</Typography>
               </CommonButton>
               <CommonButton
-                className={classes.activeButton}
-                sx={{ color: "#fff", textDecoration: "none", width: "40%" }}
+                // className={classes.activeButton}
+                sx={{ color: "#fff", textDecoration: "none", width: "40%", }}
                 type="submit"
                 variant="contained"
+                onClick={() => history.push(Utils.Pathname.LOGIN)}
               >
                 <Typography className={classes.lables}>Login</Typography>
               </CommonButton>

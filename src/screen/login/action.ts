@@ -27,10 +27,10 @@ export const login = (values: { [key: string]: any }, history: any) => {
       dataToSend,
       (respData: any) => {
         let { data } = respData;
-
+        console.log(data);
         if (data.statusCode === Utils.Constants.api_success_code.success) {
-          console.log(data);
-
+          
+          Utils.showAlert(1,data.message)
           history.push(Utils.Pathname.Dashboard);
 
           dispatch({
@@ -38,9 +38,10 @@ export const login = (values: { [key: string]: any }, history: any) => {
             payload: false,
           });
 
-          // Utils.showAlert(1, "Successfully logged in!");
+        
         } else {
-          dispatch({
+          Utils.showAlert(2,data.message)
+          dispatch({ 
             type: Utils.ActionName.LOADING,
             payload: false,
           });
@@ -48,8 +49,8 @@ export const login = (values: { [key: string]: any }, history: any) => {
       },
       (error: any) => {
         let { data } = error;
-        // console.log(data);
-        // Utils.showAlert(2, data.message);
+        console.log(data,error);
+        Utils.showAlert(2, data.message);
         dispatch({
           type: Utils.ActionName.LOADING,
           payload: false,
@@ -92,7 +93,7 @@ export const forgotPassword = (
         if (data.statusCode === Utils.Constants.api_success_code.success) {
           console.log(data);
 
-          history.push(Utils.Pathname.LOGIN);
+          history.push(Utils.Pathname.VERIFY);
 
           dispatch({
             type: Utils.ActionName.LOADING,
@@ -127,8 +128,8 @@ export const resetPassword = (
 ) => {
   return (dispatch: Function) => {
     if (!navigator.onLine) {
-      //check if user is online or not
-      // Utils.showAlert(2, 'Please check your internet connection!');
+      // check if user is online or not
+      Utils.showAlert(2, 'Please check your internet connection!');
       dispatch({
         type: Utils.ActionName.LOADING,
         payload: false,
@@ -162,7 +163,7 @@ export const resetPassword = (
             payload: false,
           });
 
-          // Utils.showAlert(1, "Successfully logged in!");
+          Utils.showAlert(1,data.message);
         } else {
           dispatch({
             type: Utils.ActionName.LOADING,
@@ -172,8 +173,8 @@ export const resetPassword = (
       },
       (error: any) => {
         let { data } = error;
-        // console.log(data);
-        // Utils.showAlert(2, data.message);
+        console.log(data);
+        Utils.showAlert(2, data.message);
         dispatch({
           type: Utils.ActionName.LOADING,
           payload: false,

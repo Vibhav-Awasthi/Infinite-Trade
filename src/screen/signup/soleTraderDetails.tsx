@@ -27,7 +27,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ReducersModel } from "../../model";
 import { getSkills, soleTraderProfileComplete } from "./actions";
 
-const Signup = () => {
+const SoleTraderDetails = () => {
   const theme = useTheme();
   const classes = useStyles({ theme });
   const dispatch = useDispatch();
@@ -198,4 +198,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default SoleTraderDetails;

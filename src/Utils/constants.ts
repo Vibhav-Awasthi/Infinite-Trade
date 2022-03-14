@@ -15,7 +15,7 @@ export const api_success_code = {
 };
 
 const $axios = axios.create({
-  baseURL: " https://infinitetradeqaapi.appskeeper.in",
+  baseURL: " https://infinitetradestgapi.appskeeper.in",
   timeout: 30000,
   headers: {
     "Content-Type": "application/json",
@@ -28,7 +28,7 @@ const $axios = axios.create({
 });
 const $axios1 = axios.create({
   responseType: "blob",
-  baseURL: " https://infinitetradeqaapi.appskeeper.in",
+  baseURL: " https://infinitetradestgapi.appskeeper.in",
   timeout: 30000,
   headers: {
     platform: "3",
@@ -74,7 +74,7 @@ const constants = {
   api_error_code,
   axios: $axios,
   axios1: $axios1,
-  apiUrl: " https://infinitetradeqaapi.appskeeper.in",
+  apiUrl: " https://infinitetradestgapi.appskeeper.in",
   api_success_code,
   Session: Session,
 };

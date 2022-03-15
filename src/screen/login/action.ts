@@ -140,7 +140,7 @@ export const resetPassword = (
     let dataToSend = {
       token: token.split("=")[1],
       newPassword: values.newPassword,
-      deviceId: localStorage.getItem("user_id") || "",
+      deviceId: localStorage.getItem("user_id") || "3",
     };
 
     console.log(dataToSend);

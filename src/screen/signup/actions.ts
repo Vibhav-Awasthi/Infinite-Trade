@@ -329,6 +329,7 @@ export const CompanyProfileComplete = (
             payload: false,
           });
           history.push(Utils.Pathname.Dashboard);
+          
 
           Utils.showAlert(1, "Successfully logged in!");
         } else {

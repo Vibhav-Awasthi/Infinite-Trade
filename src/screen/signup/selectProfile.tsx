@@ -63,7 +63,7 @@ const SelectProfile = () => {
         <div className={classes.loginContainer}>
           <div>
             <Typography sx={{ ml: "90%", fontWeight: "500", color: "#BDBDBD" }}>
-              01/03
+              02/04
             </Typography>
             <Typography sx={{ ml: "80%", fontWeight: "600", color: "#828282" }}>
               Account Type
@@ -219,6 +219,7 @@ const SelectProfile = () => {
                   color: "#fff",
                   textDecoration: "none",
                   borderRadius: "0 !important",
+                  textTransform:"capitalize"
                 }}
                 variant="contained"
                 onClick={handleClick}

@@ -27,7 +27,7 @@ const SoleTraderContact = () => {
         <div className={classes.loginContainer}>
         <div>
             <Typography sx={{ ml: "90%", fontWeight: "500", color: "#BDBDBD" }}>
-              02/03
+              03/04
             </Typography>
             <Typography sx={{ ml: "75%", fontWeight: "600", color: "#828282" }}>
               Contact Details
@@ -108,9 +108,10 @@ const SoleTraderContact = () => {
 
               <ActiveButton
                 className={classes.activeButton}
-                sx={{ color: "#fff" }}
+                sx={{ color: "#fff",textTransform:"capitalize" }}
                 type="submit"
                 variant="contained"
+                
               >
                 Save & Continue
               </ActiveButton>

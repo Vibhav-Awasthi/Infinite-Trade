@@ -118,8 +118,9 @@ const Login = () => {
 
               <ActiveButton
                 className={classes.activeButton}
-                sx={{ color: "#fff" }}
-                variant="contained"
+                sx={{ color: "#fff",textTransform:"capitalize" }}
+                variant="contained" 
+                
               >
                 Login
               </ActiveButton>

@@ -21,9 +21,9 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import { useDispatch } from "react-redux";
 import LocalImages from "../../Utils/images";
 import NormalButton from "../../components/button/NormalButton";
-import { resendMail, verifyAccount } from "./actions";
+import { resendMail, verifyAccount } from "./action";
 
-const Verify = () => {
+const LinkSent = () => {
   const theme = useTheme();
   const classes = useStyles({ theme });
   const history = useHistory();
@@ -61,7 +61,7 @@ const Verify = () => {
                     },
                   }}
                 >
-                  Verify your email
+                  Reset password link sent
                 </Typography>
               </div>
               <div className={classes.verifyTitle}>
@@ -84,8 +84,7 @@ const Verify = () => {
                     },
                   }}
                 >
-                  Your Account has been successfully registered. Confirm your
-                  email address to start using Infinite Trades
+                  To create your new password. Click the ink in the email and enter a new one
                 </Typography>
               </div>
             </div>
@@ -110,7 +109,7 @@ const Verify = () => {
               </CommonButton>
               <CommonButton
                 // className={classes.activeButton}
-                sx={{ color: "#fff", textDecoration: "none", width: "40%", textTransform:"capitalize" }}
+                sx={{ color: "#fff", textDecoration: "none", width: "40%", }}
                 type="submit"
                 variant="contained"
                 onClick={() => history.push(Utils.Pathname.LOGIN)}
@@ -125,4 +124,4 @@ const Verify = () => {
   );
 };
 
-export default Verify;
+export default LinkSent;

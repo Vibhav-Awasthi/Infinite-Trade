@@ -154,7 +154,7 @@ const Login = () => {
 
               <ActiveButton
                 className={classes.activeButton}
-                sx={{ color: "#fff" }}
+                sx={{ color: "#fff", textTransform:"capitalize" }}
                 type="submit"
                 variant="contained"
               >

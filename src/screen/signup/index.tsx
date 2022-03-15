@@ -40,6 +40,14 @@ const Signup = () => {
     <>
       <HelmetProvider>
         <div className={classes.loginContainer}>
+        <div>
+            <Typography sx={{ ml: "90%", fontWeight: "500", color: "#BDBDBD" }}>
+              01/04
+            </Typography>
+            <Typography sx={{ ml: "80%", fontWeight: "600", color: "#828282" }}>
+              Account Info
+            </Typography>
+          </div>
           <Box className={classes.titleContainer}>
             <ImageContainer
               style={classes.brandLogo}
@@ -104,7 +112,7 @@ const Signup = () => {
           >
             <Form autoComplete="new">
               <div className={classes.lables}>
-                <Typography>Name*</Typography>
+                <Typography>YOUR FULL NAME*</Typography>
               </div>
               <div className={classes.inputField}>
                 <InputField
@@ -118,7 +126,7 @@ const Signup = () => {
               </div>
               <div className={classes.inputField}>
                 <InputField
-                  placeholder="Enter Email Address"
+                  placeholder="Enter email address"
                   name="email"
                   type={"text"}
                 />
@@ -130,7 +138,7 @@ const Signup = () => {
               <div className={classes.inputField}>
                 <InputField
                   className={collectClass([classes.endIconContainer])}
-                  placeholder="Enter Your Password"
+                  placeholder="Enter your password"
                   name="password"
                   type={!isPasswordVisible ? "password" : "text"}
                   InputProps={{
@@ -158,10 +166,10 @@ const Signup = () => {
                         style={{
                           textAlign: "left",
                           fontSize: 14,
-                          marginTop: "3px",
+                          marginTop: "1px",
                         }}
                       >
-                        I agree to terms and conditions.
+                        I agree to terms & conditions.
                       </div>
                     </React.Fragment>
                   }
@@ -176,7 +184,7 @@ const Signup = () => {
 
               <ActiveButton
                 className={classes.activeButton}
-                sx={{ color: "#fff", textDecoration: "none" }}
+                sx={{ color: "#fff", textDecoration: "none", textTransform:"capitalize" }}
                 variant="contained"
                 type={"submit"}
                 onClick={() => history.push(Utils.Pathname.VERIFY)}

@@ -331,7 +331,7 @@ export const CompanyProfileComplete = (
           history.push(Utils.Pathname.Dashboard);
           
 
-          Utils.showAlert(1, "Successfully logged in!");
+          Utils.showAlert(1, data.message);
         } else {
           dispatch({
             type: Utils.ActionName.LOADING,

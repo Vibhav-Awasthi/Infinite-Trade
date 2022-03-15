@@ -36,7 +36,7 @@ const CompanyContact = () => {
               <Typography
                 sx={{ ml: "90%", fontWeight: "500", color: "#BDBDBD" }}
               >
-                02/03
+                03/04
               </Typography>
               <Typography
                 sx={{ ml: "75%", fontWeight: "600", color: "#828282" }}
@@ -160,7 +160,7 @@ const CompanyContact = () => {
 
               <ActiveButton
                 className={classes.activeButton}
-                sx={{ color: "#fff" }}
+                sx={{ color: "#fff", textTransform:"capitalize" }}
                 type="submit"
                 variant="contained"
               >

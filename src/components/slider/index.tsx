@@ -63,12 +63,6 @@ const Slider = () => {
         <div className="slide-holder">
           <ImageContainer
             style={classes.carouselImage}
-            imgUrl={LocalImages.Boot}
-          />
-        </div>
-        <div className="slide-holder">
-          <ImageContainer
-            style={classes.carouselImage}
             imgUrl={LocalImages.Hand}
           />
         </div>

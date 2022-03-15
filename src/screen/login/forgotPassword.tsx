@@ -100,7 +100,7 @@ const ForgotPassword = () => {
 
               <ActiveButton
                 className={classes.activeButton}
-                sx={{ color: "#fff" }}
+                sx={{ color: "#fff",textTransform:"capitalize" }}
                 variant="contained"
               >
                 Send

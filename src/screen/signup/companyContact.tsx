@@ -9,21 +9,26 @@ import {
   ActiveButton,
 } from "../../components/styledComponents/auth/signIn";
 
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useStyles } from "./style";
 import { useTheme } from "@mui/material";
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { Formik, Form } from "formik";
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import {  HelmetProvider } from "react-helmet-async";
 import LocalImages from "../../Utils/images";
 import { useDispatch } from "react-redux";
 
 const CompanyContact = () => {
+  const [flag, setFlag] = React.useState(true);
   const theme = useTheme();
   const classes = useStyles({ theme });
   const dispatch = useDispatch();
   const history = useHistory();
+
+  function handleClick ()  {
+    setFlag(!flag);
+  };
 
   const [tool, setTool] = React.useState(false);
 
@@ -36,13 +41,15 @@ const CompanyContact = () => {
               <Typography
                 sx={{ ml: "90%", fontWeight: "500", color: "#BDBDBD" }}
               >
-                02/03
+                03/04
               </Typography>
+              <div className={classes.details}>
               <Typography
-                sx={{ ml: "75%", fontWeight: "600", color: "#828282" }}
+                sx={{mr:"7%" ,  fontWeight: "600", color: "#828282" }}
               >
                 Contact Details
               </Typography>
+              </div>
             </div>
             <ImageContainer
               style={classes.brandLogo}
@@ -51,7 +58,7 @@ const CompanyContact = () => {
             <div className={classes.title}>
               <Typography
                 sx={{
-                  fontSize: "30px",
+                  fontSize: "24px",
                   fontWeight: "bold",
                   fontStretch: "normal",
                   lineHeight: "normal",
@@ -140,27 +147,43 @@ const CompanyContact = () => {
                 </Typography>
               </div>
               <div className={classes.tools}>
-                <CommonButton
-                  className={classes.activeButton}
-                  sx={{ color: "#fff", backgroundColor: "#000" }}
-                  variant="contained"
-                  onClick={() => setTool(true)}
-                >
-                  YES
-                </CommonButton>
+                {flag?
                 <CommonButton
                   className={classes.activeButton}
                   sx={{ color: "#000", backgroundColor: "#fff" }}
                   variant="contained"
-                  onClick={() => setTool(false)}
+                  onClick={() => {setTool(true); handleClick()}}
                 >
-                  NO
-                </CommonButton>
+                  YES
+                </CommonButton> : <CommonButton
+                  className={classes.activeButton}
+                  sx={{ color: "#fff", backgroundColor: "#000" }}
+                  variant="contained"
+                  onClick={() => {setTool(true); handleClick()}}
+                >
+                  YES
+                </CommonButton>}
+                {flag?
+                <CommonButton
+                  className={classes.activeButton}
+                  sx={{ color: "#fff", backgroundColor: "#000" }}
+                  variant="contained"
+                  onClick={() => {setTool(true); handleClick()}}
+                >
+                  No
+                </CommonButton> : <CommonButton
+                  className={classes.activeButton}
+                  sx={{ color: "#000", backgroundColor: "#fff" }}
+                  variant="contained"
+                  onClick={() => {setTool(true); handleClick()}}
+                >
+                  No
+                </CommonButton>}
               </div>
 
               <ActiveButton
                 className={classes.activeButton}
-                sx={{ color: "#fff" }}
+                sx={{ color: "#fff", textTransform:"capitalize" }}
                 type="submit"
                 variant="contained"
               >

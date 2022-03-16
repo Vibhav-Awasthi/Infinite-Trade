@@ -46,7 +46,7 @@ const Verify = () => {
               <div className={classes.title}>
                 <Typography
                   sx={{
-                    fontSize: "30px",
+                    fontSize: "24px",
                     fontWeight: "bold",
                     fontStretch: "normal",
                     lineHeight: "normal",
@@ -110,7 +110,7 @@ const Verify = () => {
               </CommonButton>
               <CommonButton
                 // className={classes.activeButton}
-                sx={{ color: "#fff", textDecoration: "none", width: "40%", }}
+                sx={{ color: "#fff", textDecoration: "none", width: "40%", textTransform:"capitalize" }}
                 type="submit"
                 variant="contained"
                 onClick={() => history.push(Utils.Pathname.LOGIN)}

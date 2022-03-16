@@ -2,6 +2,7 @@ import React, { lazy } from "react";
 import { createTheme, ThemeProvider } from "@mui/material";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
 import PublicRoute from "../hoc/publicRoute";
+import PrivateRoute from "../hoc/privateRoute";
 import Utils from "../Utils";
 import { useSelector } from "react-redux";
 import { ReducersModel } from "../model";
@@ -19,6 +20,7 @@ const SoleTraderDetails = lazy(
 const Dashboard =lazy(() => import("../screen/dashboard/index"))
 const CompanyDetails = lazy(() => import("../screen/signup/companyDetails"));
 const CompanyContact = lazy(() => import("../screen/signup/companyContact"));
+const LinkSent = lazy (() => import("../screen/login/linkSent"))
 
 const Routers: React.FC = () => {
   const theme = createTheme({
@@ -102,9 +104,14 @@ const Routers: React.FC = () => {
             component={CompanyContact}
             exact
           />
-          <PublicRoute
+          <PrivateRoute
             path={`${Utils.Pathname.Dashboard}`}
             component={Dashboard}
+            exact 
+          />
+          <PublicRoute
+            path={`${Utils.Pathname.Link_SENT}`}
+            component={LinkSent}
             exact
           />
         </Switch>

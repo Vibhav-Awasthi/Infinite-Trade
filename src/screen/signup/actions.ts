@@ -1,11 +1,9 @@
-import { ResetPasswordModel } from "../../model";
+
 import Utils from "../../Utils";
 
 export const signUp = (values: any, setSubmitting: any, history: any) => {
   return (dispatch: Function) => {
     if (!navigator.onLine) {
-      //check if user is online or not
-      // Utils.showAlert(2, 'Please check your internet connection!');
       dispatch({
         type: Utils.ActionName.LOADING,
         payload: false,
@@ -45,14 +43,7 @@ export const signUp = (values: any, setSubmitting: any, history: any) => {
         } else {
           setSubmitting(false);
           Utils.showAlert(2, data.message);
-          // dispatch({
-          //   type: Utils.ActionName.SIGNUP,
-          //   payload: {
-          //     username: "",
-          //     password: "",
-          //     accountError: data.message,
-          //   },
-          // });
+          
           dispatch({
             type: Utils.ActionName.LOADING,
             payload: false,
@@ -63,15 +54,6 @@ export const signUp = (values: any, setSubmitting: any, history: any) => {
         setSubmitting(false);
         let { data } = error;
         console.log(data);
-        // Utils.showAlert(2, data.message);
-        // dispatch({
-        //   type: Utils.ActionName.SIGNUP,
-        //   payload: {
-        //     username: "",
-        //     password: "",
-        //     accountError: data.messa ge,
-        //   },
-        // });
         dispatch({
           type: Utils.ActionName.LOADING,
           payload: false,
@@ -84,8 +66,7 @@ export const signUp = (values: any, setSubmitting: any, history: any) => {
 export const resendMail = () => {
   return (dispatch: Function) => {
     if (!navigator.onLine) {
-      //check if user is online or not
-      // Utils.showAlert(2, 'Please check your internet connection!');
+      
       dispatch({
         type: Utils.ActionName.LOADING,
         payload: false,
@@ -112,7 +93,7 @@ export const resendMail = () => {
             payload: false,
           });
 
-          // Utils.showAlert(1, "Successfully logged in!");
+          
         } else {
           dispatch({
             type: Utils.ActionName.LOADING,
@@ -122,8 +103,7 @@ export const resendMail = () => {
       },
       (error: any) => {
         let { data } = error;
-        // console.log(data);
-        // Utils.showAlert(2, data.message);
+        
         dispatch({
           type: Utils.ActionName.LOADING,
           payload: false,
@@ -160,8 +140,7 @@ export const getSkills = () => {
 export const verifyAccount = () => {
   return (dispatch: Function) => {
     if (!navigator.onLine) {
-      //check if user is online or not
-      // Utils.showAlert(2, 'Please check your internet connection!');
+      
       dispatch({
         type: Utils.ActionName.LOADING,
         payload: false,
@@ -192,7 +171,7 @@ export const verifyAccount = () => {
             payload: false,
           });
 
-          // Utils.showAlert(1, "Successfully logged in!");
+          
         } else {
           dispatch({
             type: Utils.ActionName.LOADING,
@@ -203,7 +182,7 @@ export const verifyAccount = () => {
       (error: any) => {
         let { data } = error;
         console.log(data);
-        // Utils.showAlert(2, data.message);
+        
         dispatch({
           type: Utils.ActionName.LOADING,
           payload: false,
@@ -219,8 +198,6 @@ export const soleTraderProfileComplete = (
 ) => {
   return (dispatch: Function, getState: Function) => {
     if (!navigator.onLine) {
-      //check if user is online or not
-      // Utils.showAlert(2, 'Please check your internet connection!');
       dispatch({
         type: Utils.ActionName.LOADING,
         payload: false,
@@ -244,9 +221,6 @@ export const soleTraderProfileComplete = (
       deviceToken: localStorage.getItem("user_id") || "",
     };
 
-    // console.log(dataToSend);
-
-    // return;
 
     Utils.API.putApiCall(
       Utils.endpoint.profileComplete,
@@ -259,9 +233,9 @@ export const soleTraderProfileComplete = (
             type: Utils.ActionName.LOADING,
             payload: false,
           });
+          localStorage.clear();
           history.push(Utils.Pathname.Dashboard);
 
-          // Utils.showAlert(1, "Successfully logged in!");
         } else {
           dispatch({
             type: Utils.ActionName.LOADING,
@@ -271,8 +245,6 @@ export const soleTraderProfileComplete = (
       },
       (error: any) => {
         let { data } = error;
-        // console.log(data);
-        // Utils.showAlert(2, data.message);
         dispatch({
           type: Utils.ActionName.LOADING,
           payload: false,
@@ -288,8 +260,7 @@ export const CompanyProfileComplete = (
 ) => {
   return (dispatch: Function, getState: Function) => {
     if (!navigator.onLine) {
-      //check if user is online or not
-      // Utils.showAlert(2, 'Please check your internet connection!');
+      
       dispatch({
         type: Utils.ActionName.LOADING,
         payload: false,
@@ -328,9 +299,11 @@ export const CompanyProfileComplete = (
             type: Utils.ActionName.LOADING,
             payload: false,
           });
+          localStorage.clear();
           history.push(Utils.Pathname.Dashboard);
+          
 
-          Utils.showAlert(1, "Successfully logged in!");
+          Utils.showAlert(1, data.message);
         } else {
           dispatch({
             type: Utils.ActionName.LOADING,
@@ -340,8 +313,7 @@ export const CompanyProfileComplete = (
       },
       (error: any) => {
         let { data } = error;
-        // console.log(data);
-        // Utils.showAlert(2, data.message);
+        
         dispatch({
           type: Utils.ActionName.LOADING,
           payload: false,
@@ -351,54 +323,3 @@ export const CompanyProfileComplete = (
   };
 };
 
-// export const addSoleTrader = () => {
-//   return (dispatch: Function) => {
-//     if (!navigator.onLine) {
-//       //check if user is online or not
-//       // Utils.showAlert(2, 'Please check your internet connection!');
-//       dispatch({
-//         type: Utils.ActionName.LOADING,
-//         payload: false,
-//       });
-//       return;
-//     }
-
-//     let dataToSend = {
-//       email: localStorage.getItem("user_email") || "",
-//       type: 1,
-//       deviceId: "string",
-//       deviceToken: localStorage.getItem("verify_account_token") || "",
-//     };
-
-//     Utils.API.postApiCall(
-//       Utils.endpoint.resendLink,
-//       dataToSend,
-//       (respData: any) => {
-//         let { data } = respData;
-
-//         if (data.statusCode === Utils.Constants.api_success_code.success) {
-//           dispatch({
-//             type: Utils.ActionName.LOADING,
-//             payload: false,
-//           });
-
-//           // Utils.showAlert(1, "Successfully logged in!");
-//         } else {
-//           dispatch({
-//             type: Utils.ActionName.LOADING,
-//             payload: false,
-//           });
-//         }
-//       },
-//       (error: any) => {
-//         let { data } = error;
-//         // console.log(data);
-//         // Utils.showAlert(2, data.message);
-//         dispatch({
-//           type: Utils.ActionName.LOADING,
-//           payload: false,
-//         });
-//       }
-//     );
-//   };
-// };

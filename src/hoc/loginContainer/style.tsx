@@ -1,19 +1,25 @@
 import { makeStyles } from "@mui/styles/";
 
 const useStyles = makeStyles((theme) => ({
-  container: () => ({
+  container: ({theme}:any) => ({
     height: "100vh",
     width: "100%",
     display: "flex",
     flexDirection: "row",
+    [theme.breakpoints.down("1200")]: {
+      margin: "0",
+      height: "110%",
+      width: "100%",
+    },
   }),
 
   loginContainer: ({ theme }: any) => ({
     width: "38%",
     height: "100%",
     margin: "0 auto",
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("1200")]: {
       margin: "0",
+      height: "100%",
       width: "100%",
     },
     [theme.breakpoints.between(800, 850)]: {

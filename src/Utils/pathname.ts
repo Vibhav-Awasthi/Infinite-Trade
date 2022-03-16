@@ -9,6 +9,7 @@ const Pathname = {
     SOLE_TRADER_CONTACT:"/soletradercontact",
     SOLE_TRADER_DETAILS:"/soletraderdetails",
     COMPANY_DETAILS:"/companydetails",
-    COMPANY_CONTACTS:"/companycontact"
+    COMPANY_CONTACTS:"/companycontact",
+    Link_SENT:"/linksent"
   };
   export default Pathname;

@@ -74,28 +74,19 @@ const useStyles = makeStyles({
     float: "left",
     marginTop:"8%",
     marginBottom: "1.5%",
-    // margin: "25px 0 15px 0",
-    // [theme.breakpoints.up(1920)]: {
-    //   margin: "32px 0 20px 0",
-    //   "& .MuiTypography-h5": {
-    //     fontSize: "30px",
-    //   },
-    // },
-    // [theme.breakpoints.up(2560)]: {
-    //   margin: "40px 0 25px 0",
-    //   "& .MuiTypography-h5": {
-    //     fontSize: "40px",
-    //   },
-    // },
-    // [theme.breakpoints.down("xs")]: {
-    //   margin: "40px 0 25px 0",
-    //   "& .MuiTypography-h5": {
-    //     fontSize: "1.4rem",
-    //   },
-    // },
-    // "& .MuiTypography-h5": {
-    //   fontWeight: 800,
-    // },
+  }),
+
+  verifyTitle: ({ theme }: any) => ({
+    border: "1 px solid black",
+  }),
+  
+  buttonContainer: () => ({
+    marginTop: "5%",
+    // marginRight: "22%",
+    width: "100%",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
   }),
 
   forgotPassword: () => ({

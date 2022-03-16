@@ -1,11 +1,11 @@
 import { makeStyles } from "@mui/styles";
-import { height } from "@mui/system";
+
 
 const useStyles = makeStyles({
   loginContainer: ({ theme }: any) => ({
     width: "90% !important",
     height: "89% !important",
-    marginTop: "5%",
+    marginTop: "4%",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -18,6 +18,14 @@ const useStyles = makeStyles({
     //     width: "90% !important",
     //   },
     // },
+  }),
+
+  details:({theme}:any)=> ({
+    width:"50%",
+    marginLeft:"64.5%",
+    [theme.breakpoints.down(1300)]: {
+      marginLeft:"64",
+    },
   }),
 
   stepper:() => ({
@@ -75,34 +83,10 @@ const useStyles = makeStyles({
 
   title: ({ theme }: any) => ({
     width: "100%",
-
-    // margin: "30px 160px 15px 0",
-    // [theme.breakpoints.up(1920)]: {
-    //   margin: "32px 0 20px 0",
-    //   "& .MuiTypography-h5": {
-    //     fontSize: "30px",
-    //   },
-    // },
-    // [theme.breakpoints.up(2560)]: {
-    //   margin: "40px 0 25px 0",
-    //   "& .MuiTypography-h5": {
-    //     fontSize: "40px",
-    //   },
-    // },
-    // [theme.breakpoints.down("xs")]: {
-    //   margin: "40px 0 25px 0",
-    //   "& .MuiTypography-h5": {
-    //     fontSize: "1.4rem",
-    //   },
-    // },
-    // "& .MuiTypography-h5": {
-    //   fontWeight: 800,
-    // },
   }),
 
   verifyTitle: ({ theme }: any) => ({
     border: "1 px solid black",
-    // width:"43% !important",
   }),
   resendMail: () => ({
     "&:hover": {
@@ -114,28 +98,6 @@ const useStyles = makeStyles({
     float: "left",
     marginTop: "1.5%",
     marginBottom: "1.5%",
-    // margin: "25px 0 15px 0",
-    // [theme.breakpoints.up(1920)]: {
-    //   margin: "32px 0 20px 0",
-    //   "& .MuiTypography-h5": {
-    //     fontSize: "30px",
-    //   },
-    // },
-    // [theme.breakpoints.up(2560)]: {
-    //   margin: "40px 0 25px 0",
-    //   "& .MuiTypography-h5": {
-    //     fontSize: "40px",
-    //   },
-    // },
-    // [theme.breakpoints.down("xs")]: {
-    //   margin: "40px 0 25px 0",
-    //   "& .MuiTypography-h5": {
-    //     fontSize: "1.4rem",
-    //   },
-    // },
-    // "& .MuiTypography-h5": {
-    //   fontWeight: 800,
-    // },
   }),
 
   forgotPassword: () => ({
@@ -165,9 +127,6 @@ const useStyles = makeStyles({
       webkitAppearance: "none",
       margin: 0,
     },
-    // "& input[type=number]": {
-    //   MozAppearance: "textfield",
-    // },
   }),
 
   textfieldClass: () => ({

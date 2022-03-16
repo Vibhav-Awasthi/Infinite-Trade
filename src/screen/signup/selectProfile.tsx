@@ -63,11 +63,13 @@ const SelectProfile = () => {
         <div className={classes.loginContainer}>
           <div>
             <Typography sx={{ ml: "90%", fontWeight: "500", color: "#BDBDBD" }}>
-              01/03
+              02/04
             </Typography>
-            <Typography sx={{ ml: "80%", fontWeight: "600", color: "#828282" }}>
+            <div className={classes.details}>
+            <Typography sx={{ fontWeight: "600", color: "#828282" }}>
               Account Type
             </Typography>
+            </div>
           </div>
           <Box className={classes.titleContainer}>
             <ImageContainer
@@ -77,7 +79,7 @@ const SelectProfile = () => {
             <div className={classes.title}>
               <Typography
                 sx={{
-                  fontSize: "30px",
+                  fontSize: "24px",
                   fontWeight: "bold",
                   fontStretch: "normal",
                   lineHeight: "normal",
@@ -219,6 +221,7 @@ const SelectProfile = () => {
                   color: "#fff",
                   textDecoration: "none",
                   borderRadius: "0 !important",
+                  textTransform:"capitalize"
                 }}
                 variant="contained"
                 onClick={handleClick}

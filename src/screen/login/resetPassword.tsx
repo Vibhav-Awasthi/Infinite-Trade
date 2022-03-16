@@ -5,20 +5,17 @@ import InputField from "../../components/inputfield";
 import Utils from "../../Utils";
 
 import {
-  HeadingText,
   ActiveButton,
-  InnerMainDiv,
-  SmallText,
 } from "../../components/styledComponents/auth/signIn";
 import { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import {  useHistory } from "react-router-dom";
 import { useStyles } from "./style";
 import { useTheme } from "@mui/material";
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { InputAdornment } from "@mui/material";
 import { Formik, Form } from "formik";
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import {  HelmetProvider } from "react-helmet-async";
 import LocalImages from "../../Utils/images";
 import { resetPassword } from "./action";
 import { useDispatch } from "react-redux";
@@ -43,7 +40,7 @@ const Login = () => {
             <div className={classes.title}>
               <Typography
                 sx={{
-                  fontSize: "30px",
+                  fontSize: "24px",
                   fontWeight: "bold",
                   fontStretch: "normal",
                   lineHeight: "normal",
@@ -55,6 +52,7 @@ const Login = () => {
                     fontSize: "20px",
                     marginLeft: "2%",
                     marginTop: "4%",
+                    marginBottom: "3%",
                   },
                 }}
               >
@@ -75,7 +73,7 @@ const Login = () => {
                   [theme.breakpoints.down(1025)]: {
                     fontSize: "12px",
                     marginLeft: "2%",
-                    marginTop: "4%",
+                    marginTop: "7%",
                   },
                 }}
               >
@@ -96,7 +94,7 @@ const Login = () => {
           >
             <Form>
               <div className={classes.forgotPassword}>
-                <Typography className={classes.lables}>NEW PASSWORD</Typography>
+                <Typography className={classes.lables} sx={{ marginTop: "8%" }}>NEW PASSWORD</Typography>
                 <Typography
                   className={classes.lables}
                   sx={{ color: "#686c6e" }}
@@ -112,6 +110,7 @@ const Login = () => {
                     endAdornment: (
                       <InputAdornment position="end">
                         <Typography
+                          sx={{ cursor: "pointer" }}
                           component={"span"}
                           onClick={() => setPasswordVisible(!isPasswordVisible)}
                         >
@@ -141,6 +140,7 @@ const Login = () => {
                     endAdornment: (
                       <InputAdornment position="end">
                         <Typography
+                        sx={{cursor:"pointer"}}
                           component={"span"}
                           onClick={() => setPasswordVisible(!isPasswordVisible)}
                         >
@@ -154,7 +154,7 @@ const Login = () => {
 
               <ActiveButton
                 className={classes.activeButton}
-                sx={{ color: "#fff" }}
+                sx={{ color: "#fff", textTransform: "capitalize" }}
                 type="submit"
                 variant="contained"
               >

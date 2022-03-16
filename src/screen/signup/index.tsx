@@ -2,16 +2,11 @@ import React from "react";
 import ImageContainer from "../../components/ImageContainer";
 import Schema from "../../schema";
 import InputField from "../../components/inputfield";
-// import { Checkbox } from "@mui/material";
 import Utils from "../../Utils";
 
 import {
-  // HeadingText,
   ActiveButton,
-  // InnerMainDiv,
-  // SmallText,
 } from "../../components/styledComponents/auth/signIn";
-// import ActiveButton from "../../components/button";
 
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -40,6 +35,16 @@ const Signup = () => {
     <>
       <HelmetProvider>
         <div className={classes.loginContainer}>
+        <div>
+            <Typography sx={{ mt:"5%" ,ml: "90%", fontWeight: "500", color: "#BDBDBD" }}>
+              01/04
+            </Typography>
+            <div className={classes.details}>
+            <Typography sx={{ fontWeight: "600", color: "#828282"}}>
+              Account Info
+            </Typography>
+            </div>
+          </div>
           <Box className={classes.titleContainer}>
             <ImageContainer
               style={classes.brandLogo}
@@ -48,7 +53,7 @@ const Signup = () => {
             <div className={classes.title}>
               <Typography
                 sx={{
-                  fontSize: "30px",
+                  fontSize: "24px",
                   fontWeight: "bold",
                   fontStretch: "normal",
                   lineHeight: "normal",
@@ -104,7 +109,7 @@ const Signup = () => {
           >
             <Form autoComplete="new">
               <div className={classes.lables}>
-                <Typography>Name*</Typography>
+                <Typography>YOUR FULL NAME*</Typography>
               </div>
               <div className={classes.inputField}>
                 <InputField
@@ -118,7 +123,7 @@ const Signup = () => {
               </div>
               <div className={classes.inputField}>
                 <InputField
-                  placeholder="Enter Email Address"
+                  placeholder="Enter email address"
                   name="email"
                   type={"text"}
                 />
@@ -130,13 +135,14 @@ const Signup = () => {
               <div className={classes.inputField}>
                 <InputField
                   className={collectClass([classes.endIconContainer])}
-                  placeholder="Enter Your Password"
+                  placeholder="Enter your password"
                   name="password"
                   type={!isPasswordVisible ? "password" : "text"}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
                         <Typography
+                        sx={{cursor:"pointer"}}
                           component={"span"}
                           onClick={() => setPasswordVisible(!isPasswordVisible)}
                         >
@@ -150,7 +156,7 @@ const Signup = () => {
               <div className={classes.checkBoxContainer}>
                 <FormControlLabel
                   control={
-                    <Checkbox name="checked" className={classes.ckBox} />
+                    <Checkbox name="checked" required className={classes.ckBox} />
                   }
                   label={
                     <React.Fragment>
@@ -158,10 +164,10 @@ const Signup = () => {
                         style={{
                           textAlign: "left",
                           fontSize: 14,
-                          marginTop: "3px",
+                          marginTop: "0 px",
                         }}
                       >
-                        I agree to terms and conditions.
+                        I agree to terms & conditions.
                       </div>
                     </React.Fragment>
                   }
@@ -176,7 +182,7 @@ const Signup = () => {
 
               <ActiveButton
                 className={classes.activeButton}
-                sx={{ color: "#fff", textDecoration: "none" }}
+                sx={{ color: "#fff", textDecoration: "none", textTransform:"capitalize" }}
                 variant="contained"
                 type={"submit"}
                 onClick={() => history.push(Utils.Pathname.VERIFY)}

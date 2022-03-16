@@ -19,6 +19,9 @@ export const ActiveButton = styled(ActionButton)({
     height: "54px",
     marginTop: "20px",
     borderRadius:"0 !important",
+    "&:hover": {
+      backgroundColor: "#63615b",
+    }
   });
 
 export const HeadingText = styled("span")({

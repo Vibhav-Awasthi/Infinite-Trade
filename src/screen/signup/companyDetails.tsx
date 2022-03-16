@@ -46,11 +46,13 @@ const CompanyDetails = () => {
         <div className={classes.loginContainer}>
         <div>
             <Typography sx={{ ml: "90%", fontWeight: "500", color: "#BDBDBD" }}>
-              03/03
+              04/04
             </Typography>
-            <Typography sx={{ ml: "75%", fontWeight: "600", color: "#828282" }}>
+            <div className={classes.details}>
+            <Typography sx={{ mr:"9%" ,fontWeight: "600", color: "#828282" }}>
               Business Details
             </Typography>
+            </div>
           </div>
           <Box className={classes.titleContainer}>
             <ImageContainer
@@ -60,7 +62,7 @@ const CompanyDetails = () => {
             <div className={classes.title}>
               <Typography
                 sx={{
-                  fontSize: "30px",
+                  fontSize: "24px",
                   fontWeight: "bold",
                   fontStretch: "normal",
                   lineHeight: "normal",
@@ -181,7 +183,7 @@ const CompanyDetails = () => {
               <Link to={"#"}>
                 <ActiveButton
                   className={classes.activeButton}
-                  sx={{ color: "#fff", textDecoration: "none" }}
+                  sx={{ color: "#fff", textDecoration: "none",textTransform:"capitalize" }}
                   type="submit"
                   variant="contained"
                 >

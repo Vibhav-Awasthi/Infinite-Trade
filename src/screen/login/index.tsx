@@ -6,10 +6,7 @@ import Utils from "../../Utils";
 import { login } from "./action";
 
 import {
-  HeadingText,
   ActiveButton,
-  InnerMainDiv,
-  SmallText,
 } from "../../components/styledComponents/auth/signIn";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -19,7 +16,7 @@ import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { InputAdornment } from "@mui/material";
 import { Formik, Form } from "formik";
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import { HelmetProvider } from "react-helmet-async";
 import LocalImages from "../../Utils/images";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
@@ -59,7 +56,7 @@ const Login = () => {
                   },
                 }}
               >
-                Log In To Infinite Trades
+                Login to Infinite Trades
               </Typography>
             </div>
           </Box>
@@ -105,6 +102,7 @@ const Login = () => {
                     endAdornment: (
                       <InputAdornment position="end">
                         <Typography
+                        sx={{cursor:"pointer"}}
                           component={"span"}
                           onClick={() => setPasswordVisible(!isPasswordVisible)}
                         >
@@ -118,9 +116,9 @@ const Login = () => {
 
               <ActiveButton
                 className={classes.activeButton}
-                sx={{ color: "#fff",textTransform:"capitalize" }}
-                variant="contained" 
-                
+                sx={{ color: "#fff", textTransform: "capitalize" }}
+                variant="contained"
+
               >
                 Login
               </ActiveButton>
@@ -130,7 +128,7 @@ const Login = () => {
               >
                 Don't have an account?
                 <b>
-                  <Link to={Utils.Pathname.SIGNUP}>Signup</Link>
+                  <Link to={Utils.Pathname.SIGNUP}> Signup</Link>
                 </b>
               </Typography>
             </Form>

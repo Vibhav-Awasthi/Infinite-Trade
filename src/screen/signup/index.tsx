@@ -2,16 +2,11 @@ import React from "react";
 import ImageContainer from "../../components/ImageContainer";
 import Schema from "../../schema";
 import InputField from "../../components/inputfield";
-// import { Checkbox } from "@mui/material";
 import Utils from "../../Utils";
 
 import {
-  // HeadingText,
   ActiveButton,
-  // InnerMainDiv,
-  // SmallText,
 } from "../../components/styledComponents/auth/signIn";
-// import ActiveButton from "../../components/button";
 
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -41,7 +36,7 @@ const Signup = () => {
       <HelmetProvider>
         <div className={classes.loginContainer}>
         <div>
-            <Typography sx={{ ml: "90%", fontWeight: "500", color: "#BDBDBD" }}>
+            <Typography sx={{ mt:"5%" ,ml: "90%", fontWeight: "500", color: "#BDBDBD" }}>
               01/04
             </Typography>
             <div className={classes.details}>
@@ -147,6 +142,7 @@ const Signup = () => {
                     endAdornment: (
                       <InputAdornment position="end">
                         <Typography
+                        sx={{cursor:"pointer"}}
                           component={"span"}
                           onClick={() => setPasswordVisible(!isPasswordVisible)}
                         >
@@ -160,7 +156,7 @@ const Signup = () => {
               <div className={classes.checkBoxContainer}>
                 <FormControlLabel
                   control={
-                    <Checkbox name="checked" className={classes.ckBox} />
+                    <Checkbox name="checked" required className={classes.ckBox} />
                   }
                   label={
                     <React.Fragment>

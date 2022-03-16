@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkreact_js=self.webpackChunkreact_js||[]).push([[309],{2309:function(e,n,r){r.r(n);r(2791);var s=r(184);n.default=function(){return(0,s.jsx)("div",{children:" Welcome to Infinite Trades Dashboard"})}}}]);
-//# sourceMappingURL=309.be8818b4.chunk.js.map

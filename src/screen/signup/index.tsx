@@ -44,9 +44,11 @@ const Signup = () => {
             <Typography sx={{ ml: "90%", fontWeight: "500", color: "#BDBDBD" }}>
               01/04
             </Typography>
-            <Typography sx={{ ml: "80%", fontWeight: "600", color: "#828282" }}>
+            <div className={classes.details}>
+            <Typography sx={{ fontWeight: "600", color: "#828282"}}>
               Account Info
             </Typography>
+            </div>
           </div>
           <Box className={classes.titleContainer}>
             <ImageContainer

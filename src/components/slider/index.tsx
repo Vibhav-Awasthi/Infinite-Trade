@@ -72,12 +72,6 @@ const Slider = () => {
             imgUrl={LocalImages.Plan}
           />
         </div>
-        <div className="slide-holder">
-          <ImageContainer
-            style={classes.carouselImage}
-            imgUrl={LocalImages.Build}
-          />
-        </div>
       </Carousel>
     </>
   );

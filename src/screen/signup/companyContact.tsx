@@ -38,11 +38,13 @@ const CompanyContact = () => {
               >
                 03/04
               </Typography>
+              <div className={classes.details}>
               <Typography
-                sx={{ ml: "75%", fontWeight: "600", color: "#828282" }}
+                sx={{mr:"7%" ,  fontWeight: "600", color: "#828282" }}
               >
                 Contact Details
               </Typography>
+              </div>
             </div>
             <ImageContainer
               style={classes.brandLogo}

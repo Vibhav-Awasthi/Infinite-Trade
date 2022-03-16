@@ -259,6 +259,7 @@ export const soleTraderProfileComplete = (
             type: Utils.ActionName.LOADING,
             payload: false,
           });
+          localStorage.clear();
           history.push(Utils.Pathname.Dashboard);
 
           // Utils.showAlert(1, "Successfully logged in!");
@@ -328,6 +329,7 @@ export const CompanyProfileComplete = (
             type: Utils.ActionName.LOADING,
             payload: false,
           });
+          localStorage.clear();
           history.push(Utils.Pathname.Dashboard);
           
 

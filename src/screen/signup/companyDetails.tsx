@@ -48,9 +48,11 @@ const CompanyDetails = () => {
             <Typography sx={{ ml: "90%", fontWeight: "500", color: "#BDBDBD" }}>
               04/04
             </Typography>
-            <Typography sx={{ ml: "75%", fontWeight: "600", color: "#828282" }}>
+            <div className={classes.details}>
+            <Typography sx={{ mr:"9%" ,fontWeight: "600", color: "#828282" }}>
               Business Details
             </Typography>
+            </div>
           </div>
           <Box className={classes.titleContainer}>
             <ImageContainer

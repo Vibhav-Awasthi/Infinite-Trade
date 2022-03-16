@@ -20,6 +20,14 @@ const useStyles = makeStyles({
     // },
   }),
 
+  details:({theme}:any)=> ({
+    width:"50%",
+    marginLeft:"64.5%",
+    [theme.breakpoints.down(1300)]: {
+      marginLeft:"64",
+    },
+  }),
+
   stepper:() => ({
     marginLeft:"80%",
   }),

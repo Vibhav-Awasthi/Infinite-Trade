@@ -48,9 +48,11 @@ const SoleTraderDetails = () => {
             <Typography sx={{ ml: "90%", fontWeight: "500", color: "#BDBDBD" }}>
               04/04
             </Typography>
-            <Typography sx={{ ml: "75%", fontWeight: "600", color: "#828282" }}>
+            <div className={classes.details}>
+            <Typography sx={{mr:"8%", fontWeight: "600", color: "#828282" }}>
               Business Details
             </Typography>
+            </div>
           </div>
           <Box className={classes.titleContainer}>
             <ImageContainer
@@ -135,7 +137,7 @@ const SoleTraderDetails = () => {
                 />
               </div>
               <div className={classes.lables}>
-                <Typography>ADDRESS*</Typography>
+                <Typography>LOCATION*</Typography>
                 <Typography className={classes.lables}></Typography>
               </div>
               <div className={classes.inputField}>

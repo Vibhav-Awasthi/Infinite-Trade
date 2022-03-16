@@ -2,6 +2,7 @@ import React, { lazy } from "react";
 import { createTheme, ThemeProvider } from "@mui/material";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
 import PublicRoute from "../hoc/publicRoute";
+import PrivateRoute from "../hoc/privateRoute";
 import Utils from "../Utils";
 import { useSelector } from "react-redux";
 import { ReducersModel } from "../model";
@@ -103,10 +104,10 @@ const Routers: React.FC = () => {
             component={CompanyContact}
             exact
           />
-          <PublicRoute
+          <PrivateRoute
             path={`${Utils.Pathname.Dashboard}`}
             component={Dashboard}
-            exact
+            exact 
           />
           <PublicRoute
             path={`${Utils.Pathname.Link_SENT}`}

@@ -81,3 +81,19 @@
 .slide-in {
   height: 100vh;
 }
+
+
+.Toastify__toast--success {
+  color: #518348!important;
+  border-radius: 8px !important;
+  background: #91ca77 !important;
+  border: 1px solid #cedee0 !important;
+  width:100%,
+}
+.Toastify__toast--error {
+  color: #ef6565 !important;
+  border-radius: 8px !important;
+  background: #ecc2c2 !important;
+  border: 1px solid #ecc2c2;
+  width: 100%;
+}

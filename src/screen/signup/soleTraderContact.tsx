@@ -29,9 +29,11 @@ const SoleTraderContact = () => {
             <Typography sx={{ ml: "90%", fontWeight: "500", color: "#BDBDBD" }}>
               03/04
             </Typography>
-            <Typography sx={{ ml: "75%", fontWeight: "600", color: "#828282" }}>
+            <div className={classes.details}>
+            <Typography sx={{ mr:"7%", fontWeight: "600", color: "#828282" }}>
               Contact Details
             </Typography>
+            </div>
           </div>
           <Box className={classes.titleContainer}>
             <ImageContainer

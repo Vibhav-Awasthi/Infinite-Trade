@@ -43,7 +43,7 @@ const Login = () => {
             <div className={classes.title}>
               <Typography
                 sx={{
-                  fontSize: "30px",
+                  fontSize: "24px",
                   fontWeight: "bold",
                   fontStretch: "normal",
                   lineHeight: "normal",
@@ -55,6 +55,7 @@ const Login = () => {
                     fontSize: "20px",
                     marginLeft: "2%",
                     marginTop: "4%",
+                    marginBottom:"3%",
                   },
                 }}
               >
@@ -75,7 +76,7 @@ const Login = () => {
                   [theme.breakpoints.down(1025)]: {
                     fontSize: "12px",
                     marginLeft: "2%",
-                    marginTop: "4%",
+                    marginTop: "7%",
                   },
                 }}
               >
@@ -96,7 +97,7 @@ const Login = () => {
           >
             <Form>
               <div className={classes.forgotPassword}>
-                <Typography className={classes.lables}>NEW PASSWORD</Typography>
+                <Typography className={classes.lables}sx={{marginTop:"8%"}}>NEW PASSWORD</Typography>
                 <Typography
                   className={classes.lables}
                   sx={{ color: "#686c6e" }}

@@ -14,8 +14,8 @@ const PrivateRoute = ({ component: Component, ...rest }: Props) => {
       {...rest}
       render={(props) => (
         <React.Fragment>
-          {localStorage.getItem("verify_account_token") == null ||
-          sessionStorage.getItem("verify_account_token") == null ? (
+          {localStorage.getItem("accessToken") !== null ||
+          sessionStorage.getItem("accessToken") !== null ? (
             <MainContainer {...props}>
               <Suspense fallback={""}>
                 <Component {...props} />

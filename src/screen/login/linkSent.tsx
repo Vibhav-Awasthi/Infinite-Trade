@@ -46,7 +46,7 @@ const LinkSent = () => {
               <div className={classes.title}>
                 <Typography
                   sx={{
-                    fontSize: "30px",
+                    fontSize: "24px",
                     fontWeight: "bold",
                     fontStretch: "normal",
                     lineHeight: "normal",
@@ -94,6 +94,7 @@ const LinkSent = () => {
                 sx={{
                   color: "black",
                   textDecoration: "none",
+                  textTransform:"capitalize",
                   width: "40%",
                   border: "1px solid black",
                   backgroundColor: "#fff",
@@ -109,7 +110,7 @@ const LinkSent = () => {
               </CommonButton>
               <CommonButton
                 // className={classes.activeButton}
-                sx={{ color: "#fff", textDecoration: "none", width: "40%", }}
+                sx={{ color: "#fff", textDecoration: "none", textTransform:"capitalize", width: "40%", }}
                 type="submit"
                 variant="contained"
                 onClick={() => history.push(Utils.Pathname.LOGIN)}

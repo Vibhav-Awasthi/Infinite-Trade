@@ -58,7 +58,7 @@ const Signup = () => {
             <div className={classes.title}>
               <Typography
                 sx={{
-                  fontSize: "30px",
+                  fontSize: "24px",
                   fontWeight: "bold",
                   fontStretch: "normal",
                   lineHeight: "normal",
@@ -168,7 +168,7 @@ const Signup = () => {
                         style={{
                           textAlign: "left",
                           fontSize: 14,
-                          marginTop: "1px",
+                          marginTop: "0 px",
                         }}
                       >
                         I agree to terms & conditions.

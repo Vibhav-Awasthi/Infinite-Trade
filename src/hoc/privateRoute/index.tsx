@@ -17,7 +17,7 @@ const PrivateRoute = ({ component: Component, ...rest }: Props) => {
           {localStorage.getItem("verify_access_Token") == null ||
           sessionStorage.getItem("verify_access_Token") == null ? (
             <MainContainer {...props}>
-              <Suspense fallback={""}>
+              <Suspense fallback={""}> 
                 <Component {...props} />
               </Suspense>
             </MainContainer>

@@ -8,7 +8,11 @@ const useStyles = makeStyles({
     width:"100%",
     display:"flex",
     flexDirection:"row",
-    justifyContent:"space-between"
+    justifyContent:"space-between",
+    [theme.breakpoints.down(1024)]: {
+      flexDirection:"column-reverse",
+    },
+
   }),
   loginContainer: ({ theme }: any) => ({
     width: "98% !important",
@@ -24,7 +28,7 @@ const useStyles = makeStyles({
 
   verifyContainer:({theme}:any) => ({
     marginTop:"40%",
-    width: "98% !important",
+    width: "90% !important",
     height: "auto !important",
     display: "flex",
     flexDirection: "column",
@@ -44,11 +48,13 @@ const useStyles = makeStyles({
   }),
 
   step:({theme}:any) => ({
-    width:"34%",
+    width:"36%",
     marginTop:"5%",
+    // marginLeft:"5%",
     [theme.breakpoints.down(1025)]: {
-      display:"none",
+      display:"none"
     },
+
     
   }),
 
@@ -155,7 +161,7 @@ const useStyles = makeStyles({
 
   selectProfile: ({ theme }: any) => ({
     display: "flex",
-    height: "100px",
+    height: "65px",
     width: "100%",
     marginRight: "20%",
     alignItems: "center",

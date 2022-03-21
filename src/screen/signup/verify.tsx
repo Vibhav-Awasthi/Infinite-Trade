@@ -96,7 +96,8 @@ const Verify = () => {
                   color: "black",
                   textDecoration: "none",
                   textTransform:"capitalize",
-                  width: "40%",
+                  width: "208px",
+                  height:"56px",
                   border: "1px solid black",
                   backgroundColor: "#fff",
                   "&:hover": {
@@ -111,7 +112,7 @@ const Verify = () => {
               </CommonButton>
               <CommonButton
                 // className={classes.activeButton}
-                sx={{ color: "#fff", textDecoration: "none", width: "40%", textTransform:"capitalize" }}
+                sx={{ color: "#fff", textDecoration: "none", width: "208px", height:"56px", textTransform:"capitalize" }}
                 type="submit"
                 variant="contained"
                 onClick={() => history.push(Utils.Pathname.LOGIN)}

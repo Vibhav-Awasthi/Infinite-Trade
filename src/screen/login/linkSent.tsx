@@ -36,7 +36,7 @@ const LinkSent = () => {
   return (
     <>
       <HelmetProvider>
-        <div className={classes.loginContainer}>
+        <div className={classes.verifyContainer}>
           <Box>
             <div className={classes.titleContainer}>
               <ImageContainer
@@ -95,7 +95,8 @@ const LinkSent = () => {
                   color: "black",
                   textDecoration: "none",
                   textTransform:"capitalize",
-                  width: "40%",
+                  width: "208px",
+                  height:"56px",
                   border: "1px solid black",
                   backgroundColor: "#fff",
                   "&:hover": {
@@ -110,7 +111,8 @@ const LinkSent = () => {
               </CommonButton>
               <CommonButton
                 // className={classes.activeButton}
-                sx={{ color: "#fff", textDecoration: "none", textTransform:"capitalize", width: "40%", }}
+                sx={{ color: "#fff", textDecoration: "none", width: "208px",
+                height:"56px", textTransform:"capitalize" }}
                 type="submit"
                 variant="contained"
                 onClick={() => history.push(Utils.Pathname.LOGIN)}

@@ -188,7 +188,7 @@ const SoleTraderDetails = () => {
           </div>
           <div className={classes.step}>
             <Typography sx={{ mt: "5%", ml: "45%", fontSize: "12px", fontWeight: "500", color: "#BDBDBD" }}>
-              <b>Step</b> 04/04
+              <b>STEP</b> 04/04
             </Typography>
             <div>
               <Typography sx={{ fontWeight: "600", fontSize: "14px", color: "#828282" }}>

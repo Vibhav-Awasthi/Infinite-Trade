@@ -81,6 +81,7 @@ const CompanyDetails = () => {
                     color: "#687173",
                     float: "left",
                     marginTop: "2%",
+                    marginBottom:"8%",
                     [theme.breakpoints.down(1025)]: {
                       fontSize: "12px",
                       marginLeft: "2%",
@@ -187,10 +188,10 @@ const CompanyDetails = () => {
           </div>
           <div className={classes.step}>
             <Typography sx={{ mt: "5%", ml: "45%", fontSize: "12px", fontWeight: "500", color: "#BDBDBD" }}>
-              <b>Step</b> 04/04
+              <b>STEP</b> 04/04
             </Typography>
             <div>
-              <Typography sx={{ fontWeight: "600", fontSize: "14px", color: "#828282" }}>
+              <Typography sx={{ fontWeight: "600", ml:"5%", fontSize: "14px", color: "#828282" }}>
                 Business Details
               </Typography>
             </div>

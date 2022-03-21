@@ -88,8 +88,8 @@ const Login = () => {
             }}
             validationSchema={Schema.ResetPasswordSchema}
             onSubmit={(values, { setSubmitting }) => {
-              console.log(values, window.location.search);
               dispatch(resetPassword(values, window.location.search, history));
+              
             }}
           >
             <Form>
@@ -155,7 +155,6 @@ const Login = () => {
               <ActiveButton
                 className={classes.activeButton}
                 sx={{ color: "#fff", textTransform: "capitalize" }}
-                type="submit"
                 variant="contained"
               >
                 Reset Password

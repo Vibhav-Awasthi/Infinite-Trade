@@ -46,7 +46,6 @@ const SelectProfile = () => {
         userType: type,
       },
     });
-    console.log(state);
   };
 
   const handleClick = () => {
@@ -60,17 +59,8 @@ const SelectProfile = () => {
   return (
     <>
       <HelmetProvider>
+        <div className={classes.signupContainer}>
         <div className={classes.loginContainer}>
-          <div>
-            <Typography sx={{ ml: "90%", fontWeight: "500", color: "#BDBDBD" }}>
-              02/04
-            </Typography>
-            <div className={classes.details}>
-            <Typography sx={{ fontWeight: "600", color: "#828282" }}>
-              Account Type
-            </Typography>
-            </div>
-          </div>
           <Box className={classes.titleContainer}>
             <ImageContainer
               style={classes.brandLogo}
@@ -129,41 +119,63 @@ const SelectProfile = () => {
                 }
               >
                 <ImageContainer
-                  imgUrl={LocalImages.Work}
+                  imgUrl={ userType==="COMPANYSOLETRADER" ? LocalImages.WorkSelected : LocalImages.Work
+                }
                   style={classes.selectProfile}
                 />
                 <Typography
-                  sx={{
-                    fontSize: "26px",
+                  sx={ userType==="COMPANYSOLETRADER" ? {
+                    fontSize: "16px",
                     textAlign: "center",
                     width: "100%",
-                    color: "#687173",
+                    fontWeight:"700",
+                    color: "#097390",
                     float: "left",
-                    marginTop: "2%",
                     marginRight: "10% !important",
                     [theme.breakpoints.down(1025)]: {
                       fontSize: "12px",
                       marginLeft: "2%",
                       marginTop: "4%",
                     },
-                  }}
+                  }: {fontSize: "16px",
+                  textAlign: "center",
+                  width: "100%",
+                  fontWeight:"700",
+                  color: "#687173",
+                  float: "left",
+                  marginRight: "10% !important",
+                  [theme.breakpoints.down(1025)]: {
+                    fontSize: "12px",
+                    marginLeft: "2%",
+                    marginTop: "4%",
+                  },}}
                 >
                   Sole Trader
                 </Typography>
                 <Typography
-                  sx={{
-                    fontSize: "16px",
+                  sx={userType==="COMPANYSOLETRADER" ? {
+                    fontSize: "10px",
                     textAlign: "center",
                     width: "100%",
-                    color: "#687173",
+                    color: "#097390",
                     float: "left",
-                    marginTop: "2%",
                     [theme.breakpoints.down(1025)]: {
                       fontSize: "12px",
                       marginLeft: "2%",
                       marginTop: "4%",
                     },
-                  }}
+                  } : {
+                    fontSize: "10px",
+                    textAlign: "center",
+                    width: "100%",
+                    color: "#687173",
+                    float: "left",
+                    [theme.breakpoints.down(1025)]: {
+                      fontSize: "12px",
+                      marginLeft: "2%",
+                      marginTop: "4%",
+                    },
+                  } }
                 >
                   I am looking for work.
                 </Typography>
@@ -176,13 +188,28 @@ const SelectProfile = () => {
                 }
               >
                 <ImageContainer
-                  imgUrl={LocalImages.Client}
+                  imgUrl={ userType==="COMPANY" ? LocalImages.ClientSelected : LocalImages.Client
+                }
                   style={classes.selectProfile}
                 />
                 <Typography
-                  sx={{
-                    fontSize: "26px",
+                  sx={userType==="COMPANY" ? {
+                    fontSize: "16px",
                     textAlign: "center",
+                    fontWeight:"700",
+                    width: "100%",
+                    color: "#097390",
+                    float: "left",
+                    marginRight: "10% !important",
+                    [theme.breakpoints.down(1025)]: {
+                      fontSize: "12px",
+                      marginLeft: "2%",
+                      marginTop: "4%",
+                    },
+                  } :{
+                    fontSize: "16px",
+                    textAlign: "center",
+                    fontWeight:"700",
                     width: "100%",
                     color: "#687173",
                     float: "left",
@@ -192,24 +219,34 @@ const SelectProfile = () => {
                       marginLeft: "2%",
                       marginTop: "4%",
                     },
-                  }}
+                  } }
                 >
                   Company
                 </Typography>
                 <Typography
-                  sx={{
-                    fontSize: "16px",
+                  sx={userType==="COMPANY" ? {
+                    fontSize: "10px",
                     textAlign: "center",
                     width: "100%",
-                    color: "#687173",
+                    color: "#097390",
                     float: "left",
-                    marginTop: "2%",
                     [theme.breakpoints.down(1025)]: {
                       fontSize: "12px",
                       marginLeft: "2%",
                       marginTop: "4%",
                     },
-                  }}
+                  } : {
+                    fontSize: "10px",
+                    textAlign: "center",
+                    width: "100%",
+                    color: "#687173",
+                    float: "left",
+                    [theme.breakpoints.down(1025)]: {
+                      fontSize: "12px",
+                      marginLeft: "2%",
+                      marginTop: "4%",
+                    },
+                  } }
                 >
                   I am looking for employees.
                 </Typography>
@@ -232,6 +269,17 @@ const SelectProfile = () => {
               </NormalButton>
             </div>
           </Box>
+        </div>
+        <div className={classes.step}>
+            <Typography sx={{ mt:"5%" , ml:"30%", fontSize:"12px", fontWeight: "500", color: "#BDBDBD" }}>
+              <b>Step</b> 02/04
+            </Typography>
+            <div>
+            <Typography sx={{fontWeight: "600",  fontSize:"14px", color: "#828282"}}>
+              Account Type
+            </Typography>
+            </div>
+          </div>
         </div>
       </HelmetProvider>
     </>

@@ -88,7 +88,7 @@ const ForgotPassword = () => {
           >
             <Form>
               <div className={classes.lables}>
-                <Typography>EMAIL ADDRESS</Typography>
+                <Typography sx={{fontSize:"16px" , color:"#424546"}}>EMAIL ADDRESS</Typography>
               </div>
               <div className={classes.inputField}>
                 <InputField

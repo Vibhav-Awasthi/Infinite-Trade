@@ -7,6 +7,8 @@ const LocalImages = {
   Build: "/images/build.png",
   Logo: "/images/logo.png",
   Client:"/images/ic-client-unselected.png",
-  Work:"/images/ic-work-unselected.png"
+  ClientSelected:"/images/ic-client-selected.png",
+  Work:"/images/ic-work-unselected.png",
+  WorkSelected:"/images/ic-work-selected.png"
 };
 export default LocalImages;

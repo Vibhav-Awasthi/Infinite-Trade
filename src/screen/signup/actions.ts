@@ -51,6 +51,7 @@ export const signUp = (values: any, setSubmitting: any, history: any) => {
         }
       },
       (error: any) => {
+        
         setSubmitting(false);
         let { data } = error;
         console.log(data);
@@ -58,6 +59,7 @@ export const signUp = (values: any, setSubmitting: any, history: any) => {
           type: Utils.ActionName.LOADING,
           payload: false,
         });
+        Utils.showAlert(2, data.message);
       }
     );
   };

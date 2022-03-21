@@ -72,7 +72,7 @@ const Login = () => {
           >
             <Form>
               <div className={classes.lables}>
-                <Typography>EMAIL ADDRESS*</Typography>
+                <Typography sx={{fontSize:"16px" , color:"#424546"}}>EMAIL ADDRESS*</Typography>
               </div>
               <div className={classes.inputField}>
                 <InputField
@@ -82,7 +82,7 @@ const Login = () => {
                 />
               </div>
               <div className={classes.forgotPassword}>
-                <Typography className={classes.lables}>PASSWORD*</Typography>
+                <Typography className={classes.lables} sx={{fontSize:"16px" , color:"#424546"}}>PASSWORD*</Typography>
                 <Typography
                   className={classes.lables}
                   sx={{ color: "#686c6e" }}

@@ -24,17 +24,8 @@ const SoleTraderContact = () => {
   return (
     <>
       <HelmetProvider>
+        <div className={classes.signupContainer}>
         <div className={classes.loginContainer}>
-        <div>
-            <Typography sx={{ ml: "90%", fontWeight: "500", color: "#BDBDBD" }}>
-              03/04
-            </Typography>
-            <div className={classes.details}>
-            <Typography sx={{ mr:"7%", fontWeight: "600", color: "#828282" }}>
-              Contact Details
-            </Typography>
-            </div>
-          </div>
           <Box className={classes.titleContainer}>
             <ImageContainer
               style={classes.brandLogo}
@@ -71,7 +62,8 @@ const SoleTraderContact = () => {
                   letterSpacing: "normal",
                   color: "#687173",
                   float: "left",
-                  marginTop: "4%",
+                  marginTop: "3%",
+                  marginBottom:"9%",
                   [theme.breakpoints.down(1025)]: {
                     fontSize: "12px",
                     marginLeft: "2%",
@@ -119,6 +111,17 @@ const SoleTraderContact = () => {
               </ActiveButton>
             </Form>
           </Formik>
+        </div>
+        <div className={classes.step}>
+            <Typography sx={{ mt:"5%" , ml:"40%", fontSize:"12px", fontWeight: "500", color: "#BDBDBD" }}>
+              <b>Step</b> 03/04
+            </Typography>
+            <div>
+            <Typography sx={{fontWeight: "600", fontSize:"14px", color: "#828282"}}>
+              Contact Details
+            </Typography>
+            </div>
+          </div>
         </div>
       </HelmetProvider>
     </>

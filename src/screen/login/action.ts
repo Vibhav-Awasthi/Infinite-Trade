@@ -154,16 +154,13 @@ export const resetPassword = (
         let { data } = respData;
 
         if (data.statusCode === Utils.Constants.api_success_code.success) {
-          console.log(data);
 
           history.push(Utils.Pathname.LOGIN);
-
+          Utils.showAlert(1,data.message);
           dispatch({
             type: Utils.ActionName.LOADING,
             payload: false,
           });
-
-          Utils.showAlert(1,data.message);
         } else {
           dispatch({
             type: Utils.ActionName.LOADING,

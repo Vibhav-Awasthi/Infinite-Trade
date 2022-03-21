@@ -35,7 +35,9 @@ const SignupSchema = () => {
 
       .required("Email field cannot be blank"),
     password: Yup.string().trim().required("Password field cannot be blank"),
-    checked: Yup.boolean().required("Please Mark this box"),
+    checked: Yup.boolean()
+    // .oneOf([true], "Required terms of use")
+    .required("Required terms of use"),
   });
 };
 const ChangePasswordScheema = () => {
@@ -90,8 +92,6 @@ const BusinessDetailSchema = () => {
       .matches(phoneRegExp, "Phone number is not valid")
       .min(10, "Phone number cannot be less than 10 digits"),
     location: Yup.object().required("Please enter the location"),
-
-    checked: Yup.boolean().required("Please Mark this box"),
   });
 };
 

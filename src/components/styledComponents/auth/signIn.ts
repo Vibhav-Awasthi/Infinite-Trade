@@ -16,7 +16,7 @@ export const ActiveButton = styled(ActionButton)({
 
   export const CommonButton =styled(NormalButton)({
     width: "100%",
-    height: "54px",
+    height: "63px",
     marginTop: "20px",
     borderRadius:"0 !important",
     "&:hover": {

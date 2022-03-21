@@ -36,7 +36,7 @@ const Verify = () => {
   return (
     <>
       <HelmetProvider>
-        <div className={classes.loginContainer}>
+        <div className={classes.verifyContainer}>
           <Box>
             <div className={classes.titleContainer}>
               <ImageContainer
@@ -95,6 +95,7 @@ const Verify = () => {
                 sx={{
                   color: "black",
                   textDecoration: "none",
+                  textTransform:"capitalize",
                   width: "40%",
                   border: "1px solid black",
                   backgroundColor: "#fff",
@@ -106,7 +107,7 @@ const Verify = () => {
                 variant="contained"
                 onClick={handleResendEmail}
               >
-                <Typography className={classes.lables}>Resend Email</Typography>
+                <Typography className={classes.lables} >Resend Email</Typography>
               </CommonButton>
               <CommonButton
                 // className={classes.activeButton}

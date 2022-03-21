@@ -31,8 +31,8 @@ const useStyles = makeStyles({
     // right: "12%",
     "& figure": {
       margin: 0,
-      width: "140px",
-      height: "70px",
+      width: "153px",
+      height: "46px",
       [theme.breakpoints.up(1920)]: {
         width: "200px",
         height: "100px",

@@ -1,11 +1,18 @@
 import { makeStyles } from "@mui/styles";
+import { flexbox } from "@mui/system";
 
 
 const useStyles = makeStyles({
+
+  signupContainer:({theme}:any) => ({
+    width:"100%",
+    display:"flex",
+    flexDirection:"row",
+    justifyContent:"space-between"
+  }),
   loginContainer: ({ theme }: any) => ({
-    width: "90% !important",
-    height: "89% !important",
-    marginTop: "4%",
+    width: "98% !important",
+    height: "auto !important",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -13,11 +20,19 @@ const useStyles = makeStyles({
       padding: "50px",
       justifyContent: "center",
     },
-    // "& >div": {
-    //   [theme.breakpoints.down(1025)]: {
-    //     width: "90% !important",
-    //   },
-    // },
+  }),
+
+  verifyContainer:({theme}:any) => ({
+    marginTop:"40%",
+    width: "98% !important",
+    height: "auto !important",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    [theme.breakpoints.down(1024)]: {
+      padding: "50px",
+      justifyContent: "center",
+    },
   }),
 
   details:({theme}:any)=> ({
@@ -28,9 +43,16 @@ const useStyles = makeStyles({
     },
   }),
 
-  stepper:() => ({
-    marginLeft:"80%",
+  step:({theme}:any) => ({
+    width:"34%",
+    marginTop:"5%",
+    [theme.breakpoints.down(1025)]: {
+      display:"none",
+    },
+    
   }),
+
+  
 
   titleContainer: ({ theme }: any) => ({
     display: "flex",
@@ -43,8 +65,8 @@ const useStyles = makeStyles({
     width: "100%",
     "& figure": {
       margin: 0,
-      width: "140px",
-      height: "70px",
+      width: "153px",
+      height: "46px",
       [theme.breakpoints.up(1920)]: {
         width: "200px",
         height: "100px",
@@ -96,8 +118,7 @@ const useStyles = makeStyles({
 
   lables: ({ theme }: any) => ({
     float: "left",
-    marginTop: "1.5%",
-    marginBottom: "1.5%",
+    marginBottom: "3%",
   }),
 
   forgotPassword: () => ({
@@ -118,7 +139,7 @@ const useStyles = makeStyles({
 
   inputField: () => ({
     
-    marginBottom: "1%",
+    marginBottom: "2%",
     "& input::-webkit-outer-spin-button": {
       WebkitAppearance: "none",
       margin: 0,
@@ -167,7 +188,6 @@ const useStyles = makeStyles({
   }),
   buttonContainer: () => ({
     marginTop: "5%",
-    // marginRight: "22%",
     width: "100%",
     display: "flex",
     flexDirection: "row",

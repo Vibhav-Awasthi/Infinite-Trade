@@ -15,7 +15,7 @@ import { useTheme } from "@mui/material";
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { Formik, Form } from "formik";
-import {  HelmetProvider } from "react-helmet-async";
+import { HelmetProvider } from "react-helmet-async";
 import LocalImages from "../../Utils/images";
 import { useDispatch } from "react-redux";
 
@@ -26,7 +26,7 @@ const CompanyContact = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  function handleClick ()  {
+  function handleClick() {
     setFlag(!flag);
   };
 
@@ -35,162 +35,160 @@ const CompanyContact = () => {
   return (
     <>
       <HelmetProvider>
-        <div className={classes.loginContainer}>
-          <Box className={classes.titleContainer}>
-            <div>
-              <Typography
-                sx={{ ml: "90%", fontWeight: "500", color: "#BDBDBD" }}
-              >
-                03/04
-              </Typography>
-              <div className={classes.details}>
-              <Typography
-                sx={{mr:"7%" ,  fontWeight: "600", color: "#828282" }}
-              >
-                Contact Details
-              </Typography>
-              </div>
-            </div>
-            <ImageContainer
-              style={classes.brandLogo}
-              imgUrl={LocalImages.Logo}
-            />
-            <div className={classes.title}>
-              <Typography
-                sx={{
-                  fontSize: "24px",
-                  fontWeight: "bold",
-                  fontStretch: "normal",
-                  lineHeight: "normal",
-                  letterSpacing: "normal",
-                  color: "#4f4f4f",
-                  float: "left",
-                  marginTop: "4%",
-                  [theme.breakpoints.down(1025)]: {
-                    fontSize: "20px",
-                    marginLeft: "2%",
+        <div>
+          <div className={classes.loginContainer}>
+            <Box className={classes.titleContainer}>
+              <ImageContainer
+                style={classes.brandLogo}
+                imgUrl={LocalImages.Logo}
+              />
+              <div className={classes.title}>
+                <Typography
+                  sx={{
+                    fontSize: "24px",
+                    fontWeight: "bold",
+                    fontStretch: "normal",
+                    lineHeight: "normal",
+                    letterSpacing: "normal",
+                    color: "#4f4f4f",
+                    float: "left",
                     marginTop: "4%",
-                  },
-                }}
-              >
-                Your Contact Details
-              </Typography>
-            </div>
-            <div className={classes.title}>
-              <Typography
-                sx={{
-                  fontSize: "15px",
-                  // fontWeight: "bold",
-                  fontStretch: "normal",
-                  lineHeight: "normal",
-                  letterSpacing: "normal",
-                  color: "#687173",
-                  float: "left",
-                  marginTop: "4%",
-                  [theme.breakpoints.down(1025)]: {
-                    fontSize: "12px",
-                    marginLeft: "2%",
-                    marginTop: "4%",
-                  },
-                }}
-              >
-                How can your clients contact you?
-              </Typography>
-            </div>
-          </Box>
-          <Formik
-            initialValues={{
-              mobileNo: "",
-              officeNo: "",
-            }}
-            validationSchema={Schema.CompanyContactSchema}
-            onSubmit={(values) => {
-              console.log(values,tool);
-              dispatch({
-                type: Utils.ActionName.PROFILESELECTOR,
-                payload:{
-                  mobileNo: values.mobileNo,
-                  companyDetail: {
-                    officeNo: values.officeNo,
-                    areYouInTool: tool
-                  }
-                }
-              })
-              history.push(Utils.Pathname.COMPANY_DETAILS);
-            }}
-          >
-            <Form>
-              <div className={classes.lables}>
-                <Typography>MOBILE NUMBER*</Typography>
-              </div>
-              <div className={classes.inputField}>
-                <InputField
-                  placeholder="Enter your mobile number"
-                  name="mobileNo"
-                  type={"text"}
-                />
-              </div>
-              <div className={classes.lables}>
-                <Typography>OFFICE NUMBER*</Typography>
-              </div>
-              <div className={classes.inputField}>
-                <InputField
-                  placeholder="Enter work number"
-                  name="officeNo"
-                  type={"text"}
-                />
-              </div>
-
-              <div className={classes.lables}>
-                <Typography sx={{ color: "#424546" }}>
-                  ARE YOU ON THE TOOLS?
+                    [theme.breakpoints.down(1025)]: {
+                      fontSize: "20px",
+                      marginLeft: "2%",
+                      marginTop: "4%",
+                    },
+                  }}
+                >
+                  Your Contact Details
                 </Typography>
               </div>
-              <div className={classes.tools}>
-                {flag?
-                <CommonButton
-                  className={classes.activeButton}
-                  sx={{ color: "#000", backgroundColor: "#fff" }}
-                  variant="contained"
-                  onClick={() => {setTool(true); handleClick()}}
+              <div className={classes.title}>
+                <Typography
+                  sx={{
+                    fontSize: "15px",
+                    // fontWeight: "bold",
+                    fontStretch: "normal",
+                    lineHeight: "normal",
+                    letterSpacing: "normal",
+                    color: "#687173",
+                    float: "left",
+                    marginTop: "2%",
+                    marginBottom:"10%",
+                    [theme.breakpoints.down(1025)]: {
+                      fontSize: "12px",
+                      marginLeft: "2%",
+                      marginTop: "4%",
+                    },
+                  }}
                 >
-                  YES
-                </CommonButton> : <CommonButton
-                  className={classes.activeButton}
-                  sx={{ color: "#fff", backgroundColor: "#000" }}
-                  variant="contained"
-                  onClick={() => {setTool(true); handleClick()}}
-                >
-                  YES
-                </CommonButton>}
-                {flag?
-                <CommonButton
-                  className={classes.activeButton}
-                  sx={{ color: "#fff", backgroundColor: "#000" }}
-                  variant="contained"
-                  onClick={() => {setTool(true); handleClick()}}
-                >
-                  No
-                </CommonButton> : <CommonButton
-                  className={classes.activeButton}
-                  sx={{ color: "#000", backgroundColor: "#fff" }}
-                  variant="contained"
-                  onClick={() => {setTool(true); handleClick()}}
-                >
-                  No
-                </CommonButton>}
+                  How can your clients contact you?
+                </Typography>
               </div>
+            </Box>
+            <Formik
+              initialValues={{
+                mobileNo: "",
+                officeNo: "",
+              }}
+              validationSchema={Schema.CompanyContactSchema}
+              onSubmit={(values) => {
+                console.log(values, tool);
+                dispatch({
+                  type: Utils.ActionName.PROFILESELECTOR,
+                  payload: {
+                    mobileNo: values.mobileNo,
+                    companyDetail: {
+                      officeNo: values.officeNo,
+                      areYouInTool: tool
+                    }
+                  }
+                })
+                history.push(Utils.Pathname.COMPANY_DETAILS);
+              }}
+            >
+              <Form>
+                <div className={classes.lables}>
+                  <Typography>MOBILE NUMBER*</Typography>
+                </div>
+                <div className={classes.inputField}>
+                  <InputField
+                    placeholder="Enter your mobile number"
+                    name="mobileNo"
+                    type={"text"}
+                  />
+                </div>
+                <div className={classes.lables}>
+                  <Typography>OFFICE NUMBER*</Typography>
+                </div>
+                <div className={classes.inputField}>
+                  <InputField
+                    placeholder="Enter work number"
+                    name="officeNo"
+                    type={"text"}
+                  />
+                </div>
 
-              <ActiveButton
-                className={classes.activeButton}
-                sx={{ color: "#fff", textTransform:"capitalize" }}
-                type="submit"
-                variant="contained"
-              >
-                Save & Continue
-              </ActiveButton>
-            </Form>
-          </Formik>
+                <div className={classes.lables}>
+                  <Typography sx={{ color: "#424546" }}>
+                    ARE YOU ON THE TOOLS?
+                  </Typography>
+                </div>
+                <div className={classes.tools}>
+                  {flag ?
+                    <CommonButton
+                      className={classes.activeButton}
+                      sx={{ color: "#000", backgroundColor: "#fff" }}
+                      variant="contained"
+                      onClick={() => { setTool(true); handleClick() }}
+                    >
+                      YES
+                    </CommonButton> : <CommonButton
+                      className={classes.activeButton}
+                      sx={{ color: "#fff", backgroundColor: "#000" }}
+                      variant="contained"
+                      onClick={() => { setTool(true); handleClick() }}
+                    >
+                      YES
+                    </CommonButton>}
+                  {flag ?
+                    <CommonButton
+                      className={classes.activeButton}
+                      sx={{ color: "#fff", backgroundColor: "#000" }}
+                      variant="contained"
+                      onClick={() => { setTool(true); handleClick() }}
+                    >
+                      No
+                    </CommonButton> : <CommonButton
+                      className={classes.activeButton}
+                      sx={{ color: "#000", backgroundColor: "#fff" }}
+                      variant="contained"
+                      onClick={() => { setTool(true); handleClick() }}
+                    >
+                      No
+                    </CommonButton>}
+                </div>
+
+                <ActiveButton
+                  className={classes.activeButton}
+                  sx={{ color: "#fff", textTransform: "capitalize" }}
+                  variant="contained"
+                >
+                  Save & Continue
+                </ActiveButton>
+              </Form>
+            </Formik>
+          </div>
+          <div className={classes.step}>
+            <Typography sx={{ mt: "5%", ml: "45%", fontSize: "12px", fontWeight: "500", color: "#BDBDBD" }}>
+              <b>Step</b> 03/04
+            </Typography>
+            <div>
+              <Typography sx={{ fontWeight: "600", ml:"10%",fontSize: "14px", color: "#828282" }}>
+                Contact Details
+              </Typography>
+            </div>
+          </div>
         </div>
       </HelmetProvider>
     </>

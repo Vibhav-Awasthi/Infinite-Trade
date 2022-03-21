@@ -62,7 +62,7 @@ const Login = () => {
             <div className={classes.title}>
               <Typography
                 sx={{
-                  fontSize: "15px",
+                  fontSize: "16px",
                   // fontWeight: "bold",
                   fontStretch: "normal",
                   lineHeight: "normal",
@@ -122,7 +122,7 @@ const Login = () => {
                 />
               </div>
               <div className={classes.forgotPassword}>
-                <Typography className={classes.lables}>
+                <Typography className={classes.lables} sx={{fontSize:"16px" , color:"#424546"}}>
                   CONFIRM NEW PASSWORD
                 </Typography>
                 <Typography

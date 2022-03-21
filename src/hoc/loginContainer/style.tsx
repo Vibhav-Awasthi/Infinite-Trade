@@ -14,16 +14,25 @@ const useStyles = makeStyles((theme) => ({
   }),
 
   loginContainer: ({ theme }: any) => ({
-    width: "38%",
+    width: "37%",
     height: "100%",
     margin: "0 auto",
-    [theme.breakpoints.down("1200")]: {
-      margin: "0",
+    // [theme.breakpoints.down(1200)]: {
+    //   margin: "0",
+    //   height: "100%",
+    //   width: "100%",
+    // },
+    [theme.breakpoints.down(1025)]: {
+      marginTop: "30%",
       height: "100%",
       width: "100%",
     },
     [theme.breakpoints.between(800, 850)]: {
       height: "auto",
+    },
+
+    [theme.breakpoints.between(1025,1200)]:{
+        height:"auto"
     },
     "& >div": {
       display: "flex",

@@ -27,7 +27,6 @@ const InputField = ({ name, ...rest }: TextFieldProps) => {
       <TextField
         size="small"
         sx={{
-          
           "& label.Mui-focused": {
             borderColor: "#424546",
           },

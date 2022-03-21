@@ -19,6 +19,19 @@ const useStyles = makeStyles({
     // },
   }),
 
+  verifyContainer:({theme}:any) => ({
+    marginTop:"35%",
+    width: "90% !important",
+    height: "auto !important",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    [theme.breakpoints.down(1024)]: {
+      padding: "50px",
+      justifyContent: "center",
+    },
+  }),
+
   titleContainer: ({ theme }: any) => ({
     display: "flex",
     flexDirection: "column",

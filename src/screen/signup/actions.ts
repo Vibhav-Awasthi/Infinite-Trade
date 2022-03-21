@@ -285,7 +285,7 @@ export const CompanyProfileComplete = (
       location,
       companyDetail: { ...valToSend, ...companyDetail },
       deviceId: "3",
-      deviceToken: localStorage.getItem("user_id") || "",
+      deviceToken: localStorage.getItem("user_id") || "DeviceToken",
     };
 
     console.log(dataToSend);

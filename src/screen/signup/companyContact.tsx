@@ -119,7 +119,7 @@ const CompanyContact = () => {
                   />
                 </div>
                 <div className={classes.lables}>
-                  <Typography>OFFICE NUMBER*</Typography>
+                  <Typography sx={{mt:"3%"}}>OFFICE NUMBER*</Typography>
                 </div>
                 <div className={classes.inputField}>
                   <InputField
@@ -135,38 +135,22 @@ const CompanyContact = () => {
                   </Typography>
                 </div>
                 <div className={classes.tools}>
-                  {flag ?
                     <CommonButton
                       className={classes.activeButton}
-                      sx={{ color: "#000", backgroundColor: "#fff" }}
+                      sx={tool?{ color: "#fff", backgroundColor: "#000" } : { color: "#000", backgroundColor: "#fff" }}
                       variant="contained"
                       onClick={() => { setTool(true); handleClick() }}
                     >
                       YES
-                    </CommonButton> : <CommonButton
-                      className={classes.activeButton}
-                      sx={{ color: "#fff", backgroundColor: "#000" }}
-                      variant="contained"
-                      onClick={() => { setTool(true); handleClick() }}
-                    >
-                      YES
-                    </CommonButton>}
-                  {flag ?
+                    </CommonButton> 
                     <CommonButton
                       className={classes.activeButton}
-                      sx={{ color: "#fff", backgroundColor: "#000" }}
+                      sx={tool?{ color: "#000", backgroundColor: "#fff" } : { color: "#fff", backgroundColor: "#000" }}
                       variant="contained"
-                      onClick={() => { setTool(true); handleClick() }}
+                      onClick={() => { setTool(false); handleClick() }}
                     >
                       No
-                    </CommonButton> : <CommonButton
-                      className={classes.activeButton}
-                      sx={{ color: "#000", backgroundColor: "#fff" }}
-                      variant="contained"
-                      onClick={() => { setTool(true); handleClick() }}
-                    >
-                      No
-                    </CommonButton>}
+                    </CommonButton>
                 </div>
 
                 <ActiveButton
@@ -182,7 +166,7 @@ const CompanyContact = () => {
           </div>
           <div className={classes.step}>
             <Typography sx={{ mt: "5%", ml: "45%", fontSize: "12px", fontWeight: "500", color: "#BDBDBD" }}>
-              <b>Step</b> 03/04
+              <b>STEP</b> 03/04
             </Typography>
             <div>
               <Typography sx={{ fontWeight: "600", ml:"10%",fontSize: "14px", color: "#828282" }}>

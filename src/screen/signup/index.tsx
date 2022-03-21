@@ -3,6 +3,7 @@ import ImageContainer from "../../components/ImageContainer";
 import Schema from "../../schema";
 import InputField from "../../components/inputfield";
 import Utils from "../../Utils";
+import CheckBox from "../../components/checkBox"
 
 import {
   ActiveButton,
@@ -16,7 +17,7 @@ import { Typography } from "@mui/material";
 import { InputAdornment } from "@mui/material";
 import { Box } from "@mui/system";
 import { Formik, Form } from "formik";
-import { FormControlLabel, Checkbox, FormHelperText } from "@mui/material";
+import { FormControlLabel } from "@mui/material";
 import { HelmetProvider } from "react-helmet-async";
 import LocalImages from "../../Utils/images";
 import { signUp } from "./actions";
@@ -146,30 +147,7 @@ const Signup = () => {
                   />
                 </div>
                 <div className={classes.checkBoxContainer}>
-                  <FormControlLabel
-                    control={
-                      <Checkbox name="checked" defaultChecked  className={classes.ckBox} />
-                    }
-                    label={
-                      <React.Fragment>
-                        <div
-                          style={{
-                            textAlign: "left",
-                            fontSize: 14,
-                            marginTop: "0 px",
-                          }}
-                        >
-                          I agree to terms & conditions.
-                        </div>
-                      </React.Fragment>
-                    }
-                    className={classes.checkBox}
-                    sx={{
-                      background: " #FFFFFF",
-                      marginTop: "0px",
-                      color: "#000000",
-                    }}
-                  />
+                  <CheckBox name="checked" label="I agree to terms & conditions" />
                 </div>
 
                 <ActiveButton

@@ -27,21 +27,10 @@ const InputField = ({ name, ...rest }: TextFieldProps) => {
       <TextField
         size="small"
         sx={{
-          "& label.Mui-focused": {
-            borderColor: "#424546",
-          },
-          "& .MuiInput-underline:after": {
-            border: "1px solid #424546",
-          },
           "& .MuiOutlinedInput-root": {
-            "& fieldset": {
-              border: "1px solid #424546",
-            },
-            "&:hover fieldset": {
-              border: "1px solid #424546",
-            },
             "&.Mui-focused fieldset": {
               boxShadow: "-2px 0px 23px -2px rgba(0,0,0,0.33)",
+              border:"1px solid #000000"
               // -webkit-box-shadow: -2px 0px 23px -2px rgba(0,0,0,0.33);
               // -moz-box-shadow: -2px 0px 23px -2px rgba(0,0,0,0.33);
             },

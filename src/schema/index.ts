@@ -36,8 +36,8 @@ const SignupSchema = () => {
       .required("Email field cannot be blank"),
     password: Yup.string().trim().required("Password field cannot be blank"),
     checked: Yup.boolean()
-    // .oneOf([true], "Required terms of use")
-    .required("Required terms of use"),
+    .oneOf([true], "Please mark the checkbox !")
+    .required("Please mark the checkbox !"),
   });
 };
 const ChangePasswordScheema = () => {

@@ -220,7 +220,7 @@ export const soleTraderProfileComplete = (
       location,
       companySoleTraderDetail: { ...valToSend },
       deviceId: "3",
-      deviceToken: localStorage.getItem("user_id") || "",
+      deviceToken: localStorage.getItem("user_id") || "DeviceToken",
     };
 
 
@@ -285,7 +285,7 @@ export const CompanyProfileComplete = (
       location,
       companyDetail: { ...valToSend, ...companyDetail },
       deviceId: "3",
-      deviceToken: localStorage.getItem("user_id") || "DeviceToken",
+      deviceToken: localStorage.getItem("user_id") || "deviceToken",
     };
 
     console.log(dataToSend);

@@ -10,7 +10,7 @@ import { useTheme } from "@mui/material";
 const useStyles = makeStyles((theme)=>({
     
  sliderWrapper:({theme}:any) => ({
-   width:"50%",
+   width:"45%",
   [theme.breakpoints.down("1025")]: {
     display:"none"
   },

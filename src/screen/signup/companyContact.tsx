@@ -172,6 +172,7 @@ const CompanyContact = () => {
                 <ActiveButton
                   className={classes.activeButton}
                   sx={{ color: "#fff", textTransform: "capitalize" }}
+                  type="submit"
                   variant="contained"
                 >
                   Save & Continue

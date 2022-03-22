@@ -165,7 +165,7 @@ const CompanyContact = () => {
             </Formik>
           </div>
           <div className={classes.step}>
-            <Typography sx={{ mt:"5%" , fontSize:"12px", fontWeight: "500", color: "#BDBDBD" }}>
+            <Typography sx={{ mt:"5%" , ml:"31%", fontSize:"12px", fontWeight: "500", color: "#BDBDBD" }}>
               <b>STEP</b> 03/04
             </Typography>
             <div>

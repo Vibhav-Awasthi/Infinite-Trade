@@ -187,11 +187,11 @@ const CompanyDetails = () => {
             </Formik>
           </div>
           <div className={classes.step}>
-            <Typography sx={{ mt: "5%", ml: "45%", fontSize: "12px", fontWeight: "500", color: "#BDBDBD" }}>
+            <Typography sx={{ mt: "5%", ml: "30%", fontSize: "12px", fontWeight: "500", color: "#BDBDBD" }}>
               <b>STEP</b> 04/04
             </Typography>
             <div>
-              <Typography sx={{ fontWeight: "600", ml:"5%", fontSize: "14px", color: "#828282" }}>
+              <Typography sx={{ fontWeight: "600", fontSize: "14px", color: "#828282" }}>
                 Business Details
               </Typography>
             </div>

@@ -17,7 +17,7 @@ const useStyles = makeStyles({
 
   }),
   loginContainer: ({ theme }: any) => ({
-    width: "98% !important",
+    width: "78% !important",
     height: "auto !important",
     display: "flex",
     flexDirection: "column",
@@ -53,9 +53,12 @@ const useStyles = makeStyles({
   }),
 
   step:({theme}:any) => ({
-    width:"36%",
+    width:"30%",
     marginTop:"5%",
     // marginLeft:"5%",
+    [theme.breakpoints.between(1400,1025)]:{
+      width:"30% !important"
+    },
     [theme.breakpoints.down(1025)]: {
       marginLeft:"60%"
     },

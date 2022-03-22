@@ -49,10 +49,13 @@ const SelectProfile = () => {
   };
 
   const handleClick = () => {
-    if (userType === "COMPANYSOLETRADER" || userType==="COMPANY") {
+    if (userType === "COMPANYSOLETRADER") {
       history.push(Utils.Pathname.SOLE_TRADER_CONTACT);
-    } else {
-      Utils.showAlert(2,"Please select a profile first");
+    } else if (userType==="COMPANY") {
+      history.push(Utils.Pathname.COMPANY_CONTACTS);
+    }
+    else{
+      Utils.showAlert(2,"Please select a user first")
     }
   };
 

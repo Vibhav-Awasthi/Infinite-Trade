@@ -88,9 +88,10 @@ const BusinessDetailSchema = () => {
 
       .required("Name field cannot be blank"),
     phone_number: Yup.string()
-      .required("Please enter your phone number")
-      .matches(phoneRegExp, "Phone number is not valid")
-      .min(10, "Phone number cannot be less than 10 digits"),
+    .required("Please enter your phone number")
+    .matches(phoneRegExp, "Phone number is not valid")
+    .min(10, "to short")
+    .max(10, "to long"),
     location: Yup.object().required("Please enter the location"),
   });
 };
@@ -99,9 +100,10 @@ const SoleTraderSchema = () =>
   Yup.object().shape({
     businessName: Yup.string().trim().required("Required"),
     abnNumber: Yup.string()
-      .trim()
-      .max(10, "Maximum limit is 10 digits")
-      .required("Required"),
+    .required("Please enter your phone number")
+    .matches(phoneRegExp, "Phone number is not valid")
+    .min(10, "to short")
+    .max(10, "to long"),
     location: Yup.object()
       .shape({
         address: Yup.string(),

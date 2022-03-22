@@ -115,7 +115,7 @@ const CompanyContact = () => {
                   <InputField
                     placeholder="Enter your mobile number"
                     name="mobileNo"
-                    type={"text"}
+                    type={"number"}
                   />
                 </div>
                 <div className={classes.lables}>
@@ -125,7 +125,7 @@ const CompanyContact = () => {
                   <InputField
                     placeholder="Enter work number"
                     name="officeNo"
-                    type={"text"}
+                    type={"number"}
                   />
                 </div>
 

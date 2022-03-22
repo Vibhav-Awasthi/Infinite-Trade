@@ -125,7 +125,7 @@ const SoleTraderDetails = () => {
                     className={classes.textfieldClass}
                     placeholder="Enter Your Business Number"
                     name="abnNumber"
-                    type={"text"}
+                    type={"number"}
                   />
                 </div>
                 <div className={classes.lables}>

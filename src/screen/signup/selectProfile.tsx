@@ -134,9 +134,9 @@ const SelectProfile = () => {
                     marginRight: "10% !important",
                     marginBottom:"3% !important",
                     [theme.breakpoints.down(1025)]: {
+                      marginBottom:"0% !important",
                       fontSize: "12px",
                       marginLeft: "2%",
-                      marginTop: "4%",
                     },
                   }: {fontSize: "16px",
                   textAlign: "center",
@@ -147,9 +147,9 @@ const SelectProfile = () => {
                   marginRight: "10% !important",
                   marginBottom:"3% !important",
                   [theme.breakpoints.down(1025)]: {
+                    marginBottom:"0% !important",
                     fontSize: "12px",
                     marginLeft: "2%",
-                    marginTop: "4%",
                   },}}
                 >
                   Sole Trader
@@ -163,9 +163,9 @@ const SelectProfile = () => {
                     float: "left",
                     marginBottom:"10% !important",
                     [theme.breakpoints.down(1025)]: {
+                      
                       fontSize: "12px",
                       marginLeft: "2%",
-                      marginTop: "4%",
                     },
                   } : {
                     fontSize: "10px",
@@ -175,9 +175,9 @@ const SelectProfile = () => {
                     float: "left",
                     marginBottom:"10% !important",
                     [theme.breakpoints.down(1025)]: {
+                     
                       fontSize: "12px",
                       marginLeft: "2%",
-                      marginTop: "4%",
                     },
                   } }
                 >
@@ -208,9 +208,9 @@ const SelectProfile = () => {
                     marginRight: "10% !important",
                     
                     [theme.breakpoints.down(1025)]: {
+                      marginBottom:"0% !important",
                       fontSize: "12px",
                       marginLeft: "2%",
-                      marginTop: "4%",
                     },
                   } :{
                     fontSize: "16px",
@@ -222,9 +222,9 @@ const SelectProfile = () => {
                     marginBottom:"5% !important",
                     marginRight: "10% !important",
                     [theme.breakpoints.down(1025)]: {
+                      marginBottom:"0% !important",
                       fontSize: "12px",
                       marginLeft: "2%",
-                      marginTop: "4%",
                     },
                   } }
                 >
@@ -241,7 +241,8 @@ const SelectProfile = () => {
                     [theme.breakpoints.down(1025)]: {
                       fontSize: "12px",
                       marginLeft: "2%",
-                      marginTop: "4%",
+                      
+                      marginBottom:"12% !important",
                     },
                   } : {
                     fontSize: "10px",
@@ -253,11 +254,12 @@ const SelectProfile = () => {
                     [theme.breakpoints.down(1025)]: {
                       fontSize: "12px",
                       marginLeft: "2%",
-                      marginTop: "4%",
+                     
+                      marginBottom:"12% !important",
                     },
                   } }
                 >
-                  I am looking for employees.
+                  I am looking for trades.
                 </Typography>
               </div>
             </div>

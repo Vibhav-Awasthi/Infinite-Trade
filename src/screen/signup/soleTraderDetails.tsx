@@ -187,11 +187,23 @@ const SoleTraderDetails = () => {
             </Formik>
           </div>
           <div className={classes.step}>
-            <Typography sx={{ mt: "5%", ml: "25%", fontSize: "12px", fontWeight: "500", color: "#BDBDBD" }}>
+            <Typography sx={{
+              mt: "5%", ml: "25%", fontSize: "12px", fontWeight: "500", color: "#BDBDBD", [theme.breakpoints.down(1025)]: {
+                fontSize: "12px",
+                marginLeft: "2%",
+                marginTop: "4%",
+              },
+            }}>
               <b>STEP</b> 04/04
             </Typography>
             <div>
-              <Typography sx={{ fontWeight: "600", fontSize: "14px", color: "#828282" }}>
+              <Typography sx={{
+                fontWeight: "600", fontSize: "14px", color: "#828282", [theme.breakpoints.down(1025)]: {
+                  fontSize: "12px",
+                  marginRight: "25%",
+                  marginTop: "4%",
+                },
+              }}>
                 Business Details
               </Typography>
             </div>

@@ -10,7 +10,9 @@ const useStyles = makeStyles({
     flexDirection:"row",
     justifyContent:"space-between",
     [theme.breakpoints.down(1024)]: {
+      justifyContent: "center",
       flexDirection:"column-reverse",
+      
     },
 
   }),
@@ -21,7 +23,9 @@ const useStyles = makeStyles({
     flexDirection: "column",
     justifyContent: "center",
     [theme.breakpoints.down(1024)]: {
-      padding: "50px",
+      // padding: "50px",
+      marginLeft:"10%",
+      width:"80% !important",
       justifyContent: "center",
     },
   }),
@@ -34,7 +38,8 @@ const useStyles = makeStyles({
     flexDirection: "column",
     justifyContent: "center",
     [theme.breakpoints.down(1024)]: {
-      padding: "50px",
+      width:"85% !important",
+      marginLeft:"5%",
       justifyContent: "center",
     },
   }),
@@ -52,7 +57,7 @@ const useStyles = makeStyles({
     marginTop:"5%",
     // marginLeft:"5%",
     [theme.breakpoints.down(1025)]: {
-      display:"none"
+      marginLeft:"60%"
     },
 
     
@@ -137,10 +142,13 @@ const useStyles = makeStyles({
     },
   }),
 
-  profileSelector: () => ({
+  profileSelector: ({theme}:any) => ({
     border: "2px solid grey",
     width: "43%",
     cursor: "pointer",
+    [theme.breakpoints.down(1025)]: {
+      height: "105px",
+    },
   }),
 
   inputField: () => ({
@@ -192,12 +200,15 @@ const useStyles = makeStyles({
   formCommon: () => ({
     alignItems: "flex-start",
   }),
-  buttonContainer: () => ({
+  buttonContainer: ({theme}:any) => ({
     marginTop: "5%",
     width: "100%",
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
+    [theme.breakpoints.down(1025)]: {
+     width:"100%"
+    },
   }),
   dontHaveAccount: () => ({
     "& a": {

@@ -278,12 +278,15 @@ export const CompanyProfileComplete = (
     delete valToSend.location;
     valToSend.availableTrades = valToSend.skills.map((val: any) => val.TYPE);
     delete valToSend.skills;
+    let copyCompanyDetail= {...companyDetail};
+    copyCompanyDetail.officeNo= `${copyCompanyDetail.officeNo}`
+
 
     let dataToSend = {
       userType,
       mobileNo: `${mobileNo}`,
       location,
-      companyDetail: { ...valToSend, ...companyDetail },
+      companyDetail: { ...valToSend, ...copyCompanyDetail },
       deviceId: "3",
       deviceToken: localStorage.getItem("user_id") || "deviceToken",
     };

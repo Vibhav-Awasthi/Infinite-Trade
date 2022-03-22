@@ -125,7 +125,7 @@ const CompanyContact = () => {
                   <InputField
                     placeholder="Enter work number"
                     name="officeNo"
-                    type={"number"}
+                    type={"text"}
                   />
                 </div>
 

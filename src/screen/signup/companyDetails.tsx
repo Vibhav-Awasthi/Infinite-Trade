@@ -98,6 +98,7 @@ const CompanyDetails = () => {
                 businessName: "",
                 abnNumber: "",
                 location: null,
+                address:null,
                 skills: [],
                 industryExp: 0,
               }}
@@ -125,7 +126,7 @@ const CompanyDetails = () => {
                     className={classes.textfieldClass}
                     placeholder="Enter Your Business Number"
                     name="abnNumber"
-                    type={"text"}
+                    type={"number"}
                   />
                 </div>
                 <div className={classes.lables}>

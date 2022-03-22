@@ -13,6 +13,7 @@ const useStyles = makeStyles({
       justifyContent: "center",
       flexDirection:"column-reverse",
       
+      
     },
 
   }),
@@ -27,6 +28,7 @@ const useStyles = makeStyles({
       marginLeft:"10%",
       width:"80% !important",
       justifyContent: "center",
+      marginBottom:"30%",
     },
   }),
 

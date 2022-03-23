@@ -10,6 +10,7 @@ const useStyles = makeStyles({
     marginLeft: "7%",
     [theme.breakpoints.down(1024)]: {
       justifyContent: "center",
+      marginTop:"30%",
     },
     // "& > div": {
     //   [theme.breakpoints.down(1025)]: {

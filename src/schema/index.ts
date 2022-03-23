@@ -112,7 +112,7 @@ const SoleTraderSchema = () =>
         coordinates: Yup.array(),
       })
       .required("Location Required").nullable(),
-    skills: Yup.array().min(1, "Required"),
+    skills: Yup.array().min(1, "This field is required! "),
     industryExp: Yup.string()
       .max(20, "Cannot exceed 20 years of Experience")
       .matches(num,"Experience should be of number type")

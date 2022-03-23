@@ -19,16 +19,17 @@ type AutocompleteProps = {
 };
 
 export default function AutoComplete(props: AutocompleteProps) {
-  const { options, name, optionSelected,  ...rest } = props;
+  const { options, name, optionSelected, ...rest } = props;
   const [field, meta] = useField(name);
   const { setFieldValue } = useFormikContext();
-  const err=meta && meta.touched && meta.error;
-  console.log(name,meta);
+  const err = meta && meta.touched && meta.error;
+  console.log(name, meta);
 
   return (
     <div>
       <Autocomplete
         sx={{
+          textAlign:"left",
           [`& fieldset`]: {
             borderRadius: 0,
           },
@@ -45,7 +46,7 @@ export default function AutoComplete(props: AutocompleteProps) {
           setFieldValue(name, value);
         }}
       />
-      {err  && (
+      {err && (
         <Typography variant="caption" color="error">
           {meta.error}
         </Typography>

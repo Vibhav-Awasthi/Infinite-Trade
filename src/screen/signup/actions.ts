@@ -211,12 +211,13 @@ export const soleTraderProfileComplete = (
 
     let location = values.location;
     let valToSend = { ...values };
+    delete valToSend.address;
     delete valToSend.location;
     valToSend.skills = valToSend.skills.map((val: any) => val.TYPE);
 
     let dataToSend = {
       userType,
-      mobileNo: `${mobileNo}`,
+      mobileNo: `${mobileNo}`,  
       location,
       companySoleTraderDetail: { ...valToSend },
       deviceId: "3",

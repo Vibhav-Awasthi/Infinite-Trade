@@ -6,7 +6,7 @@ import { TextField, TextFieldProps } from "@mui/material";
 const InputField = ({ name, ...rest }: TextFieldProps) => {
   const [field, meta] = useField(name as string);
 
-  // console.log(name,meta);
+  console.log(name,meta);
 
   const attributes: TextFieldProps = {
     ...rest,

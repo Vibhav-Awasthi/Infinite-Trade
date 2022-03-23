@@ -2,6 +2,8 @@ import * as Yup from "yup";
 const phoneRegExp =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
+  const num=/^[0-9]*$/;
+
 const LoginSchema = () => {
   return Yup.object().shape({
     email: Yup.string()
@@ -36,8 +38,8 @@ const SignupSchema = () => {
       .required("Email field cannot be blank"),
     password: Yup.string().trim().required("Password field cannot be blank"),
     checked: Yup.boolean()
-    .oneOf([true], "Please mark the checkbox !")
-    .required("Please mark the checkbox !"),
+      .oneOf([true], "Please mark the checkbox !")
+      .required("Please mark the checkbox !"),
   });
 };
 const ChangePasswordScheema = () => {
@@ -88,10 +90,10 @@ const BusinessDetailSchema = () => {
 
       .required("Name field cannot be blank"),
     phone_number: Yup.string()
-    .required("Please enter your phone number")
-    .matches(phoneRegExp, "Phone number is not valid")
-    .min(10, "to short")
-    .max(10, "to long"),
+      .required("Please enter your phone number")
+      .matches(phoneRegExp, "Phone number is not valid")
+      .min(10, "to short")
+      .max(10, "to long"),
     location: Yup.object().required("Please enter the location"),
   });
 };
@@ -100,20 +102,21 @@ const SoleTraderSchema = () =>
   Yup.object().shape({
     businessName: Yup.string().trim().required("Required"),
     abnNumber: Yup.string()
-    .required("Please enter your phone number")
-    .matches(phoneRegExp, "Phone number is not valid")
-    .min(10, "to short")
-    .max(10, "to long"),
+      .required("Please enter your phone number")
+      .matches(phoneRegExp, "Phone number is not valid")
+      .min(10, "to short")
+      .max(10, "to long"),
     location: Yup.object()
       .shape({
         address: Yup.string(),
         coordinates: Yup.array(),
       })
-      .required("Location Required"),
+      .required("Location Required").nullable(),
     skills: Yup.array().min(1, "Required"),
-    industryExp: Yup.number()
+    industryExp: Yup.string()
       .max(20, "Cannot exceed 20 years of Experience")
-      .required("Required"),
+      .matches(num,"Experience should be of number type")
+      .required("Please enter your industry experience"),
   });
 
 const ForgotPassWordSchema = () =>

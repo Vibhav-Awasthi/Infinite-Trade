@@ -98,8 +98,9 @@ const SoleTraderDetails = () => {
                 businessName: "",
                 abnNumber: "",
                 location: null,
+                address:null,
                 skills: [],
-                industryExp: 0,
+                industryExp: "",
               }}
               validationSchema={Schema.SoleTraderSchema}
               onSubmit={(value, { setSubmitting }) => {

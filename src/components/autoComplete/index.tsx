@@ -16,15 +16,13 @@ type AutocompleteProps = {
   limitTags?: number;
   defaultValue?: [string | { [value: string]: any }];
   placeholderText?: string;
-  errors?: string;
-  touched?: boolean;
 };
 
 export default function AutoComplete(props: AutocompleteProps) {
-  const { options, name, optionSelected, touched, errors, ...rest } = props;
+  const { options, name, optionSelected,  ...rest } = props;
   const [field, meta] = useField(name);
   const { setFieldValue } = useFormikContext();
-
+  const err=meta && meta.touched && meta.error;
   console.log(name,meta);
 
   return (
@@ -47,9 +45,9 @@ export default function AutoComplete(props: AutocompleteProps) {
           setFieldValue(name, value);
         }}
       />
-      {touched && Boolean(errors) && (
+      {err  && (
         <Typography variant="caption" color="error">
-          {errors}
+          {meta.error}
         </Typography>
       )}
     </div>

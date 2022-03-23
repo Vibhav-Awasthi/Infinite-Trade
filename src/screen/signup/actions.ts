@@ -275,6 +275,7 @@ export const CompanyProfileComplete = (
 
     let location = values.location;
     let valToSend = { ...values };
+    delete valToSend.address;
     delete valToSend.location;
     valToSend.availableTrades = valToSend.skills.map((val: any) => val.TYPE);
     delete valToSend.skills;

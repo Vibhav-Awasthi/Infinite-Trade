@@ -7,16 +7,30 @@ const useStyles = makeStyles({
     justifyContent: "center",
     width: "88% !important",
     height: "88% !important",
-    marginLeft: "8%",
+    marginLeft: "7%",
     [theme.breakpoints.down(1024)]: {
-      padding: "50px",
       justifyContent: "center",
+      marginTop:"30%",
     },
     // "& > div": {
     //   [theme.breakpoints.down(1025)]: {
     //     width: "90% !important",
     //   },
     // },
+  }),
+
+  verifyContainer:({theme}:any) => ({
+    marginTop:"35%",
+    width: "90% !important",
+    height: "auto !important",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    [theme.breakpoints.down(1024)]: {
+      width:"85% !important",
+      marginLeft:"5%",
+      justifyContent: "center",
+    },
   }),
 
   titleContainer: ({ theme }: any) => ({
@@ -80,13 +94,16 @@ const useStyles = makeStyles({
     border: "1 px solid black",
   }),
   
-  buttonContainer: () => ({
+  buttonContainer: ({ theme }: any) => ({
     marginTop: "5%",
     // marginRight: "22%",
     width: "100%",
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
+    [theme.breakpoints.down(1025)]: {
+      width:"100%"
+     },
   }),
 
   forgotPassword: () => ({

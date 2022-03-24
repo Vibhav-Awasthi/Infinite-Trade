@@ -51,8 +51,11 @@ const SelectProfile = () => {
   const handleClick = () => {
     if (userType === "COMPANYSOLETRADER") {
       history.push(Utils.Pathname.SOLE_TRADER_CONTACT);
-    } else {
+    } else if (userType==="COMPANY") {
       history.push(Utils.Pathname.COMPANY_CONTACTS);
+    }
+    else{
+      Utils.showAlert(2,"Please select a user first")
     }
   };
 
@@ -132,10 +135,11 @@ const SelectProfile = () => {
                     color: "#097390",
                     float: "left",
                     marginRight: "10% !important",
+                    marginBottom:"3% !important",
                     [theme.breakpoints.down(1025)]: {
+                      marginBottom:"0% !important",
                       fontSize: "12px",
                       marginLeft: "2%",
-                      marginTop: "4%",
                     },
                   }: {fontSize: "16px",
                   textAlign: "center",
@@ -144,10 +148,11 @@ const SelectProfile = () => {
                   color: "#687173",
                   float: "left",
                   marginRight: "10% !important",
+                  marginBottom:"3% !important",
                   [theme.breakpoints.down(1025)]: {
+                    marginBottom:"0% !important",
                     fontSize: "12px",
                     marginLeft: "2%",
-                    marginTop: "4%",
                   },}}
                 >
                   Sole Trader
@@ -159,10 +164,11 @@ const SelectProfile = () => {
                     width: "100%",
                     color: "#097390",
                     float: "left",
+                    marginBottom:"10% !important",
                     [theme.breakpoints.down(1025)]: {
+                      
                       fontSize: "12px",
                       marginLeft: "2%",
-                      marginTop: "4%",
                     },
                   } : {
                     fontSize: "10px",
@@ -170,10 +176,11 @@ const SelectProfile = () => {
                     width: "100%",
                     color: "#687173",
                     float: "left",
+                    marginBottom:"10% !important",
                     [theme.breakpoints.down(1025)]: {
+                     
                       fontSize: "12px",
                       marginLeft: "2%",
-                      marginTop: "4%",
                     },
                   } }
                 >
@@ -200,11 +207,13 @@ const SelectProfile = () => {
                     width: "100%",
                     color: "#097390",
                     float: "left",
+                    marginBottom:"5% !important",
                     marginRight: "10% !important",
+                    
                     [theme.breakpoints.down(1025)]: {
+                      marginBottom:"0% !important",
                       fontSize: "12px",
                       marginLeft: "2%",
-                      marginTop: "4%",
                     },
                   } :{
                     fontSize: "16px",
@@ -213,11 +222,12 @@ const SelectProfile = () => {
                     width: "100%",
                     color: "#687173",
                     float: "left",
+                    marginBottom:"5% !important",
                     marginRight: "10% !important",
                     [theme.breakpoints.down(1025)]: {
+                      marginBottom:"0% !important",
                       fontSize: "12px",
                       marginLeft: "2%",
-                      marginTop: "4%",
                     },
                   } }
                 >
@@ -230,10 +240,12 @@ const SelectProfile = () => {
                     width: "100%",
                     color: "#097390",
                     float: "left",
+                    marginBottom:"12% !important",
                     [theme.breakpoints.down(1025)]: {
                       fontSize: "12px",
                       marginLeft: "2%",
-                      marginTop: "4%",
+                      
+                      marginBottom:"12% !important",
                     },
                   } : {
                     fontSize: "10px",
@@ -241,14 +253,16 @@ const SelectProfile = () => {
                     width: "100%",
                     color: "#687173",
                     float: "left",
+                    marginBottom:"12% !important",
                     [theme.breakpoints.down(1025)]: {
                       fontSize: "12px",
                       marginLeft: "2%",
-                      marginTop: "4%",
+                     
+                      marginBottom:"12% !important",
                     },
                   } }
                 >
-                  I am looking for employees.
+                  I am looking for trades.
                 </Typography>
               </div>
             </div>
@@ -272,7 +286,7 @@ const SelectProfile = () => {
         </div>
         <div className={classes.step}>
             <Typography sx={{ mt:"5%" , ml:"30%", fontSize:"12px", fontWeight: "500", color: "#BDBDBD" }}>
-              <b>Step</b> 02/04
+              <b>STEP</b> 02/04
             </Typography>
             <div>
             <Typography sx={{fontWeight: "600",  fontSize:"14px", color: "#828282"}}>

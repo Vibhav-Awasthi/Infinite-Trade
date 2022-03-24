@@ -11,7 +11,7 @@ import {
   SmallText,
 } from "../../components/styledComponents/auth/signIn";
 
-import { useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useStyles } from "./style";
 import { useTheme } from "@mui/material";
 import { Typography } from "@mui/material";
@@ -95,12 +95,17 @@ const Verify = () => {
                 sx={{
                   color: "black",
                   textDecoration: "none",
-                  textTransform:"capitalize",
-                  width: "40%",
+                  textTransform: "capitalize",
+                  width: "208px",
+                  height: "56px",
                   border: "1px solid black",
                   backgroundColor: "#fff",
                   "&:hover": {
                     background: "none",
+                  },
+                  [theme.breakpoints.down(1025)]: {
+                    width: "131px !important",
+                    height: "19px"
                   },
                 }}
                 type="submit"
@@ -111,8 +116,16 @@ const Verify = () => {
               </CommonButton>
               <CommonButton
                 // className={classes.activeButton}
-                sx={{ color: "#fff", textDecoration: "none", width: "40%", textTransform:"capitalize" }}
-                type="submit"
+                sx={{
+                  color: "#fff", textDecoration: "none",
+                   width: "208px", 
+                   height: "56px", 
+                   textTransform: "capitalize", 
+                   [theme.breakpoints.down(1025)]: {
+                    width: "131px",
+                    height: "19px"
+                  },
+                }}
                 variant="contained"
                 onClick={() => history.push(Utils.Pathname.LOGIN)}
               >

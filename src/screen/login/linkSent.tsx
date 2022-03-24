@@ -11,7 +11,7 @@ import {
   SmallText,
 } from "../../components/styledComponents/auth/signIn";
 
-import { useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useStyles } from "./style";
 import { useTheme } from "@mui/material";
 import { Typography } from "@mui/material";
@@ -36,7 +36,7 @@ const LinkSent = () => {
   return (
     <>
       <HelmetProvider>
-        <div className={classes.loginContainer}>
+        <div className={classes.verifyContainer}>
           <Box>
             <div className={classes.titleContainer}>
               <ImageContainer
@@ -94,12 +94,17 @@ const LinkSent = () => {
                 sx={{
                   color: "black",
                   textDecoration: "none",
-                  textTransform:"capitalize",
-                  width: "40%",
+                  textTransform: "capitalize",
+                  width: "208px",
+                  height: "56px",
                   border: "1px solid black",
                   backgroundColor: "#fff",
                   "&:hover": {
                     background: "none",
+                  },
+                  [theme.breakpoints.down(1025)]: {
+                    width: "131px",
+                    height: "19px"
                   },
                 }}
                 type="submit"
@@ -110,7 +115,16 @@ const LinkSent = () => {
               </CommonButton>
               <CommonButton
                 // className={classes.activeButton}
-                sx={{ color: "#fff", textDecoration: "none", textTransform:"capitalize", width: "40%", }}
+                sx={{
+                  color: "#fff", textDecoration: "none", 
+                  width: "208px",
+                  height: "56px", 
+                  textTransform: "capitalize", 
+                  [theme.breakpoints.down(1025)]: {
+                    width: "131px",
+                    height: "19px"
+                  },
+                }}
                 type="submit"
                 variant="contained"
                 onClick={() => history.push(Utils.Pathname.LOGIN)}

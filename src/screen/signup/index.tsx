@@ -31,6 +31,13 @@ const Signup = () => {
   const { collectClass } = Utils.CommonFunctions;
   const dispatch = useDispatch();
   const history = useHistory();
+
+  React.useEffect(() => {
+
+    localStorage.clear()
+    
+  }, []);
+
   return (
     <>
       <HelmetProvider>

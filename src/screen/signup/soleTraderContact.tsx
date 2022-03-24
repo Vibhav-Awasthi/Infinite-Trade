@@ -113,8 +113,8 @@ const SoleTraderContact = () => {
           </Formik>
         </div>
         <div className={classes.step}>
-            <Typography sx={{ mt:"5%" , ml:"40%", fontSize:"12px", fontWeight: "500", color: "#BDBDBD" }}>
-              <b>Step</b> 03/04
+            <Typography sx={{ mt:"5%" , ml:"32%", fontSize:"12px", fontWeight: "500", color: "#BDBDBD" }}>
+              <b>STEP</b> 03/04
             </Typography>
             <div>
             <Typography sx={{fontWeight: "600", fontSize:"14px", color: "#828282"}}>

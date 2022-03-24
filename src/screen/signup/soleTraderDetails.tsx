@@ -98,8 +98,9 @@ const SoleTraderDetails = () => {
                 businessName: "",
                 abnNumber: "",
                 location: null,
+                address:null,
                 skills: [],
-                industryExp: 0,
+                industryExp: "",
               }}
               validationSchema={Schema.SoleTraderSchema}
               onSubmit={(value, { setSubmitting }) => {
@@ -125,7 +126,7 @@ const SoleTraderDetails = () => {
                     className={classes.textfieldClass}
                     placeholder="Enter Your Business Number"
                     name="abnNumber"
-                    type={"text"}
+                    type={"number"}
                   />
                 </div>
                 <div className={classes.lables}>
@@ -187,11 +188,23 @@ const SoleTraderDetails = () => {
             </Formik>
           </div>
           <div className={classes.step}>
-            <Typography sx={{ mt: "5%", ml: "45%", fontSize: "12px", fontWeight: "500", color: "#BDBDBD" }}>
+            <Typography sx={{
+              mt: "5%", ml: "25%", fontSize: "12px", fontWeight: "500", color: "#BDBDBD", [theme.breakpoints.down(1025)]: {
+                fontSize: "12px",
+                marginLeft: "2%",
+                marginTop: "4%",
+              },
+            }}>
               <b>STEP</b> 04/04
             </Typography>
             <div>
-              <Typography sx={{ fontWeight: "600", fontSize: "14px", color: "#828282" }}>
+              <Typography sx={{
+                fontWeight: "600", fontSize: "14px", color: "#828282", [theme.breakpoints.down(1025)]: {
+                  fontSize: "12px",
+                  marginRight: "25%",
+                  marginTop: "4%",
+                },
+              }}>
                 Business Details
               </Typography>
             </div>

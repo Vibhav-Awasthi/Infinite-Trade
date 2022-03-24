@@ -211,16 +211,17 @@ export const soleTraderProfileComplete = (
 
     let location = values.location;
     let valToSend = { ...values };
+    delete valToSend.address;
     delete valToSend.location;
     valToSend.skills = valToSend.skills.map((val: any) => val.TYPE);
 
     let dataToSend = {
       userType,
-      mobileNo: `${mobileNo}`,
+      mobileNo: `${mobileNo}`,  
       location,
       companySoleTraderDetail: { ...valToSend },
       deviceId: "3",
-      deviceToken: localStorage.getItem("user_id") || "",
+      deviceToken: localStorage.getItem("user_id") || "DeviceToken",
     };
 
 
@@ -275,17 +276,21 @@ export const CompanyProfileComplete = (
 
     let location = values.location;
     let valToSend = { ...values };
+    delete valToSend.address;
     delete valToSend.location;
     valToSend.availableTrades = valToSend.skills.map((val: any) => val.TYPE);
     delete valToSend.skills;
+    let copyCompanyDetail= {...companyDetail};
+    copyCompanyDetail.officeNo= `${copyCompanyDetail.officeNo}`
+
 
     let dataToSend = {
       userType,
       mobileNo: `${mobileNo}`,
       location,
-      companyDetail: { ...valToSend, ...companyDetail },
+      companyDetail: { ...valToSend, ...copyCompanyDetail },
       deviceId: "3",
-      deviceToken: localStorage.getItem("user_id") || "",
+      deviceToken: localStorage.getItem("user_id") || "deviceToken",
     };
 
     console.log(dataToSend);

@@ -8,29 +8,40 @@ const useStyles = makeStyles({
     width:"100%",
     display:"flex",
     flexDirection:"row",
-    justifyContent:"space-between"
+    justifyContent:"space-between",
+    [theme.breakpoints.down(1024)]: {
+      justifyContent: "center",
+      flexDirection:"column-reverse",
+      
+      
+    },
+
   }),
   loginContainer: ({ theme }: any) => ({
-    width: "98% !important",
+    width: "78% !important",
     height: "auto !important",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     [theme.breakpoints.down(1024)]: {
-      padding: "50px",
+      // padding: "50px",
+      marginLeft:"10%",
+      width:"80% !important",
       justifyContent: "center",
+      marginBottom:"30%",
     },
   }),
 
   verifyContainer:({theme}:any) => ({
     marginTop:"40%",
-    width: "98% !important",
+    width: "90% !important",
     height: "auto !important",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     [theme.breakpoints.down(1024)]: {
-      padding: "50px",
+      width:"85% !important",
+      marginLeft:"5%",
       justifyContent: "center",
     },
   }),
@@ -44,11 +55,16 @@ const useStyles = makeStyles({
   }),
 
   step:({theme}:any) => ({
-    width:"34%",
+    width:"30%",
     marginTop:"5%",
-    [theme.breakpoints.down(1025)]: {
-      display:"none",
+    // marginLeft:"5%",
+    [theme.breakpoints.between(1400,1025)]:{
+      width:"30% !important"
     },
+    [theme.breakpoints.down(1025)]: {
+      marginLeft:"60%"
+    },
+
     
   }),
 
@@ -131,10 +147,13 @@ const useStyles = makeStyles({
     },
   }),
 
-  profileSelector: () => ({
+  profileSelector: ({theme}:any) => ({
     border: "2px solid grey",
     width: "43%",
     cursor: "pointer",
+    [theme.breakpoints.down(1025)]: {
+      height: "105px",
+    },
   }),
 
   inputField: () => ({
@@ -155,7 +174,7 @@ const useStyles = makeStyles({
 
   selectProfile: ({ theme }: any) => ({
     display: "flex",
-    height: "100px",
+    height: "65px",
     width: "100%",
     marginRight: "20%",
     alignItems: "center",
@@ -186,12 +205,15 @@ const useStyles = makeStyles({
   formCommon: () => ({
     alignItems: "flex-start",
   }),
-  buttonContainer: () => ({
+  buttonContainer: ({theme}:any) => ({
     marginTop: "5%",
     width: "100%",
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
+    [theme.breakpoints.down(1025)]: {
+     width:"100%"
+    },
   }),
   dontHaveAccount: () => ({
     "& a": {

@@ -29,6 +29,12 @@ const Login = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  // React.useEffect(() => {
+
+  //   localStorage.clear()
+    
+  // }, []);
+
   return (
     <>
       <HelmetProvider>

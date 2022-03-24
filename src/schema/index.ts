@@ -19,8 +19,8 @@ const MobileNumber = () => {
     PhoneNumber: Yup.string()
       .required("Please enter your phone number")
       .matches(phoneRegExp, "Phone number is not valid")
-      .min(10, "to short")
-      .max(10, "to long"),
+      .min(10, "Should contain 10 digits")
+      .max(10, "Should contain 10 digits"),
   });
 };
 const SignupSchema = () => {
@@ -72,13 +72,13 @@ const CompanyContactSchema = () => {
     mobileNo: Yup.string()
       .required("Please enter your phone number")
       .matches(phoneRegExp, "Phone number is not valid")
-      .min(10, "to short")
-      .max(10, "to long"),
+      .min(10, "Should contain 10 digits")
+      .max(10, "Should contain 10 digits"),
     officeNo: Yup.string()
       .required("Please enter your Office number")
       .matches(phoneRegExp, "Office number is not valid")
-      .min(10, "to short")
-      .max(10, "to long"),
+      .min(10, "Should contain 10 digits")
+      .max(10, "Should contain 10 digits"),
   });
 };
 
@@ -92,8 +92,8 @@ const BusinessDetailSchema = () => {
     phone_number: Yup.string()
       .required("Please enter your phone number")
       .matches(phoneRegExp, "Phone number is not valid")
-      .min(10, "to short")
-      .max(10, "to long"),
+      .min(10, "Should contain 10 digits")
+      .max(10, "Should contain 10 digits"),
     location: Yup.object().required("Please enter the location"),
   });
 };
@@ -104,8 +104,8 @@ const SoleTraderSchema = () =>
     abnNumber: Yup.string()
       .required("Please enter your phone number")
       .matches(phoneRegExp, "Phone number is not valid")
-      .min(10, "to short")
-      .max(10, "to long"),
+      .min(11, "Should contain 11 digits")
+      .max(11, "Should contain 11 digits"),
     location: Yup.object()
       .shape({
         address: Yup.string(),

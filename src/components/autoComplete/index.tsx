@@ -47,7 +47,7 @@ export default function AutoComplete(props: AutocompleteProps) {
         }}
       />
       {err && (
-        <Typography variant="caption" color="error">
+        <Typography variant="caption" color="error" sx={{ml:"4%"}}>
           {meta.error}
         </Typography>
       )}

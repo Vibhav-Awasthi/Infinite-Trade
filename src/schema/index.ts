@@ -27,7 +27,9 @@ const SignupSchema = () => {
   return Yup.object().shape({
     name: Yup.string()
       .trim()
-      .max(100, "Name can be maximum of hundred characters")
+      .matches(/^[A-Za-z ]*$/, 'Numbers are not allowed in name field')
+      .max(50, "Name can be maximum of 50 characters")
+      .min(3, "Name can be minimum of three characters")
 
       .required("Name field cannot be blank"),
     email: Yup.string()
@@ -102,8 +104,8 @@ const SoleTraderSchema = () =>
   Yup.object().shape({
     businessName: Yup.string().trim().required("Required"),
     abnNumber: Yup.string()
-      .required("Please enter your phone number")
-      .matches(phoneRegExp, "Phone number is not valid")
+      .required("Please enter your abn number")
+      .matches(phoneRegExp, "Abn number is not valid")
       .min(11, "Should contain 11 digits")
       .max(11, "Should contain 11 digits"),
     location: Yup.object()

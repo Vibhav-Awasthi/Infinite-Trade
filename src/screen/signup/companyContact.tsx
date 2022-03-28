@@ -35,8 +35,8 @@ const CompanyContact = () => {
   return (
     <>
       <HelmetProvider>
-      <div className={classes.signupContainer}>
-      <div className={classes.loginContainer}>
+        <div className={classes.signupContainer}>
+          <div className={classes.loginContainer}>
             <Box className={classes.titleContainer}>
               <ImageContainer
                 style={classes.brandLogo}
@@ -74,7 +74,7 @@ const CompanyContact = () => {
                     color: "#687173",
                     float: "left",
                     marginTop: "2%",
-                    marginBottom:"10%",
+                    marginBottom: "10%",
                     [theme.breakpoints.down(1025)]: {
                       fontSize: "12px",
                       marginLeft: "2%",
@@ -119,7 +119,7 @@ const CompanyContact = () => {
                   />
                 </div>
                 <div className={classes.lables}>
-                  <Typography sx={{mt:"3%"}}>OFFICE NUMBER*</Typography>
+                  <Typography sx={{ mt: "3%" }}>OFFICE NUMBER*</Typography>
                 </div>
                 <div className={classes.inputField}>
                   <InputField
@@ -135,22 +135,22 @@ const CompanyContact = () => {
                   </Typography>
                 </div>
                 <div className={classes.tools}>
-                    <CommonButton
-                      className={classes.activeButton}
-                      sx={tool?{ color: "#fff", backgroundColor: "#000" } : { color: "#000", backgroundColor: "#fff" }}
-                      variant="contained"
-                      onClick={() => { setTool(true); handleClick() }}
-                    >
-                      YES
-                    </CommonButton> 
-                    <CommonButton
-                      className={classes.activeButton}
-                      sx={tool?{ color: "#000", backgroundColor: "#fff" } : { color: "#fff", backgroundColor: "#000" }}
-                      variant="contained"
-                      onClick={() => { setTool(false); handleClick() }}
-                    >
-                      No
-                    </CommonButton>
+                  <CommonButton
+                    className={classes.activeButton}
+                    sx={tool ? { color: "#fff", backgroundColor: "#000" } : { color: "#000", backgroundColor: "#fff" }}
+                    variant="contained"
+                    onClick={() => { setTool(true); handleClick() }}
+                  >
+                    YES
+                  </CommonButton>
+                  <CommonButton
+                    className={classes.activeButton}
+                    sx={tool ? { color: "#000", backgroundColor: "#fff" } : { color: "#fff", backgroundColor: "#000" }}
+                    variant="contained"
+                    onClick={() => { setTool(false); handleClick() }}
+                  >
+                    No
+                  </CommonButton>
                 </div>
 
                 <ActiveButton
@@ -165,13 +165,13 @@ const CompanyContact = () => {
             </Formik>
           </div>
           <div className={classes.step}>
-            <Typography sx={{ mt:"5%" , ml:"31%", fontSize:"12px", fontWeight: "500", color: "#BDBDBD" }}>
+            <Typography sx={{ mt: "5%", ml: "31%", fontSize: "12px", fontWeight: "500", color: "#BDBDBD" }}>
               <b>STEP</b> 03/04
             </Typography>
             <div>
-            <Typography sx={{fontWeight: "600", fontSize:"14px", color: "#828282"}}>
-              Contact Details
-            </Typography>
+              <Typography sx={{ fontWeight: "600", fontSize: "14px", color: "#828282" }}>
+                Contact Details
+              </Typography>
             </div>
           </div>
         </div>

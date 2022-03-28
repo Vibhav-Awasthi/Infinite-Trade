@@ -27,6 +27,7 @@ const useStyles = makeStyles({
     flexDirection: "column",
     justifyContent: "center",
     [theme.breakpoints.down(1024)]: {
+      marginTop:"50% !important",
       width:"85% !important",
       marginLeft:"5%",
       justifyContent: "center",
@@ -37,6 +38,9 @@ const useStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     width: "100%",
+    [theme.breakpoints.down(1024)]: {
+      marginRight:"2%",
+    }
   }),
 
   brandLogo: ({ theme }: any) => ({

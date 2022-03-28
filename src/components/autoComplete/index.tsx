@@ -5,6 +5,7 @@ import {
   TextFieldProps,
   AutocompleteValue,
   Typography,
+  useTheme
 } from "@mui/material";
 import { useFormikContext, useField } from "formik";
 
@@ -23,12 +24,16 @@ export default function AutoComplete(props: AutocompleteProps) {
   const [field, meta] = useField(name);
   const { setFieldValue } = useFormikContext();
   const err = meta && meta.touched && meta.error;
+  const theme= useTheme();
   console.log(name, meta);
 
   return (
     <div className="Err">
       <Autocomplete
         sx={{
+          "& input":{[theme.breakpoints.down(1024)]: {
+            height:"45px",
+          }},
           textAlign:"left",
           [`& fieldset`]: {
             borderRadius: 0,

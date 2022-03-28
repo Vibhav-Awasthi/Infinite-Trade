@@ -1,10 +1,11 @@
 import React from "react";
 import { useField } from "formik";
-import { TextField, TextFieldProps } from "@mui/material";
+import { TextField, TextFieldProps, useTheme } from "@mui/material";
 
 
 const InputField = ({ name, ...rest }: TextFieldProps) => {
   const [field, meta] = useField(name as string);
+  const theme= useTheme();
 
   console.log(name,meta);
 
@@ -38,6 +39,10 @@ const InputField = ({ name, ...rest }: TextFieldProps) => {
           [`& fieldset`]: {
             borderRadius: 0,
           },
+          "& input":{[theme.breakpoints.down(1024)]: {
+            height:"45px",
+          }}
+          
         }}
         {...attributes}
       />

@@ -32,7 +32,7 @@ const Login = () => {
   // React.useEffect(() => {
 
   //   localStorage.clear()
-    
+
   // }, []);
 
   return (
@@ -78,7 +78,7 @@ const Login = () => {
           >
             <Form>
               <div className={classes.lables}>
-                <Typography sx={{fontSize:"16px" , color:"#424546"}}>EMAIL ADDRESS*</Typography>
+                <Typography sx={{ fontSize: "16px", color: "#424546" }}>EMAIL ADDRESS*</Typography>
               </div>
               <div className={classes.inputField}>
                 <InputField
@@ -88,13 +88,13 @@ const Login = () => {
                 />
               </div>
               <div className={classes.forgotPassword}>
-                <Typography className={classes.lables} sx={{fontSize:"16px" , color:"#424546"}}>PASSWORD*</Typography>
+                <Typography className={classes.lables} sx={{ fontSize: "16px", color: "#424546" }}>PASSWORD*</Typography>
                 <Typography
                   className={classes.lables}
                   sx={{ color: "#686c6e" }}
                 >
                   <Link to={Utils.Pathname.FORGOT_PASSWORD}>
-                    Forgot Password?
+                    FORGOT PASSWORD?
                   </Link>
                 </Typography>
               </div>
@@ -108,11 +108,11 @@ const Login = () => {
                     endAdornment: (
                       <InputAdornment position="end">
                         <Typography
-                        sx={{cursor:"pointer"}}
+                          sx={{ cursor: "pointer" }}
                           component={"span"}
                           onClick={() => setPasswordVisible(!isPasswordVisible)}
                         >
-                          {isPasswordVisible ? "Hide" : "Show"}
+                          {isPasswordVisible ? "HIDE" : "SHOW"}
                         </Typography>
                       </InputAdornment>
                     ),

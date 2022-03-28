@@ -89,7 +89,6 @@ const Login = () => {
             validationSchema={Schema.ResetPasswordSchema}
             onSubmit={(values, { setSubmitting }) => {
               dispatch(resetPassword(values, window.location.search, history));
-              
             }}
           >
             <Form>
@@ -114,7 +113,7 @@ const Login = () => {
                           component={"span"}
                           onClick={() => setPasswordVisible(!isPasswordVisible)}
                         >
-                          {isPasswordVisible ? "Hide" : "Show"}
+                          {isPasswordVisible ? "HIDE" : "SHOW"}
                         </Typography>
                       </InputAdornment>
                     ),
@@ -144,7 +143,7 @@ const Login = () => {
                           component={"span"}
                           onClick={() => setPasswordVisible(!isPasswordVisible)}
                         >
-                          {isPasswordVisible ? "Hide" : "Show"}
+                          {isPasswordVisible ? "HIDE" : "SHOW"}
                         </Typography>
                       </InputAdornment>
                     ),

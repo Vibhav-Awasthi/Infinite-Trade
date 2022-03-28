@@ -1,8 +1,8 @@
 import * as Yup from "yup";
 const phoneRegExp =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+const num = /^[0-9]*$/;
 
-  const num=/^[0-9]*$/;
 
 const LoginSchema = () => {
   return Yup.object().shape({
@@ -27,7 +27,7 @@ const SignupSchema = () => {
   return Yup.object().shape({
     name: Yup.string()
       .trim()
-      .matches(/^[A-Za-z ]*$/, 'Numbers are not allowed in name field')
+      .matches(/^[A-Za-z ]*$/, 'Only alphabets are allowed')
       .max(50, "Name can be maximum of 50 characters")
       .min(3, "Name can be minimum of three characters")
 
@@ -38,7 +38,9 @@ const SignupSchema = () => {
       .max(100, "Email can be maximum of hundred characters")
 
       .required("Email field cannot be blank"),
-    password: Yup.string().trim().required("Password field cannot be blank"),
+    password: Yup.string()
+    .matches(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#!@$%^&*()+=]).{8,}$/, "Whitespace is not allowed")
+      .required("Password field cannot be blank"),
     checked: Yup.boolean()
       .oneOf([true], "Please mark the checkbox !")
       .required("Please mark the checkbox !"),
@@ -102,7 +104,7 @@ const BusinessDetailSchema = () => {
 
 const SoleTraderSchema = () =>
   Yup.object().shape({
-    businessName: Yup.string().trim().required("Required"),
+    businessName: Yup.string().trim().required("Please enter your business name"),
     abnNumber: Yup.string()
       .required("Please enter your abn number")
       .matches(phoneRegExp, "Abn number is not valid")
@@ -113,11 +115,11 @@ const SoleTraderSchema = () =>
         address: Yup.string(),
         coordinates: Yup.array(),
       })
-      .required("Location Required").nullable(),
+      .required("Location is required").nullable(),
     skills: Yup.array().min(1, "This field is required! "),
     industryExp: Yup.string()
       .max(20, "Cannot exceed 20 years of Experience")
-      .matches(num,"Experience should be of number type")
+      .matches(num, "Experience should be of number type")
       .required("Please enter your industry experience"),
   });
 

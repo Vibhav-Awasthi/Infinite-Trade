@@ -43,7 +43,7 @@ export const signUp = (values: any, setSubmitting: any, history: any) => {
         } else {
           setSubmitting(false);
           Utils.showAlert(2, data.message);
-          
+
           dispatch({
             type: Utils.ActionName.LOADING,
             payload: false,
@@ -51,7 +51,7 @@ export const signUp = (values: any, setSubmitting: any, history: any) => {
         }
       },
       (error: any) => {
-        
+
         setSubmitting(false);
         let { data } = error;
         console.log(data);
@@ -68,7 +68,7 @@ export const signUp = (values: any, setSubmitting: any, history: any) => {
 export const resendMail = () => {
   return (dispatch: Function) => {
     if (!navigator.onLine) {
-      
+
       dispatch({
         type: Utils.ActionName.LOADING,
         payload: false,
@@ -95,7 +95,7 @@ export const resendMail = () => {
             payload: false,
           });
 
-          
+
         } else {
           dispatch({
             type: Utils.ActionName.LOADING,
@@ -105,7 +105,7 @@ export const resendMail = () => {
       },
       (error: any) => {
         let { data } = error;
-        
+
         dispatch({
           type: Utils.ActionName.LOADING,
           payload: false,
@@ -139,10 +139,10 @@ export const getSkills = () => {
   };
 };
 
-export const verifyAccount = () => {
+export const verifyAccount = (token?: string) => {
   return (dispatch: Function) => {
     if (!navigator.onLine) {
-      
+
       dispatch({
         type: Utils.ActionName.LOADING,
         payload: false,
@@ -151,9 +151,9 @@ export const verifyAccount = () => {
     }
 
     let dataToSend = {
-      token: localStorage.getItem("verify_account_token") || "",
+      token: localStorage.getItem("verify_account_token") || token,
       deviceId: "3",
-      deviceToken: localStorage.getItem("user_id") || "",
+      deviceToken: localStorage.getItem("user_id") || "web_3",
     };
 
     console.log(dataToSend);
@@ -167,14 +167,14 @@ export const verifyAccount = () => {
         let { data } = respData;
         console.log(data);
         if (data.statusCode === Utils.Constants.api_success_code.success) {
-          localStorage.setItem("accessToken", data.data.accessToken);
+          Utils.CommonFunctions.setLocalStorage(data.data);
           dispatch({
             type: Utils.ActionName.LOADING,
             payload: false,
           });
 
-          
         } else {
+          // console.log("hh");
           dispatch({
             type: Utils.ActionName.LOADING,
             payload: false,
@@ -184,7 +184,7 @@ export const verifyAccount = () => {
       (error: any) => {
         let { data } = error;
         console.log(data);
-        
+
         dispatch({
           type: Utils.ActionName.LOADING,
           payload: false,
@@ -217,7 +217,7 @@ export const soleTraderProfileComplete = (
 
     let dataToSend = {
       userType,
-      mobileNo: `${mobileNo}`,  
+      mobileNo: `${mobileNo}`,
       location,
       companySoleTraderDetail: { ...valToSend },
       deviceId: "3",
@@ -263,7 +263,7 @@ export const CompanyProfileComplete = (
 ) => {
   return (dispatch: Function, getState: Function) => {
     if (!navigator.onLine) {
-      
+
       dispatch({
         type: Utils.ActionName.LOADING,
         payload: false,
@@ -280,8 +280,8 @@ export const CompanyProfileComplete = (
     delete valToSend.location;
     valToSend.availableTrades = valToSend.skills.map((val: any) => val.TYPE);
     delete valToSend.skills;
-    let copyCompanyDetail= {...companyDetail};
-    copyCompanyDetail.officeNo= `${copyCompanyDetail.officeNo}`
+    let copyCompanyDetail = { ...companyDetail };
+    copyCompanyDetail.officeNo = `${copyCompanyDetail.officeNo}`
 
 
     let dataToSend = {
@@ -308,7 +308,7 @@ export const CompanyProfileComplete = (
           });
           localStorage.clear();
           history.push(Utils.Pathname.Dashboard);
-          
+
 
           Utils.showAlert(1, data.message);
         } else {
@@ -320,7 +320,7 @@ export const CompanyProfileComplete = (
       },
       (error: any) => {
         let { data } = error;
-        
+
         dispatch({
           type: Utils.ActionName.LOADING,
           payload: false,

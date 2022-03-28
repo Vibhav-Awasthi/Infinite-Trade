@@ -81,7 +81,7 @@ const CompanyDetails = () => {
                     color: "#687173",
                     float: "left",
                     marginTop: "2%",
-                    marginBottom:"8%",
+                    marginBottom: "8%",
                     [theme.breakpoints.down(1025)]: {
                       fontSize: "12px",
                       marginLeft: "2%",
@@ -98,7 +98,7 @@ const CompanyDetails = () => {
                 businessName: "",
                 abnNumber: "",
                 location: null,
-                address:null,
+                address: null,
                 skills: [],
                 industryExp: "",
               }}
@@ -109,7 +109,7 @@ const CompanyDetails = () => {
             >
               <Form>
                 <div className={classes.lables}>
-                  <Typography>Business Name*</Typography>
+                  <Typography>BUSINESS NAME*</Typography>
                 </div>
                 <div className={classes.inputField}>
                   <InputField

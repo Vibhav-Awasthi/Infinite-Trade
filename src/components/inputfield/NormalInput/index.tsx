@@ -1,4 +1,4 @@
-import { TextField, TextFieldProps } from "@mui/material";
+import { TextField, TextFieldProps, useTheme } from "@mui/material";
 import React from "react";
 
 type Props = {
@@ -14,11 +14,12 @@ export default function NormalInput({ name, setFieldValue,fieldValue }: Props) {
     },
     value: fieldValue
   };
-
+  const theme= useTheme();
   return (
     <TextField
       size="small"
       sx={{
+        
         "& label.Mui-focused": {
           borderColor: "#424546",
         },

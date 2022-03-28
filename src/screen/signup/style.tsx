@@ -17,6 +17,19 @@ const useStyles = makeStyles({
     },
 
   }),
+
+  selectProfileContainer:({theme}:any) => ({
+    width:"100%",
+    display:"flex",
+    flexDirection:"row",
+    justifyContent:"space-between",
+    [theme.breakpoints.down(1024)]: {
+      marginTop:"30%",
+      justifyContent: "center",
+      flexDirection:"column-reverse", 
+    },
+
+  }),
   loginContainer: ({ theme }: any) => ({
     width: "78% !important",
     height: "auto !important",
@@ -28,7 +41,6 @@ const useStyles = makeStyles({
       marginLeft:"10%",
       width:"80% !important",
       justifyContent: "center",
-      marginBottom:"30%",
     },
   }),
 
@@ -153,6 +165,7 @@ const useStyles = makeStyles({
     cursor: "pointer",
     [theme.breakpoints.down(1025)]: {
       height: "105px",
+      marginTop:"10% !important",
     },
   }),
 
@@ -191,7 +204,7 @@ const useStyles = makeStyles({
     },
   }),
 
-  normalButton: () => ({
+  normalButton: ({theme}:any) => ({
     marginTop: "5%",
     width: "100%",
   }),

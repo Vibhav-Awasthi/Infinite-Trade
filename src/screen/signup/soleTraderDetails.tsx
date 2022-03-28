@@ -109,7 +109,7 @@ const SoleTraderDetails = () => {
             >
               <Form>
                 <div className={classes.lables}>
-                  <Typography sx={{ fontSize: "16px" }}>Business Name*</Typography>
+                  <Typography sx={{ fontSize: "16px" }}>BUSINESS NAME*</Typography>
                 </div>
                 <div className={classes.inputField}>
                   <InputField

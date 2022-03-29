@@ -104,7 +104,7 @@ const Verify = () => {
                     background: "none",
                   },
                   [theme.breakpoints.down(1025)]: {
-                    width: "171px !important",
+                    maxWidth: "150px",
                     height: "19px"
                   },
                 }}
@@ -122,7 +122,7 @@ const Verify = () => {
                    height: "56px", 
                    textTransform: "capitalize", 
                    [theme.breakpoints.down(1025)]: {
-                    width: "171px",
+                    maxWidth: "150px",
                     height: "19px"
                   },
                 }}

@@ -1,0 +1,102 @@
+.App {
+  text-align: center;
+}
+.Err {
+  text-align: left;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.main-container {
+  display: flex;
+  height: 100vh;
+}
+.login-main-conatiner {
+  height: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: auto;
+}
+.form-container {
+  width: 100%;
+  margin-top: 44px;
+  font-size: 16px;
+  font-family: Overpass;
+}
+.full-width {
+  width: 100%;
+}
+
+.option-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  font-size: 16px;
+  font-family: Overpass;
+}
+
+.image-slider .slick-dots {
+  bottom: 20px;
+}
+
+.slide-in img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.slide-in {
+  height: 100vh;
+}
+
+
+.Toastify__toast--success {
+  color: #518348!important;
+  border-radius: 8px !important;
+  background: #91ca77 !important;
+  border: 1px solid #cedee0 !important;
+  width:100%,
+}
+.Toastify__toast--error {
+  color: #ef6565 !important;
+  border-radius: 8px !important;
+  background: #ecc2c2 !important;
+  border: 1px solid #ecc2c2;
+  width: 100%;
+}
